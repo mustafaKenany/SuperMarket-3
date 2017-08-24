@@ -34,20 +34,20 @@
             this.Exit = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Header
@@ -112,44 +112,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "الحسابات الصادرة";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 39);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(992, 530);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "الحسابات الواردة";
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(986, 54);
-            this.panel1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(986, 470);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.maskedTextBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 71);
-            this.panel2.TabIndex = 1;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -162,8 +124,18 @@
             this.dataGridView2.Size = new System.Drawing.Size(986, 453);
             this.dataGridView2.TabIndex = 2;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.maskedTextBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(986, 71);
+            this.panel2.TabIndex = 1;
+            // 
             // maskedTextBox1
             // 
+            this.maskedTextBox1.Culture = new System.Globalization.CultureInfo("ar-IQ");
             this.maskedTextBox1.Location = new System.Drawing.Point(5, 28);
             this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
@@ -172,6 +144,35 @@
             this.maskedTextBox1.TabIndex = 3;
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(992, 530);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "الحسابات الواردة";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 57);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(986, 470);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(986, 54);
+            this.panel1.TabIndex = 0;
             // 
             // FinicialForm
             // 
@@ -190,11 +191,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

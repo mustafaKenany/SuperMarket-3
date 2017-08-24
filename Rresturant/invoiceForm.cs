@@ -79,6 +79,7 @@ namespace Rresturant
                 row.Cells["Column_ItemName"].Value = clicked.Text;
                 row.Cells["Column_ItemPrice"].Value = itemSalary;
                 row.Cells["Column_ItemPCS"].Value = 1;
+
                 row.Cells["Column_PriceTotal"].Value = itemSalary * 1;
 
                 Calcuation();

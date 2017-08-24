@@ -36,12 +36,13 @@ namespace Rresturant
             //SettingForm form = new SettingForm();
             //form.Show();
             stteingscs form = new stteingscs();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void btn_PurshaceForm_Click(object sender, EventArgs e)
         {
-            
+            SalesForm form = new SalesForm();
+            form.ShowDialog();
         }
 
         private void btn_AccountingForm_Click(object sender, EventArgs e)

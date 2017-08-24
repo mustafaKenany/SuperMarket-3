@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BasicClass.cs" />
+    <Compile Include="View\SalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SalesForm.Designer.cs">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ControlingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\SalesForm.resx">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ControlingForm.resx">
       <DependentUpon>ControlingForm.cs</DependentUpon>
     </EmbeddedResource>
