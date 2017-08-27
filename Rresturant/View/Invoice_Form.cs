@@ -14,6 +14,7 @@ namespace Rresturant
     public partial class Invoice_Form : Form
     {
         BasicClass usedclass = new BasicClass();
+        DataTable dt = new DataTable();
         public Invoice_Form()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Rresturant
        private void displayallCategory()
         {
             flowLayoutPanel_CategWithoutBarcode.Controls.Clear();
-            DataTable dt = new DataTable();
+           
             dt = usedclass.selectdata("Get_All_Category", null);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -80,6 +81,56 @@ namespace Rresturant
         {
             Button clicked = sender as Button;
 
+        }
+
+        private void maskedTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                if (maskedTextBox_BarCode.Text != "")
+                {
+                    SqlParameter[] param = new SqlParameter[1];
+                    param[0] = new SqlParameter("@barCode", SqlDbType.NVarChar, 50);
+                    param[0].Value = maskedTextBox_BarCode.Text.Trim();
+
+                    dt = usedclass.selectdata("get_items_by_barcode", param);
+                    maskedTextBox_BarCode.Text = "";
+                    setGriditems(1);
+                }
+            }
+        }
+
+        private void setGriditems(int v)
+        {
+            switch (v)
+            {
+                default:
+                    break;
+                case 1:
+                   
+                    break;
+            }
+        }
+
+        private bool CheckDuplicate(string value)
+        {
+            //for (int i = 0; i < dataGridView_displayitems.Rows.Count; i++)
+            //{
+            //    if (dataGridView_displayitems.Rows[i].Cells[1].Value != null)
+            //    {
+            //        if (dataGridView_displayitems.Rows[i].Cells[1].Value.ToString() == value)
+            //        {
+            //            int quantity = Convert.ToInt32(dataGridView_displayitems.Rows[i].Cells[2].Value.ToString());
+            //            quantity++;
+            //            dataGridView_displayitems.Rows[i].Cells[2].Value = quantity;
+            //            int price = Convert.ToInt32(dataGridView_displayitems.Rows[i].Cells[3].Value.ToString());
+            //            dataGridView_displayitems.Rows[i].Cells[4].Value = quantity * price;
+
+            //            return false;
+            //        }
+            //    }
+            //}
+            return true;
         }
     }
 }
