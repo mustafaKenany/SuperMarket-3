@@ -31,21 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlingForm));
             this.panel_Header = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.Exit = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_SettingForm = new System.Windows.Forms.Button();
             this.btn_ReportingForm = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_AccountingForm = new System.Windows.Forms.Button();
             this.btn_PurshaceForm = new System.Windows.Forms.Button();
             this.btn_CasherForm = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Exit = new System.Windows.Forms.PictureBox();
+            this.button_for_prices = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Header
@@ -71,6 +72,18 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "الـــرئــيسية";
             // 
+            // Exit
+            // 
+            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
+            this.Exit.Location = new System.Drawing.Point(0, 0);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(43, 45);
+            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Exit.TabIndex = 1;
+            this.Exit.TabStop = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -85,31 +98,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 286);
             this.tableLayoutPanel1.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 575);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 43);
-            this.panel1.TabIndex = 12;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Changa SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 43);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "حــول الشــركة";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btn_SettingForm
             // 
@@ -138,6 +126,31 @@
             this.btn_ReportingForm.Size = new System.Drawing.Size(194, 137);
             this.btn_ReportingForm.TabIndex = 12;
             this.btn_ReportingForm.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 575);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(850, 43);
+            this.panel1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Changa SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 43);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "حــول الشــركة";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btn_AccountingForm
             // 
@@ -194,17 +207,20 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // Exit
+            // button_for_prices
             // 
-            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
-            this.Exit.Location = new System.Drawing.Point(0, 0);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(43, 45);
-            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Exit.TabIndex = 1;
-            this.Exit.TabStop = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.button_for_prices.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_for_prices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_for_prices.BackgroundImage")));
+            this.button_for_prices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_for_prices.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.button_for_prices.FlatAppearance.BorderSize = 0;
+            this.button_for_prices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_for_prices.Location = new System.Drawing.Point(383, 64);
+            this.button_for_prices.Name = "button_for_prices";
+            this.button_for_prices.Size = new System.Drawing.Size(150, 150);
+            this.button_for_prices.TabIndex = 13;
+            this.button_for_prices.UseVisualStyleBackColor = true;
+            this.button_for_prices.Click += new System.EventHandler(this.button_for_prices_Click);
             // 
             // ControlingForm
             // 
@@ -212,6 +228,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(850, 618);
+            this.Controls.Add(this.button_for_prices);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btn_AccountingForm);
@@ -225,11 +242,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel_Header.ResumeLayout(false);
             this.panel_Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +265,6 @@
         private System.Windows.Forms.Button btn_SettingForm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_for_prices;
     }
 }

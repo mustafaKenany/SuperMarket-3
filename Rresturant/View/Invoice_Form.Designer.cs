@@ -37,13 +37,7 @@
             this.Exit = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_MainContainer = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column_GridNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_QtyorPCS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_itemtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridView_displayItems = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -70,11 +64,17 @@
             this.flowLayoutPanel_itemsWithoutBarcode = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_CategWithoutBarcode = new System.Windows.Forms.FlowLayoutPanel();
+            this.Column_GridNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_PcsQunatity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_itemtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel_MainContainer.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_displayItems)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel_SecondaryPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -139,7 +139,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dataGridView_displayItems);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
@@ -150,10 +150,10 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "المواد";
             // 
-            // dataGridView1
+            // dataGridView_displayItems
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_displayItems.AllowUserToAddRows = false;
+            this.dataGridView_displayItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,12 +161,12 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_displayItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_displayItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_displayItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_GridNo,
             this.Column_itemName,
-            this.Column_QtyorPCS,
+            this.Column_PcsQunatity,
             this.Column_itemPrice,
             this.Column_itemtotal,
             this.Column});
@@ -177,13 +177,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.dataGridView1.Location = new System.Drawing.Point(3, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView_displayItems.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_displayItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_displayItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.dataGridView_displayItems.Location = new System.Drawing.Point(3, 31);
+            this.dataGridView_displayItems.Name = "dataGridView_displayItems";
+            this.dataGridView_displayItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView_displayItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -191,48 +191,15 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidth = 35;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView1.RowTemplate.Height = 35;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(526, 615);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Column_GridNo
-            // 
-            this.Column_GridNo.HeaderText = "ت";
-            this.Column_GridNo.Name = "Column_GridNo";
-            this.Column_GridNo.Width = 50;
-            // 
-            // Column_itemName
-            // 
-            this.Column_itemName.HeaderText = "المادة";
-            this.Column_itemName.Name = "Column_itemName";
-            // 
-            // Column_QtyorPCS
-            // 
-            this.Column_QtyorPCS.HeaderText = "الكمية";
-            this.Column_QtyorPCS.Name = "Column_QtyorPCS";
-            // 
-            // Column_itemPrice
-            // 
-            this.Column_itemPrice.HeaderText = "السعر";
-            this.Column_itemPrice.Name = "Column_itemPrice";
-            // 
-            // Column_itemtotal
-            // 
-            this.Column_itemtotal.HeaderText = "المجموع";
-            this.Column_itemtotal.Name = "Column_itemtotal";
-            // 
-            // Column
-            // 
-            this.Column.HeaderText = "حذف";
-            this.Column.Name = "Column";
-            this.Column.Text = "حذف";
-            this.Column.Width = 70;
+            this.dataGridView_displayItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_displayItems.RowHeadersWidth = 35;
+            this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_displayItems.RowTemplate.Height = 35;
+            this.dataGridView_displayItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_displayItems.Size = new System.Drawing.Size(526, 615);
+            this.dataGridView_displayItems.TabIndex = 0;
             // 
             // panel1
             // 
@@ -593,7 +560,7 @@
             this.groupBox1.Size = new System.Drawing.Size(388, 318);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "اصناف بدون باركود";
+            this.groupBox1.Text = "المجاميع";
             // 
             // flowLayoutPanel_CategWithoutBarcode
             // 
@@ -602,6 +569,39 @@
             this.flowLayoutPanel_CategWithoutBarcode.Name = "flowLayoutPanel_CategWithoutBarcode";
             this.flowLayoutPanel_CategWithoutBarcode.Size = new System.Drawing.Size(382, 284);
             this.flowLayoutPanel_CategWithoutBarcode.TabIndex = 0;
+            // 
+            // Column_GridNo
+            // 
+            this.Column_GridNo.HeaderText = "ت";
+            this.Column_GridNo.Name = "Column_GridNo";
+            this.Column_GridNo.Width = 50;
+            // 
+            // Column_itemName
+            // 
+            this.Column_itemName.HeaderText = "المادة";
+            this.Column_itemName.Name = "Column_itemName";
+            // 
+            // Column_PcsQunatity
+            // 
+            this.Column_PcsQunatity.HeaderText = "الكمية";
+            this.Column_PcsQunatity.Name = "Column_PcsQunatity";
+            // 
+            // Column_itemPrice
+            // 
+            this.Column_itemPrice.HeaderText = "السعر";
+            this.Column_itemPrice.Name = "Column_itemPrice";
+            // 
+            // Column_itemtotal
+            // 
+            this.Column_itemtotal.HeaderText = "المجموع";
+            this.Column_itemtotal.Name = "Column_itemtotal";
+            // 
+            // Column
+            // 
+            this.Column.HeaderText = "حذف";
+            this.Column.Name = "Column";
+            this.Column.Text = "حذف";
+            this.Column.Width = 70;
             // 
             // Invoice_Form
             // 
@@ -620,7 +620,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.tableLayoutPanel_MainContainer.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_displayItems)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel_SecondaryPanel.ResumeLayout(false);
@@ -663,10 +663,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_itemsWithoutBarcode;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_CategWithoutBarcode;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_displayItems;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_GridNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_QtyorPCS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PcsQunatity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemtotal;
         private System.Windows.Forms.DataGridViewButtonColumn Column;

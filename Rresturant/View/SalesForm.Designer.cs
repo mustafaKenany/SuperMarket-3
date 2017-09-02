@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
@@ -40,12 +40,12 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_allcategories = new System.Windows.Forms.ComboBox();
             this.maskedTextBox_BarCode = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_searchByitemName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox_listitems = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,6 +69,8 @@
             this.label_invoiceTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton_NoCash = new System.Windows.Forms.RadioButton();
+            this.radioButton_CashMoney = new System.Windows.Forms.RadioButton();
             this.txt_coustomerName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,8 +81,6 @@
             this.maskedTextBox_invoicedate = new System.Windows.Forms.MaskedTextBox();
             this.btn_newinvoice = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.radioButton_CashMoney = new System.Windows.Forms.RadioButton();
-            this.radioButton_NoCash = new System.Windows.Forms.RadioButton();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -173,12 +173,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_allcategories);
             this.groupBox1.Controls.Add(this.maskedTextBox_BarCode);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_searchByitemName);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.listBox_listitems);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -190,6 +190,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "اختيار مادة";
+            // 
+            // comboBox_allcategories
+            // 
+            this.comboBox_allcategories.Enabled = false;
+            this.comboBox_allcategories.FormattingEnabled = true;
+            this.comboBox_allcategories.ItemHeight = 26;
+            this.comboBox_allcategories.Location = new System.Drawing.Point(37, 207);
+            this.comboBox_allcategories.Name = "comboBox_allcategories";
+            this.comboBox_allcategories.Size = new System.Drawing.Size(230, 34);
+            this.comboBox_allcategories.TabIndex = 7;
+            this.comboBox_allcategories.DropDown += new System.EventHandler(this.comboBox_allcategories_DropDown);
+            this.comboBox_allcategories.SelectedIndexChanged += new System.EventHandler(this.comboBox_allcategories_SelectedIndexChanged);
             // 
             // maskedTextBox_BarCode
             // 
@@ -209,15 +221,15 @@
             this.maskedTextBox_BarCode.TabIndex = 2;
             this.maskedTextBox_BarCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox_BarCode_KeyDown);
             // 
-            // textBox1
+            // txt_searchByitemName
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(37, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 33);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.txt_searchByitemName.Enabled = false;
+            this.txt_searchByitemName.Location = new System.Drawing.Point(37, 130);
+            this.txt_searchByitemName.Name = "txt_searchByitemName";
+            this.txt_searchByitemName.Size = new System.Drawing.Size(230, 33);
+            this.txt_searchByitemName.TabIndex = 3;
+            this.txt_searchByitemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_searchByitemName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchByitemName_KeyDown);
             // 
             // label5
             // 
@@ -229,17 +241,18 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "اسم المادة";
             // 
-            // listBox1
+            // listBox_listitems
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 26;
-            this.listBox1.Location = new System.Drawing.Point(37, 287);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(230, 236);
-            this.listBox1.TabIndex = 5;
-            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.listBox_listitems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox_listitems.Enabled = false;
+            this.listBox_listitems.FormattingEnabled = true;
+            this.listBox_listitems.HorizontalScrollbar = true;
+            this.listBox_listitems.ItemHeight = 26;
+            this.listBox_listitems.Location = new System.Drawing.Point(37, 287);
+            this.listBox_listitems.Name = "listBox_listitems";
+            this.listBox_listitems.Size = new System.Drawing.Size(230, 236);
+            this.listBox_listitems.TabIndex = 5;
+            this.listBox_listitems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_listitems_MouseDoubleClick);
             // 
             // label4
             // 
@@ -250,18 +263,6 @@
             this.label4.Size = new System.Drawing.Size(46, 24);
             this.label4.TabIndex = 4;
             this.label4.Text = "المواد";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 26;
-            this.comboBox1.Location = new System.Drawing.Point(37, 207);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(230, 34);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -314,18 +315,18 @@
             // 
             this.dataGridView_displayitems.AllowUserToAddRows = false;
             this.dataGridView_displayitems.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_displayitems.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Changa", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Changa", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_displayitems.ColumnHeadersHeight = 36;
             this.dataGridView_displayitems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -335,6 +336,7 @@
             this.Column5,
             this.Column6});
             this.dataGridView_displayitems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_displayitems.Enabled = false;
             this.dataGridView_displayitems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridView_displayitems.Location = new System.Drawing.Point(3, 27);
             this.dataGridView_displayitems.MultiSelect = false;
@@ -342,8 +344,8 @@
             this.dataGridView_displayitems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView_displayitems.RowHeadersVisible = false;
             this.dataGridView_displayitems.RowHeadersWidth = 45;
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView_displayitems.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView_displayitems.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -383,9 +385,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Red;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Column6.HeaderText = "حــــذف";
             this.Column6.Name = "Column6";
@@ -553,6 +555,34 @@
             this.panel1.Size = new System.Drawing.Size(986, 94);
             this.panel1.TabIndex = 4;
             // 
+            // radioButton_NoCash
+            // 
+            this.radioButton_NoCash.AutoSize = true;
+            this.radioButton_NoCash.Enabled = false;
+            this.radioButton_NoCash.ForeColor = System.Drawing.Color.White;
+            this.radioButton_NoCash.Location = new System.Drawing.Point(252, 63);
+            this.radioButton_NoCash.Name = "radioButton_NoCash";
+            this.radioButton_NoCash.Size = new System.Drawing.Size(48, 28);
+            this.radioButton_NoCash.TabIndex = 12;
+            this.radioButton_NoCash.TabStop = true;
+            this.radioButton_NoCash.Text = "اجل";
+            this.radioButton_NoCash.UseVisualStyleBackColor = true;
+            this.radioButton_NoCash.CheckedChanged += new System.EventHandler(this.radioButton_NoCash_CheckedChanged);
+            // 
+            // radioButton_CashMoney
+            // 
+            this.radioButton_CashMoney.AutoSize = true;
+            this.radioButton_CashMoney.Enabled = false;
+            this.radioButton_CashMoney.ForeColor = System.Drawing.Color.White;
+            this.radioButton_CashMoney.Location = new System.Drawing.Point(560, 62);
+            this.radioButton_CashMoney.Name = "radioButton_CashMoney";
+            this.radioButton_CashMoney.Size = new System.Drawing.Size(46, 28);
+            this.radioButton_CashMoney.TabIndex = 11;
+            this.radioButton_CashMoney.TabStop = true;
+            this.radioButton_CashMoney.Text = "نقد";
+            this.radioButton_CashMoney.UseVisualStyleBackColor = true;
+            this.radioButton_CashMoney.CheckedChanged += new System.EventHandler(this.radioButton_CashMoney_CheckedChanged);
+            // 
             // txt_coustomerName
             // 
             this.txt_coustomerName.Enabled = false;
@@ -674,34 +704,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "تعديل فواتير شراء";
             // 
-            // radioButton_CashMoney
-            // 
-            this.radioButton_CashMoney.AutoSize = true;
-            this.radioButton_CashMoney.Enabled = false;
-            this.radioButton_CashMoney.ForeColor = System.Drawing.Color.White;
-            this.radioButton_CashMoney.Location = new System.Drawing.Point(560, 62);
-            this.radioButton_CashMoney.Name = "radioButton_CashMoney";
-            this.radioButton_CashMoney.Size = new System.Drawing.Size(46, 28);
-            this.radioButton_CashMoney.TabIndex = 11;
-            this.radioButton_CashMoney.TabStop = true;
-            this.radioButton_CashMoney.Text = "نقد";
-            this.radioButton_CashMoney.UseVisualStyleBackColor = true;
-            this.radioButton_CashMoney.CheckedChanged += new System.EventHandler(this.radioButton_CashMoney_CheckedChanged);
-            // 
-            // radioButton_NoCash
-            // 
-            this.radioButton_NoCash.AutoSize = true;
-            this.radioButton_NoCash.Enabled = false;
-            this.radioButton_NoCash.ForeColor = System.Drawing.Color.White;
-            this.radioButton_NoCash.Location = new System.Drawing.Point(252, 63);
-            this.radioButton_NoCash.Name = "radioButton_NoCash";
-            this.radioButton_NoCash.Size = new System.Drawing.Size(48, 28);
-            this.radioButton_NoCash.TabIndex = 12;
-            this.radioButton_NoCash.TabStop = true;
-            this.radioButton_NoCash.Text = "اجل";
-            this.radioButton_NoCash.UseVisualStyleBackColor = true;
-            this.radioButton_NoCash.CheckedChanged += new System.EventHandler(this.radioButton_NoCash_CheckedChanged);
-            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,12 +749,11 @@
         private System.Windows.Forms.Button btn_newinvoice;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox_listitems;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_searchByitemName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView_displayitems;
         private System.Windows.Forms.Label label_invoiceNumber;
@@ -783,5 +784,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton radioButton_NoCash;
         private System.Windows.Forms.RadioButton radioButton_CashMoney;
+        private System.Windows.Forms.ComboBox comboBox_allcategories;
     }
 }

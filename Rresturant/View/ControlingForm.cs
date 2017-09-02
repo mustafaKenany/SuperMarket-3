@@ -50,5 +50,11 @@ namespace Rresturant
             FinicialForm form = new FinicialForm();
             form.ShowDialog();
         }
+
+        private void button_for_prices_Click(object sender, EventArgs e)
+        {
+            prices_form form = new prices_form();
+            form.ShowDialog();
+        }
     }
 }

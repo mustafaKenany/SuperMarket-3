@@ -130,7 +130,7 @@ namespace Rresturant
                 param[5].Value = "Mustafa";
 
 
-                usedClass.ExecuteCommand("insertNewItems", param);
+                usedClass.ExecuteCommand("create_new_items", param);
                 combo_chooseCategoryName.Text = "";
                 txt_newItemName.Text = "";
                 txt_PCSinsideCarton.Text = "";
