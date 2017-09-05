@@ -15,6 +15,10 @@ namespace Rresturant
         private int count = 1;
         private double invoiceTotal, invoiceTotalAmount, invoiceDiscount = 0;
         private string paymentType = "";
+        private int itemID, CategoryID, UserID;
+
+        
+
         public SalesForm()
         {
             InitializeComponent();
@@ -51,23 +55,6 @@ namespace Rresturant
             maskedTextBox_invoicedate.Focus();
         }
 
-        private void get_invoice_number()
-        {
-            dt = usedclass.selectdata("get_invoice_number", null);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (dt.Rows[i][0].ToString() == "")
-                {
-                    invoiceNumber = 1;
-                }
-                else
-                {
-                    invoiceNumber = Convert.ToInt32(dt.Rows[i][0].ToString());
-                    invoiceNumber++;
-                }
-            }
-
-        }
 
         private void set_datagrid_items(int v)
         {
@@ -82,7 +69,7 @@ namespace Rresturant
                     {
                         write_into_grid(listBox_listitems.SelectedItem.ToString());
                         count++;
-                        Calcuation();
+                        Calculation();
                     }
                     break;
 
@@ -97,7 +84,7 @@ namespace Rresturant
                                 write_into_grid(dt.Rows[i]["ItemName"].ToString());
                             }
                             count++;
-                            Calcuation();
+                            Calculation();
                         }
                     }
                     break;
@@ -114,7 +101,7 @@ namespace Rresturant
                                 write_into_grid(dt.Rows[i]["ItemName"].ToString());
                             }
                             count++;
-                            Calcuation();
+                            Calculation();
                         }
                     }
                     break;
@@ -142,7 +129,7 @@ namespace Rresturant
             return true;
         }
 
-        private Double Calcuation()
+        private Double Calculation()
         {
             invoiceTotal = 0;
             for (int RowIndex = 0; RowIndex < dataGridView_displayitems.Rows.Count; RowIndex++)
@@ -227,7 +214,7 @@ namespace Rresturant
             param2[8] = new SqlParameter("@invoice_saved_money", SqlDbType.Float);
             param2[8].Value = float.Parse(txt_savedMoney.Text);
 
-            usedclass.ExecuteCommand("save_new_invoice", param2);
+            usedclass.ExecuteCommand("purchase_new_invoice", param2);
             dataGridView_displayitems.Rows.Clear();
             txt_invoiceDiscount.Text = "0";
             txt_coustomerName.Text = "";
@@ -237,9 +224,23 @@ namespace Rresturant
             dataGridView_displayitems.Enabled = false;
         }
 
+        private void get_all_IDs()
+        {
+            dt = usedclass.selectdata("select_all_IDs", null);
+            if (dt.Rows.Count > 0)
+            {
+                CategoryID = int.Parse(dt.Rows[0]["CategoryID"].ToString());
+                itemID = int.Parse(dt.Rows[0]["ItemID"].ToString());
+                UserID = int.Parse(dt.Rows[0]["CustomerID"].ToString());
+                invoiceNumber = Int32.Parse(dt.Rows[0]["InvoiceNo"].ToString());
+            }
+
+        }
+
+
         /// <summary>
         /// ///////////////////////////////////////////////////////////////End Fucntions//////////////////////////
-        
+
         private void Exit_Click(object sender, EventArgs e)
         {
             SalesForm.ActiveForm.Close();
@@ -262,7 +263,7 @@ namespace Rresturant
             else
             {
                 EnableControlling(); //make all controller Enable (Enable=true)
-                get_invoice_number(); // get invoice number from DB
+                get_all_IDs(); // get invoice number from DB
                 label_invoiceNumber.Text = invoiceNumber.ToString();
             }
         }
@@ -341,7 +342,7 @@ namespace Rresturant
             if (txt_invoiceDiscount.Text == "")
             {
                 txt_invoiceDiscount.Text = "0";
-                Calcuation();
+                Calculation();
             }
             else
             {
@@ -364,7 +365,7 @@ namespace Rresturant
                         quantity = float.Parse(dataGridView_displayitems.Rows[i].Cells["Column3"].Value.ToString());
                         salePrice = float.Parse(dataGridView_displayitems.Rows[i].Cells["Column4"].Value.ToString());
                         dataGridView_displayitems.Rows[i].Cells["Column5"].Value = quantity * salePrice;
-                        Calcuation();
+                        Calculation();
                     }
                 }
                 //check if value of price changed
@@ -375,7 +376,7 @@ namespace Rresturant
                         quantity = float.Parse(dataGridView_displayitems.Rows[i].Cells["Column3"].Value.ToString());
                         salePrice = float.Parse(dataGridView_displayitems.Rows[i].Cells["Column4"].Value.ToString());
                         dataGridView_displayitems.Rows[i].Cells["Column5"].Value = quantity * salePrice;
-                        Calcuation();
+                        Calculation();
                     }
                 }
             }

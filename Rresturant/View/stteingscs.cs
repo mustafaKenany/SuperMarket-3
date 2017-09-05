@@ -14,9 +14,12 @@ namespace Rresturant
     public partial class stteingscs : Form
     {
         BasicClass usedClass = new BasicClass();
+        DataTable dt = new DataTable();
+        private int CategoryID, itemID, UserID;
         public stteingscs()
         {
             InitializeComponent();
+       
         }
         /// <summary>
         /// /////////////////////////////////////////Functions Section////////////////////////
@@ -51,7 +54,18 @@ namespace Rresturant
                 default:
                     break;
             }
-            
+
+        }
+        private void get_all_IDs()
+        {
+            dt = usedClass.selectdata("select_all_IDs", null);
+            if (dt.Rows.Count > 0)
+            {
+                CategoryID = int.Parse(dt.Rows[0]["CategoryID"].ToString());
+                itemID = int.Parse(dt.Rows[0]["ItemID"].ToString());
+                UserID = int.Parse(dt.Rows[0]["CustomerID"].ToString());
+            }
+
         }
         ///////////////////////////////////////////////button Actions Section//////////////////
         private void Exit_Click(object sender, EventArgs e)
@@ -67,14 +81,18 @@ namespace Rresturant
             }
             else
             {
-                SqlParameter[] param = new SqlParameter[2];
+                get_all_IDs();
+                SqlParameter[] param = new SqlParameter[3];
                 param[0] = new SqlParameter("@categoryName", SqlDbType.NVarChar, 50);
                 param[0].Value = txt_newCategoryName.Text;
                 //
                 param[1] = new SqlParameter("@EnteredUser", SqlDbType.NVarChar, 100);
                 param[1].Value = "Mustafa";
+                //
+                param[2] = new SqlParameter("@CategoryID", SqlDbType.Int);
+                param[2].Value = CategoryID;
 
-                usedClass.ExecuteCommand("InsertNewCategory", param);
+                usedClass.ExecuteCommand("create_new_category", param);
                 txt_newCategoryName.Text = "";
                 MessageBox.Show("تمت الاضافة بنجاح", "أضـــافة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -82,13 +100,14 @@ namespace Rresturant
 
         private void btn_addNewItem_Click(object sender, EventArgs e)
         {
-            if(combo_chooseCategoryName.Text=="" || txt_newItemName.Text=="" )
+            if (combo_chooseCategoryName.Text == "" || txt_newItemName.Text == "")
             {
                 MessageBox.Show("يرجى التأكد من ادخال المعلومات بشكل كامل", "خــــطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                SqlParameter[] param = new SqlParameter[6];     //information from design and Username
+                get_all_IDs();
+                SqlParameter[] param = new SqlParameter[7];     //information from design and Username
                 //
                 param[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 50);
                 param[0].Value = txt_newItemName.Text;
@@ -101,7 +120,7 @@ namespace Rresturant
                 {
                     param[2].Value = int.Parse(txt_PCSinsideCarton.Text);
                 }
-                else 
+                else
                 {
                     param[2].Value = 0;
                 }
@@ -123,12 +142,14 @@ namespace Rresturant
                 }
                 else
                 {
-                    param[4].Value =0;
+                    param[4].Value = 0;
                 }
                 //
                 param[5] = new SqlParameter("@EnteredUser", SqlDbType.NVarChar, 100);
                 param[5].Value = "Mustafa";
-
+                //
+                param[6] = new SqlParameter("@ItemID", SqlDbType.Int);
+                param[6].Value = itemID;
 
                 usedClass.ExecuteCommand("create_new_items", param);
                 combo_chooseCategoryName.Text = "";
@@ -142,7 +163,7 @@ namespace Rresturant
 
         private void btn_ModifyCateg_Click(object sender, EventArgs e)
         {
-            if(combo_ModifedCategoryName.Text=="" || txt_modifedCategName.Text=="")
+            if (combo_ModifedCategoryName.Text == "" || txt_modifedCategName.Text == "")
             {
                 MessageBox.Show("يرجى التأكد من ادخال المعلومات بشكل كامل", "خــــطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -212,8 +233,6 @@ namespace Rresturant
             combo_CategoryinModifiedorDeleteSection.ValueMember = "CategoryID";
         }
 
-
-
         private void combo_ChosingItemName_DropDown(object sender, EventArgs e)
         {
             if (combo_CategoryinModifiedorDeleteSection.Text == "")
@@ -272,6 +291,6 @@ namespace Rresturant
             displayAllitemsInGridView(3, maskedTextBox_BarCode.Text);
         }
 
-        
+
     }
 }

@@ -210,15 +210,16 @@
             // button_for_prices
             // 
             this.button_for_prices.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_for_prices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_for_prices.BackgroundImage")));
             this.button_for_prices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_for_prices.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.button_for_prices.FlatAppearance.BorderSize = 0;
             this.button_for_prices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_for_prices.ForeColor = System.Drawing.Color.White;
             this.button_for_prices.Location = new System.Drawing.Point(383, 64);
             this.button_for_prices.Name = "button_for_prices";
             this.button_for_prices.Size = new System.Drawing.Size(150, 150);
             this.button_for_prices.TabIndex = 13;
+            this.button_for_prices.Text = "تعديل ارصدة واسعار";
             this.button_for_prices.UseVisualStyleBackColor = true;
             this.button_for_prices.Click += new System.EventHandler(this.button_for_prices_Click);
             // 

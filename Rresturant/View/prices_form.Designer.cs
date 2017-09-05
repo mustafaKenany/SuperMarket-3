@@ -57,14 +57,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox_all_items_without_price = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage_correctQuantity = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewQuantity_displayitems = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button_changeQuantity = new System.Windows.Forms.Button();
@@ -75,6 +71,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox_Allitems_without_quantity = new System.Windows.Forms.CheckBox();
+            this.Column_itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -84,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrices_displayitems)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPage_correctQuantity.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuantity_displayitems)).BeginInit();
@@ -130,7 +130,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage_CorrectPrices);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage_correctQuantity);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Changa", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 43);
@@ -140,6 +140,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 582);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage_CorrectPrices
             // 
@@ -374,17 +375,17 @@
             this.checkBox_all_items_without_price.UseVisualStyleBackColor = true;
             this.checkBox_all_items_without_price.CheckedChanged += new System.EventHandler(this.checkBox_all_items_without_price_CheckedChanged_1);
             // 
-            // tabPage2
+            // tabPage_correctQuantity
             // 
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 545);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "تعديل الارصدة";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage_correctQuantity.Controls.Add(this.panel4);
+            this.tabPage_correctQuantity.Controls.Add(this.panel3);
+            this.tabPage_correctQuantity.Location = new System.Drawing.Point(4, 33);
+            this.tabPage_correctQuantity.Name = "tabPage_correctQuantity";
+            this.tabPage_correctQuantity.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_correctQuantity.Size = new System.Drawing.Size(792, 545);
+            this.tabPage_correctQuantity.TabIndex = 1;
+            this.tabPage_correctQuantity.Text = "تعديل الارصدة";
+            this.tabPage_correctQuantity.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -427,9 +428,9 @@
             this.dataGridViewQuantity_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewQuantity_displayitems.ColumnHeadersHeight = 36;
             this.dataGridViewQuantity_displayitems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.Column_itemName,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
+            this.Column_Quantity,
             this.dataGridViewTextBoxColumn4});
             this.dataGridViewQuantity_displayitems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewQuantity_displayitems.Enabled = false;
@@ -451,35 +452,6 @@
             this.dataGridViewQuantity_displayitems.Size = new System.Drawing.Size(524, 504);
             this.dataGridViewQuantity_displayitems.TabIndex = 9;
             this.dataGridViewQuantity_displayitems.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuantity_displayitems_CellValueChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "itemName";
-            this.dataGridViewTextBoxColumn1.HeaderText = "الـــــمادة";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "price_for_buy";
-            this.dataGridViewTextBoxColumn2.HeaderText = "سعرالبيع";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "itemQuantity";
-            this.dataGridViewTextBoxColumn3.HeaderText = "رصيد متبقي";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "itemCategory";
-            this.dataGridViewTextBoxColumn4.HeaderText = "مجاميع";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 120;
             // 
             // panel3
             // 
@@ -607,6 +579,35 @@
             this.checkBox_Allitems_without_quantity.UseVisualStyleBackColor = true;
             this.checkBox_Allitems_without_quantity.CheckedChanged += new System.EventHandler(this.checkBox_Allitems_without_quantity_CheckedChanged);
             // 
+            // Column_itemName
+            // 
+            this.Column_itemName.DataPropertyName = "itemName";
+            this.Column_itemName.HeaderText = "الـــــمادة";
+            this.Column_itemName.Name = "Column_itemName";
+            this.Column_itemName.ReadOnly = true;
+            this.Column_itemName.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "price_for_buy";
+            this.dataGridViewTextBoxColumn2.HeaderText = "سعرالبيع";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Column_Quantity
+            // 
+            this.Column_Quantity.DataPropertyName = "itemQuantity";
+            this.Column_Quantity.HeaderText = "رصيد متبقي";
+            this.Column_Quantity.Name = "Column_Quantity";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "itemCategory";
+            this.dataGridViewTextBoxColumn4.HeaderText = "مجاميع";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 120;
+            // 
             // prices_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,7 +630,7 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPage_correctQuantity.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuantity_displayitems)).EndInit();
@@ -647,7 +648,7 @@
         private System.Windows.Forms.PictureBox Exit;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_CorrectPrices;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage_correctQuantity;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -678,9 +679,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_price_for_buy;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

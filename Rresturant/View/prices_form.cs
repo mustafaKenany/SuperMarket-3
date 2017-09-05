@@ -14,7 +14,7 @@ namespace Rresturant
         {
             InitializeComponent();
             changes.Columns.Add("itemName");
-            changes.Columns.Add("price_for_buy");
+            changes.Columns.Add("column_price_or_quantity");
 
         }
 
@@ -126,9 +126,10 @@ namespace Rresturant
 
                     changes.Rows.Add(dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["columnName"].Value.ToString(), dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["Column_price_for_buy"].Value.ToString());
                 }
-                if (dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["Column_price_for_buy"].Value.ToString() == "")
+                if (dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["Column_price_for_buy"].Value.ToString() == "" || float.Parse(dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["Column_price_for_buy"].Value.ToString()) < 0)
                 {
-                    // no chnage here because the empty value is un normal
+                    MessageBox.Show("يجب وضع قيمة صحيحة لهذه المادة", "Warring", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    dataGridViewPrices_displayitems.Rows[e.RowIndex].Cells["Column_price_for_buy"].Value = 0;
 
                 }
             }
@@ -136,16 +137,19 @@ namespace Rresturant
 
         private void button_changePrices_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPrices_displayitems.Rows.Count < 0)
-            {
-
-            }
-            else
+            if (dataGridViewPrices_displayitems.Rows.Count > 0)
             {
                 SqlParameter[] parameter = new SqlParameter[2];
                 //changes = dt.Copy();
                 for (int i = 0; i < changes.Rows.Count; i++)
                 {
+                    parameter[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 250);
+                    parameter[0].Value = changes.Rows[i]["itemName"].ToString();
+                    //
+                    parameter[1] = new SqlParameter("@itemNewPrice", SqlDbType.Float);
+                    parameter[1].Value = float.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
+                    usedClass.ExecuteCommand("update_price_using_itemName", parameter);
+                    MessageBox.Show("تم تحديث الاسعار", "Message");
 
                 }
             }
@@ -156,6 +160,57 @@ namespace Rresturant
         /// <summary>
         /// ///////////////////////////////////////////Above is Tab page 1 and below is TabPage 2////////////
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DialogResult Result = new DialogResult();
+            if (tabControl1.SelectedTab == tabPage_CorrectPrices)
+            {
+                dt.Rows.Clear();
+                dataGridViewPrices_displayitems.DataSource = dt;
+                dataGridViewQuantity_displayitems.DataSource = dt;
+                if (changes.Rows.Count > 0)
+                {
+                    Result = MessageBox.Show("هناك ارصدة تم تعديلها لم يتم حفظها اذا كنت تريد الحفظ اضغط نعم", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    SqlParameter[] parameter = new SqlParameter[2];
+                    //changes = dt.Copy();
+                    for (int i = 0; i < changes.Rows.Count; i++)
+                    {
+                        parameter[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 250);
+                        parameter[0].Value = changes.Rows[i]["itemName"].ToString();
+                        //
+                        parameter[1] = new SqlParameter("@itemNewQuantity", SqlDbType.Int);
+                        parameter[1].Value = int.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
+                        usedClass.ExecuteCommand("update_quantity_using_itemName", parameter);
+                    }
+                    MessageBox.Show("تم تحديث الارصدة", "Message");
+                }
+            }
+            else if (tabControl1.SelectedTab == tabPage_correctQuantity)
+            {
+                dt.Rows.Clear();
+                dataGridViewPrices_displayitems.DataSource = dt;
+                dataGridViewQuantity_displayitems.DataSource = dt;
+                if (changes.Rows.Count > 0)
+                {
+                    Result = MessageBox.Show("هناك اسعار تم تعديلها لم يتم حفظها اذا كنت تريد الحفظ اضغط نعم", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (Result == DialogResult.Yes)
+                    {
+                        SqlParameter[] parameter = new SqlParameter[2];
+                        //changes = dt.Copy();
+                        for (int i = 0; i < changes.Rows.Count; i++)
+                        {
+                            parameter[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 250);
+                            parameter[0].Value = changes.Rows[i]["itemName"].ToString();
+                            //
+                            parameter[1] = new SqlParameter("@itemNewPrice", SqlDbType.Float);
+                            parameter[1].Value = float.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
+                            usedClass.ExecuteCommand("update_price_using_itemName", parameter);
+                            MessageBox.Show("تم تحديث الاسعار", "Message");
+                        }
+                    }
+                }
+            }
+        }
 
         private void checkBox_Allitems_without_quantity_CheckedChanged(object sender, EventArgs e)
         {
@@ -251,7 +306,20 @@ namespace Rresturant
 
         private void dataGridViewQuantity_displayitems_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridViewQuantity_displayitems.Rows.Count > 0)
+            {
+                if (dataGridViewQuantity_displayitems.Columns[e.ColumnIndex].Name == "Column_Quantity" && dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_Quantity"].Value.ToString() != "")
+                {
 
+                    changes.Rows.Add(dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_itemName"].Value.ToString(), dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_Quantity"].Value.ToString());
+                }
+                if (dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_Quantity"].Value.ToString() == "" || Int32.Parse(dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_Quantity"].Value.ToString()) < 0)
+                {
+                    MessageBox.Show("يجب وضع قيمة صحيحة لهذه المادة", "Warring", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    dataGridViewQuantity_displayitems.Rows[e.RowIndex].Cells["Column_Quantity"].Value = 0;
+
+                }
+            }
 
 
 
@@ -260,7 +328,22 @@ namespace Rresturant
 
         private void button_changeQuantity_Click(object sender, EventArgs e)
         {
+            if (dataGridViewQuantity_displayitems.Rows.Count > 0)
+            {
+                SqlParameter[] parameter = new SqlParameter[2];
+                //changes = dt.Copy();
+                for (int i = 0; i < changes.Rows.Count; i++)
+                {
+                    parameter[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 250);
+                    parameter[0].Value = changes.Rows[i]["itemName"].ToString();
+                    //
+                    parameter[1] = new SqlParameter("@itemNewQuantity", SqlDbType.Int);
+                    parameter[1].Value = int.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
+                    usedClass.ExecuteCommand("update_quantity_using_itemName", parameter);
+                }
+                MessageBox.Show("تم تحديث الارصدة", "Message");
 
+            }
         }
 
     }
