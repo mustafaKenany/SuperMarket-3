@@ -30,7 +30,7 @@ namespace Rresturant
             this.dataGridView_OrderDetail.Columns["Column_PriceTotal"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("ar-iq");
             this.dataGridView_OrderDetail.Columns["Column_deleteItemPicture"].Width = 70;
             this.dataGridView_OrderDetail.Columns["Column_ItemPCS"].Width = 70;
-
+            
             Get_Order_ID();
             OrderID++;
             label_invoiceNO.Text = OrderID.ToString();

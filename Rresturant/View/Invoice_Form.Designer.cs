@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoice_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_MainContainer = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_displayInPostBill = new System.Windows.Forms.Button();
+            this.button_newInvoice = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox_items = new System.Windows.Forms.ListBox();
@@ -47,7 +49,7 @@
             this.button_printInvoice = new System.Windows.Forms.Button();
             this.button_postBill = new System.Windows.Forms.Button();
             this.button_DeptRepayment = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label_invoiceDate = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -71,6 +73,8 @@
             this.Column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button_inPostBill = new System.Windows.Forms.Button();
+            this.label_Deyon = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.txt_savedMoney = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label_invoiceTotalAmount = new System.Windows.Forms.Label();
@@ -79,8 +83,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label_invoiceTotal = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.button_newInvoice = new System.Windows.Forms.Button();
-            this.button_displayInPostBill = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel_MainContainer.SuspendLayout();
@@ -162,7 +164,7 @@
             this.panel1.Controls.Add(this.button_printInvoice);
             this.panel1.Controls.Add(this.button_postBill);
             this.panel1.Controls.Add(this.button_DeptRepayment);
-            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label_invoiceDate);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -175,6 +177,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(319, 699);
             this.panel1.TabIndex = 0;
+            // 
+            // button_displayInPostBill
+            // 
+            this.button_displayInPostBill.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_displayInPostBill.Enabled = false;
+            this.button_displayInPostBill.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_displayInPostBill.FlatAppearance.BorderSize = 2;
+            this.button_displayInPostBill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.button_displayInPostBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_displayInPostBill.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.button_displayInPostBill.ForeColor = System.Drawing.Color.White;
+            this.button_displayInPostBill.Location = new System.Drawing.Point(10, 5);
+            this.button_displayInPostBill.Name = "button_displayInPostBill";
+            this.button_displayInPostBill.Size = new System.Drawing.Size(112, 62);
+            this.button_displayInPostBill.TabIndex = 25;
+            this.button_displayInPostBill.Text = "عرض القوائم المعلقة";
+            this.button_displayInPostBill.UseVisualStyleBackColor = true;
+            this.button_displayInPostBill.Click += new System.EventHandler(this.button_displayInPostBill_Click);
+            // 
+            // button_newInvoice
+            // 
+            this.button_newInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_newInvoice.AutoSize = true;
+            this.button_newInvoice.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_newInvoice.FlatAppearance.BorderSize = 2;
+            this.button_newInvoice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.button_newInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_newInvoice.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_newInvoice.ForeColor = System.Drawing.Color.White;
+            this.button_newInvoice.Location = new System.Drawing.Point(192, 5);
+            this.button_newInvoice.Name = "button_newInvoice";
+            this.button_newInvoice.Size = new System.Drawing.Size(115, 62);
+            this.button_newInvoice.TabIndex = 24;
+            this.button_newInvoice.Text = "فاتورة جديدة";
+            this.button_newInvoice.UseVisualStyleBackColor = true;
+            this.button_newInvoice.Click += new System.EventHandler(this.button_newInvoice_Click);
             // 
             // label3
             // 
@@ -263,6 +301,7 @@
             this.button_printInvoice.TabIndex = 21;
             this.button_printInvoice.Text = "طباعة الفاتورة";
             this.button_printInvoice.UseVisualStyleBackColor = true;
+            this.button_printInvoice.Click += new System.EventHandler(this.button_printInvoice_Click);
             // 
             // button_postBill
             // 
@@ -275,7 +314,7 @@
             this.button_postBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_postBill.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_postBill.ForeColor = System.Drawing.Color.White;
-            this.button_postBill.Location = new System.Drawing.Point(11, 556);
+            this.button_postBill.Location = new System.Drawing.Point(25, 556);
             this.button_postBill.Name = "button_postBill";
             this.button_postBill.Size = new System.Drawing.Size(153, 62);
             this.button_postBill.TabIndex = 20;
@@ -301,19 +340,19 @@
             this.button_DeptRepayment.Text = "تسديد الديون";
             this.button_DeptRepayment.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // label_invoiceDate
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(26, 514);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(153, 29);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "0";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_invoiceDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_invoiceDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_invoiceDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_invoiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label_invoiceDate.ForeColor = System.Drawing.Color.White;
+            this.label_invoiceDate.Location = new System.Drawing.Point(26, 514);
+            this.label_invoiceDate.Name = "label_invoiceDate";
+            this.label_invoiceDate.Size = new System.Drawing.Size(153, 29);
+            this.label_invoiceDate.TabIndex = 18;
+            this.label_invoiceDate.Text = "0";
+            this.label_invoiceDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -326,7 +365,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(111, 29);
             this.label14.TabIndex = 17;
-            this.label14.Text = "الحساب السابق";
+            this.label14.Text = "تاريخ الفاتورة";
             // 
             // label8
             // 
@@ -386,12 +425,13 @@
             this.textBox_customerName.Enabled = false;
             this.textBox_customerName.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.textBox_customerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.textBox_customerName.Location = new System.Drawing.Point(9, 103);
+            this.textBox_customerName.Location = new System.Drawing.Point(10, 103);
             this.textBox_customerName.Multiline = true;
             this.textBox_customerName.Name = "textBox_customerName";
-            this.textBox_customerName.Size = new System.Drawing.Size(288, 36);
+            this.textBox_customerName.Size = new System.Drawing.Size(287, 36);
             this.textBox_customerName.TabIndex = 8;
-            this.textBox_customerName.Text = "مستطرق";
+            this.textBox_customerName.Leave += new System.EventHandler(this.textBox_customerName_Leave);
+            this.textBox_customerName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textBox_customerName_MouseDoubleClick);
             // 
             // maskedTextBox_BarCode
             // 
@@ -482,8 +522,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 699);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -496,7 +536,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(547, 588);
+            this.groupBox3.Size = new System.Drawing.Size(547, 553);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "المواد";
@@ -505,14 +545,14 @@
             // 
             this.dataGridView_displayItems.AllowUserToAddRows = false;
             this.dataGridView_displayItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_displayItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_displayItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_displayItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_displayItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_GridNo,
@@ -521,35 +561,35 @@
             this.Column_itemPrice,
             this.Column_itemtotal,
             this.Column});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_displayItems.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_displayItems.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_displayItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_displayItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridView_displayItems.Location = new System.Drawing.Point(3, 31);
             this.dataGridView_displayItems.Name = "dataGridView_displayItems";
             this.dataGridView_displayItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView_displayItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_displayItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Changa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_displayItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_displayItems.RowHeadersWidth = 35;
             this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.dataGridView_displayItems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView_displayItems.RowTemplate.Height = 35;
+            this.dataGridView_displayItems.RowTemplate.Height = 45;
             this.dataGridView_displayItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView_displayItems.Size = new System.Drawing.Size(541, 554);
+            this.dataGridView_displayItems.Size = new System.Drawing.Size(541, 519);
             this.dataGridView_displayItems.TabIndex = 0;
             this.dataGridView_displayItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayItems_CellContentClick);
             this.dataGridView_displayItems.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayItems_CellValueChanged);
@@ -566,22 +606,22 @@
             this.Column_itemName.HeaderText = "المادة";
             this.Column_itemName.Name = "Column_itemName";
             this.Column_itemName.ReadOnly = true;
-            this.Column_itemName.Width = 175;
+            this.Column_itemName.Width = 185;
             // 
             // Column_PcsQunatity
             // 
-            dataGridViewCellStyle17.Format = "N0";
-            dataGridViewCellStyle17.NullValue = null;
-            this.Column_PcsQunatity.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column_PcsQunatity.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column_PcsQunatity.HeaderText = "الكمية";
             this.Column_PcsQunatity.Name = "Column_PcsQunatity";
             this.Column_PcsQunatity.Width = 65;
             // 
             // Column_itemPrice
             // 
-            dataGridViewCellStyle18.Format = "C0";
-            dataGridViewCellStyle18.NullValue = "0";
-            this.Column_itemPrice.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Column_itemPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column_itemPrice.HeaderText = "السعر";
             this.Column_itemPrice.Name = "Column_itemPrice";
             this.Column_itemPrice.ReadOnly = true;
@@ -592,7 +632,7 @@
             this.Column_itemtotal.HeaderText = "المجموع";
             this.Column_itemtotal.Name = "Column_itemtotal";
             this.Column_itemtotal.ReadOnly = true;
-            this.Column_itemtotal.Width = 65;
+            this.Column_itemtotal.Width = 85;
             // 
             // Column
             // 
@@ -601,11 +641,13 @@
             this.Column.Name = "Column";
             this.Column.Text = "حذف";
             this.Column.UseColumnTextForButtonValue = true;
-            this.Column.Width = 65;
+            this.Column.Width = 70;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button_inPostBill);
+            this.groupBox4.Controls.Add(this.label_Deyon);
+            this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.txt_savedMoney);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.label_invoiceTotalAmount);
@@ -615,14 +657,15 @@
             this.groupBox4.Controls.Add(this.label_invoiceTotal);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 597);
+            this.groupBox4.Location = new System.Drawing.Point(3, 562);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(547, 99);
+            this.groupBox4.Size = new System.Drawing.Size(547, 134);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             // 
             // button_inPostBill
             // 
+            this.button_inPostBill.AutoSize = true;
             this.button_inPostBill.Dock = System.Windows.Forms.DockStyle.Left;
             this.button_inPostBill.Enabled = false;
             this.button_inPostBill.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -633,17 +676,43 @@
             this.button_inPostBill.ForeColor = System.Drawing.Color.White;
             this.button_inPostBill.Location = new System.Drawing.Point(3, 16);
             this.button_inPostBill.Name = "button_inPostBill";
-            this.button_inPostBill.Size = new System.Drawing.Size(84, 80);
+            this.button_inPostBill.Size = new System.Drawing.Size(109, 115);
             this.button_inPostBill.TabIndex = 25;
             this.button_inPostBill.Text = "تعليق قائمة";
             this.button_inPostBill.UseVisualStyleBackColor = true;
+            this.button_inPostBill.Click += new System.EventHandler(this.button_inPostBill_Click);
+            // 
+            // label_Deyon
+            // 
+            this.label_Deyon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_Deyon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_Deyon.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Deyon.ForeColor = System.Drawing.Color.White;
+            this.label_Deyon.Location = new System.Drawing.Point(130, 62);
+            this.label_Deyon.Name = "label_Deyon";
+            this.label_Deyon.Size = new System.Drawing.Size(102, 37);
+            this.label_Deyon.TabIndex = 26;
+            this.label_Deyon.Text = "0";
+            this.label_Deyon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(238, 70);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 22);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "ديـــــــــــــــون";
             // 
             // txt_savedMoney
             // 
             this.txt_savedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_savedMoney.Enabled = false;
             this.txt_savedMoney.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_savedMoney.Location = new System.Drawing.Point(93, 56);
+            this.txt_savedMoney.Location = new System.Drawing.Point(329, 102);
             this.txt_savedMoney.Name = "txt_savedMoney";
             this.txt_savedMoney.Size = new System.Drawing.Size(117, 26);
             this.txt_savedMoney.TabIndex = 24;
@@ -654,11 +723,11 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Changa Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(212, 55);
+            this.label15.Location = new System.Drawing.Point(458, 104);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(97, 26);
+            this.label15.Size = new System.Drawing.Size(83, 22);
             this.label15.TabIndex = 23;
             this.label15.Text = "المبلغ المسدد";
             // 
@@ -668,9 +737,9 @@
             this.label_invoiceTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_invoiceTotalAmount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label_invoiceTotalAmount.ForeColor = System.Drawing.Color.White;
-            this.label_invoiceTotalAmount.Location = new System.Drawing.Point(93, 15);
+            this.label_invoiceTotalAmount.Location = new System.Drawing.Point(130, 12);
             this.label_invoiceTotalAmount.Name = "label_invoiceTotalAmount";
-            this.label_invoiceTotalAmount.Size = new System.Drawing.Size(117, 37);
+            this.label_invoiceTotalAmount.Size = new System.Drawing.Size(102, 37);
             this.label_invoiceTotalAmount.TabIndex = 22;
             this.label_invoiceTotalAmount.Text = "0";
             this.label_invoiceTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,11 +748,11 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Changa Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(210, 20);
+            this.label16.Location = new System.Drawing.Point(238, 22);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 26);
+            this.label16.Size = new System.Drawing.Size(85, 22);
             this.label16.TabIndex = 21;
             this.label16.Text = "صافي الفاتورة";
             // 
@@ -692,7 +761,7 @@
             this.txt_invoiceDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_invoiceDiscount.Enabled = false;
             this.txt_invoiceDiscount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_invoiceDiscount.Location = new System.Drawing.Point(309, 57);
+            this.txt_invoiceDiscount.Location = new System.Drawing.Point(329, 62);
             this.txt_invoiceDiscount.Name = "txt_invoiceDiscount";
             this.txt_invoiceDiscount.Size = new System.Drawing.Size(117, 26);
             this.txt_invoiceDiscount.TabIndex = 17;
@@ -703,11 +772,11 @@
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Changa Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(440, 57);
+            this.label17.Location = new System.Drawing.Point(461, 64);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 26);
+            this.label17.Size = new System.Drawing.Size(69, 22);
             this.label17.TabIndex = 20;
             this.label17.Text = "مبلغ الخصم";
             // 
@@ -717,7 +786,7 @@
             this.label_invoiceTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_invoiceTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label_invoiceTotal.ForeColor = System.Drawing.Color.White;
-            this.label_invoiceTotal.Location = new System.Drawing.Point(310, 15);
+            this.label_invoiceTotal.Location = new System.Drawing.Point(329, 13);
             this.label_invoiceTotal.Name = "label_invoiceTotal";
             this.label_invoiceTotal.Size = new System.Drawing.Size(117, 37);
             this.label_invoiceTotal.TabIndex = 18;
@@ -728,47 +797,13 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Changa Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(428, 20);
+            this.label18.Location = new System.Drawing.Point(452, 19);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(106, 26);
+            this.label18.Size = new System.Drawing.Size(89, 22);
             this.label18.TabIndex = 19;
             this.label18.Text = "اجمالي الفاتورة";
-            // 
-            // button_newInvoice
-            // 
-            this.button_newInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_newInvoice.AutoSize = true;
-            this.button_newInvoice.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button_newInvoice.FlatAppearance.BorderSize = 2;
-            this.button_newInvoice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.button_newInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_newInvoice.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_newInvoice.ForeColor = System.Drawing.Color.White;
-            this.button_newInvoice.Location = new System.Drawing.Point(192, 11);
-            this.button_newInvoice.Name = "button_newInvoice";
-            this.button_newInvoice.Size = new System.Drawing.Size(115, 62);
-            this.button_newInvoice.TabIndex = 24;
-            this.button_newInvoice.Text = "فاتورة جديدة";
-            this.button_newInvoice.UseVisualStyleBackColor = true;
-            this.button_newInvoice.Click += new System.EventHandler(this.button_newInvoice_Click);
-            // 
-            // button_displayInPostBill
-            // 
-            this.button_displayInPostBill.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_displayInPostBill.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button_displayInPostBill.FlatAppearance.BorderSize = 2;
-            this.button_displayInPostBill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.button_displayInPostBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_displayInPostBill.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.button_displayInPostBill.ForeColor = System.Drawing.Color.White;
-            this.button_displayInPostBill.Location = new System.Drawing.Point(10, 11);
-            this.button_displayInPostBill.Name = "button_displayInPostBill";
-            this.button_displayInPostBill.Size = new System.Drawing.Size(112, 62);
-            this.button_displayInPostBill.TabIndex = 25;
-            this.button_displayInPostBill.Text = "عرض القوائم المعلقة";
-            this.button_displayInPostBill.UseVisualStyleBackColor = true;
             // 
             // Invoice_Form
             // 
@@ -782,6 +817,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Invoice_Form";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.Invoice_Form_Activated);
             this.panel_Header.ResumeLayout(false);
             this.panel_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
@@ -810,11 +846,10 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox_BarCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox_customerName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_postBill;
         private System.Windows.Forms.Button button_DeptRepayment;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_invoiceDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -840,14 +875,17 @@
         private System.Windows.Forms.Label label_invoiceTotal;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ListBox listBox_items;
+        private System.Windows.Forms.Button button_inPostBill;
+        private System.Windows.Forms.Button button_newInvoice;
+        private System.Windows.Forms.Button button_displayInPostBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_GridNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PcsQunatity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_itemtotal;
         private System.Windows.Forms.DataGridViewButtonColumn Column;
-        private System.Windows.Forms.Button button_inPostBill;
-        private System.Windows.Forms.Button button_newInvoice;
-        private System.Windows.Forms.Button button_displayInPostBill;
+        public System.Windows.Forms.TextBox textBox_customerName;
+        private System.Windows.Forms.Label label_Deyon;
+        private System.Windows.Forms.Label label9;
     }
 }

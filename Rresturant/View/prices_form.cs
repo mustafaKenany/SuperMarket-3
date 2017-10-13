@@ -137,7 +137,7 @@ namespace Rresturant
 
         private void button_changePrices_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPrices_displayitems.Rows.Count > 0)
+            if (dataGridViewPrices_displayitems.Rows.Count > 0 && changes.Rows.Count>0)
             {
                 SqlParameter[] parameter = new SqlParameter[2];
                 //changes = dt.Copy();
@@ -149,9 +149,9 @@ namespace Rresturant
                     parameter[1] = new SqlParameter("@itemNewPrice", SqlDbType.Float);
                     parameter[1].Value = float.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
                     usedClass.ExecuteCommand("update_price_using_itemName", parameter);
-                    MessageBox.Show("تم تحديث الاسعار", "Message");
 
                 }
+                MessageBox.Show("تم تحديث الاسعار", "Message");
             }
 
         }

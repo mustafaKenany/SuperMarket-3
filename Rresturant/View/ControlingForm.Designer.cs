@@ -42,6 +42,7 @@
             this.btn_CasherForm = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_for_prices = new System.Windows.Forms.Button();
+            this.button_UnRunnigBill = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -223,12 +224,29 @@
             this.button_for_prices.UseVisualStyleBackColor = true;
             this.button_for_prices.Click += new System.EventHandler(this.button_for_prices_Click);
             // 
+            // button_UnRunnigBill
+            // 
+            this.button_UnRunnigBill.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_UnRunnigBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_UnRunnigBill.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.button_UnRunnigBill.FlatAppearance.BorderSize = 0;
+            this.button_UnRunnigBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_UnRunnigBill.ForeColor = System.Drawing.Color.White;
+            this.button_UnRunnigBill.Location = new System.Drawing.Point(539, 64);
+            this.button_UnRunnigBill.Name = "button_UnRunnigBill";
+            this.button_UnRunnigBill.Size = new System.Drawing.Size(150, 150);
+            this.button_UnRunnigBill.TabIndex = 14;
+            this.button_UnRunnigBill.Text = "القوائم الغير مرحلة \"الغير منفذة\"";
+            this.button_UnRunnigBill.UseVisualStyleBackColor = true;
+            this.button_UnRunnigBill.Click += new System.EventHandler(this.button_UnRunnigBill_Click);
+            // 
             // ControlingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(850, 618);
+            this.Controls.Add(this.button_UnRunnigBill);
             this.Controls.Add(this.button_for_prices);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -267,5 +285,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_for_prices;
+        private System.Windows.Forms.Button button_UnRunnigBill;
     }
 }

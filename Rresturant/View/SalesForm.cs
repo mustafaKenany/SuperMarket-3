@@ -11,29 +11,37 @@ namespace Rresturant
         DataTable dt = new DataTable();
 
 
-        private Int32 invoiceNumber = 0;
-        private int count = 1;
-        private double invoiceTotal, invoiceTotalAmount, invoiceDiscount = 0;
-        private string paymentType = "";
-        private int itemID, CategoryID, UserID;
-
-        
+        private Int32 invoiceNumber;
+        private double invoiceTotal, invoiceTotalAmount, invoiceDiscount;
+        private string paymentType;
+        private int itemID, CategoryID, UserID, count;
 
         public SalesForm()
         {
             InitializeComponent();
-            maskedTextBox_invoicedate.Enabled = false;
-            maskedTextBox_invoicedate.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            this.dataGridView_displayitems.Columns["Column1"].ReadOnly = true;
-            this.dataGridView_displayitems.Columns["Column2"].ReadOnly = true;
-            this.dataGridView_displayitems.Columns["Column5"].ReadOnly = true;
+
             //this.dataGridView_displayitems.Columns["Column5"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("ar-iq");
             //this.dataGridView_displayitems.Columns["Column5"].DefaultCellStyle.Format = "C0";
-
+            initializeFunction();
         }
+
+
         /// <summary>
         /// ////////////////////////////////////////////////////////functions/////////////////////////////////////
         /// 
+        private void initializeFunction()
+        {
+            maskedTextBox_invoicedate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            count = 1;
+            invoiceNumber = 0;
+            invoiceTotal = invoiceTotalAmount = invoiceDiscount = 0;
+            paymentType = "";
+            BasicClass.CoustomerName = "";
+            BasicClass.TotalDeyoon = 0;
+            BasicClass.UnrnningBillId = 0;
+
+        }
+
         private void EnableControlling()
         {
             dataGridView_displayitems.Enabled = true;
@@ -55,7 +63,6 @@ namespace Rresturant
             maskedTextBox_invoicedate.Focus();
         }
 
-
         private void set_datagrid_items(int v)
         {
 
@@ -68,7 +75,7 @@ namespace Rresturant
                     if (CheckDuplicate(listBox_listitems.SelectedItem.ToString()) == true)
                     {
                         write_into_grid(listBox_listitems.SelectedItem.ToString());
-                        count++;
+
                         Calculation();
                     }
                     break;
@@ -83,7 +90,7 @@ namespace Rresturant
                             {
                                 write_into_grid(dt.Rows[i]["ItemName"].ToString());
                             }
-                            count++;
+
                             Calculation();
                         }
                     }
@@ -100,7 +107,7 @@ namespace Rresturant
                             {
                                 write_into_grid(dt.Rows[i]["ItemName"].ToString());
                             }
-                            count++;
+
                             Calculation();
                         }
                     }
@@ -157,8 +164,9 @@ namespace Rresturant
             row.Cells["Column3"].Value = 1;     //كمية المادة
             row.Cells["Column4"].Value = 1;     //   سعر الشراء 
             row.Cells["Column5"].Value = 1;     //مجموع
+            count++;
         }
-       
+
         private void save_data_from_girdToDB(string run_or_not)
         {
             SqlParameter[] param = new SqlParameter[6];
@@ -214,7 +222,7 @@ namespace Rresturant
             param2[8] = new SqlParameter("@invoice_saved_money", SqlDbType.Float);
             param2[8].Value = float.Parse(txt_savedMoney.Text);
 
-            usedclass.ExecuteCommand("purchase_new_invoice", param2);
+            usedclass.ExecuteCommand("new_invoice", param2);
             dataGridView_displayitems.Rows.Clear();
             txt_invoiceDiscount.Text = "0";
             txt_coustomerName.Text = "";
@@ -237,6 +245,71 @@ namespace Rresturant
 
         }
 
+        private void save_data_from_grid_to_db_without_quantity(string run_or_not)
+        {
+            SqlParameter[] param = new SqlParameter[6];
+            for (int row = 0; row < dataGridView_displayitems.Rows.Count; row++)
+            {
+                param[0] = new SqlParameter("@invoiceNo", SqlDbType.Int);
+                param[0].Value = Int32.Parse(label_invoiceNumber.Text);
+                //
+                param[1] = new SqlParameter("@itemName", SqlDbType.NVarChar, 50);
+                param[1].Value = dataGridView_displayitems.Rows[row].Cells["Column2"].Value;
+                //
+                param[2] = new SqlParameter("@Quantity", SqlDbType.Int);
+                param[2].Value = int.Parse(dataGridView_displayitems.Rows[row].Cells["Column3"].Value.ToString());
+                //
+                param[3] = new SqlParameter("@price", SqlDbType.Float);
+                param[3].Value = float.Parse(dataGridView_displayitems.Rows[row].Cells["Column4"].Value.ToString());
+                //
+                param[4] = new SqlParameter("@totalPrice", SqlDbType.Float);
+                param[4].Value = float.Parse(dataGridView_displayitems.Rows[row].Cells["Column5"].Value.ToString());
+                //
+                param[5] = new SqlParameter("@CustomerName", SqlDbType.NVarChar, 250);
+                param[5].Value = txt_coustomerName.Text;
+                //
+                usedclass.ExecuteCommand("insert_order_without_effect_stock", param);
+            }
+            SqlParameter[] param2 = new SqlParameter[9];
+            //
+            param2[0] = new SqlParameter("@invoiceNo", SqlDbType.Int);
+            param2[0].Value = Int32.Parse(label_invoiceNumber.Text);
+            //
+            param2[1] = new SqlParameter("@invoiceCustomer", SqlDbType.NVarChar, 250);
+            param2[1].Value = txt_coustomerName.Text;
+            //
+
+            param2[2] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 50);
+            param2[2].Value = "شراء";
+            //
+            param2[3] = new SqlParameter("@invoiceDiscount", SqlDbType.Float);
+            param2[3].Value = float.Parse(txt_invoiceDiscount.Text);
+            //
+            param2[4] = new SqlParameter("@invoiceDate", SqlDbType.Date);
+            param2[4].Value = DateTime.ParseExact(maskedTextBox_invoicedate.Text, "dd/MM/yyyy", null);
+            //
+            param2[5] = new SqlParameter("@invoice_cash_or_not", SqlDbType.NVarChar, 50);
+            param2[5].Value = paymentType;
+            //
+            param2[6] = new SqlParameter("@invoice_run_or_not", SqlDbType.NVarChar, 50);
+            param2[6].Value = run_or_not;
+            //
+            param2[7] = new SqlParameter("@invoice_entereduser", SqlDbType.NVarChar, 50);
+            param2[7].Value = "mustafa";
+            //
+            param2[8] = new SqlParameter("@invoice_saved_money", SqlDbType.Float);
+            param2[8].Value = float.Parse(txt_savedMoney.Text);
+
+            usedclass.ExecuteCommand("new_invoice_but_not_run", param2);
+            dataGridView_displayitems.Rows.Clear();
+            txt_invoiceDiscount.Text = "0";
+            txt_coustomerName.Text = "";
+            txt_savedMoney.Text = "0";
+            button_saveWithout.Enabled = false;
+            btn_saveinvoice.Enabled = false;
+            dataGridView_displayitems.Enabled = false;
+        }
+
 
         /// <summary>
         /// ///////////////////////////////////////////////////////////////End Fucntions//////////////////////////
@@ -248,18 +321,19 @@ namespace Rresturant
 
         private void btn_newinvoice_Click(object sender, EventArgs e)
         {
-            if (dataGridView_displayitems.Rows.Count>0)
+            if (dataGridView_displayitems.Rows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("هل تريد الغاء القائمة الحالية", "Warring", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result==DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     dataGridView_displayitems.Rows.Clear();
+                    count = 1;
                 }
                 else
                 {
 
                 }
-            }    
+            }
             else
             {
                 EnableControlling(); //make all controller Enable (Enable=true)
@@ -296,9 +370,9 @@ namespace Rresturant
 
         private void listBox_listitems_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (listBox_listitems.Enabled==true)
+            if (listBox_listitems.Enabled == true)
             {
-            set_datagrid_items(1);
+                set_datagrid_items(1);
             }
         }
 
@@ -412,6 +486,57 @@ namespace Rresturant
             }
         }
 
+        private void dataGridView_displayitems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                dataGridView_displayitems.Rows.RemoveAt(e.RowIndex);
+                Calculation();
+                for (int i = 0; i < dataGridView_displayitems.Rows.Count; i++)
+                {
+                    dataGridView_displayitems.Rows[i].Cells["Column1"].Value = i + 1;
+                }
+            }
+        }
+
+        private void txt_coustomerName_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            View.UnInvoices_and_Users form = new View.UnInvoices_and_Users();
+            form.ShowDialog();
+        }
+
+        private void SalesForm_Activated(object sender, EventArgs e)
+        {
+            if (BasicClass.CoustomerName != "")
+            {
+                txt_coustomerName.Text = BasicClass.CoustomerName;
+            }
+            else if (BasicClass.UnrnningBillId > 0)
+            {
+
+            }
+        }
+
+        private void txt_coustomerName_Leave(object sender, EventArgs e)
+        {
+            if (txt_coustomerName.Text != "")
+            {
+                SqlParameter[] param = new SqlParameter[1];
+                param[0] = new SqlParameter("@CustomerName", SqlDbType.NVarChar, 150);
+                param[0].Value = txt_coustomerName.Text;
+                dt = usedclass.selectdata("Calculation_Total_Deyoon", param);
+                if (dt.Rows.Count > 0)
+                {
+                    BasicClass.TotalDeyoon = double.Parse(dt.Rows[0]["diffrence"].ToString());
+                    label_Deyoon.Text = BasicClass.TotalDeyoon.ToString();
+                }
+                else
+                {
+                    label_Deyoon.Text = "0";
+                }
+            }
+        }
+
         private void txt_savedMoney_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             txt_savedMoney.Text = invoiceTotalAmount.ToString();
@@ -429,21 +554,14 @@ namespace Rresturant
                 }
                 else
                 {
-                    if (!radioButton_CashMoney.Checked && !radioButton_NoCash.Checked)
-                    {
-                        MessageBox.Show("يرجى اختيار نوع التسديد");
-                    }
-                    else if(txt_savedMoney.Text=="0" && paymentType=="نقد" || txt_savedMoney.Text=="")
-                    {
-                        MessageBox.Show("يرجى ادخال المبلغ المسدد");
-                        txt_savedMoney.Text = "";
-                        txt_savedMoney.Focus();
-                    }
-                    else
-                    {
-                        save_data_from_girdToDB("Not Run");
-                        MessageBox.Show("تم تعليق القائمة");
-                    }
+                    MessageBox.Show("القائمة ستكون بالاجل", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    radioButton_NoCash.Checked = true;
+                    radioButton_CashMoney.Enabled = false;
+                    save_data_from_grid_to_db_without_quantity("Not Run");
+                    MessageBox.Show("تم تعليق القائمة بدون حجز الكميات", "message");
+                    initializeFunction();
+
+
                 }
             }
 

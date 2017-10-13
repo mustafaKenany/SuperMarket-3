@@ -51,14 +51,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView_displayitems = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label_Deyoon = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txt_savedMoney = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -81,6 +75,12 @@
             this.maskedTextBox_invoicedate = new System.Windows.Forms.MaskedTextBox();
             this.btn_newinvoice = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -327,7 +327,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView_displayitems.ColumnHeadersHeight = 36;
+            this.dataGridView_displayitems.ColumnHeadersHeight = 40;
             this.dataGridView_displayitems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -349,54 +349,17 @@
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView_displayitems.RowTemplate.Height = 30;
+            this.dataGridView_displayitems.RowTemplate.Height = 40;
             this.dataGridView_displayitems.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_displayitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView_displayitems.Size = new System.Drawing.Size(673, 393);
             this.dataGridView_displayitems.TabIndex = 6;
+            this.dataGridView_displayitems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayitems_CellContentClick);
             this.dataGridView_displayitems.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayitems_CellValueChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ت";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 75;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "الـــــمادة";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "الكمية";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "سعر الشراء";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "المجموع";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Column6.HeaderText = "حــــذف";
-            this.Column6.Name = "Column6";
-            this.Column6.Text = "حــــذف";
-            this.Column6.UseColumnTextForButtonValue = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label_Deyoon);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txt_savedMoney);
             this.groupBox3.Controls.Add(this.label14);
@@ -413,28 +376,28 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             // 
-            // label16
+            // label_Deyoon
             // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(6, 43);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 37);
-            this.label16.TabIndex = 18;
-            this.label16.Text = "0";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_Deyoon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_Deyoon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_Deyoon.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label_Deyoon.ForeColor = System.Drawing.Color.White;
+            this.label_Deyoon.Location = new System.Drawing.Point(6, 43);
+            this.label_Deyoon.Name = "label_Deyoon";
+            this.label_Deyoon.Size = new System.Drawing.Size(97, 37);
+            this.label_Deyoon.TabIndex = 18;
+            this.label_Deyoon.Text = "0";
+            this.label_Deyoon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Changa Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(109, 48);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 27);
+            this.label15.Size = new System.Drawing.Size(72, 24);
             this.label15.TabIndex = 17;
             this.label15.Text = "طلب سابق";
             // 
@@ -454,11 +417,11 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Changa Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(323, 65);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 27);
+            this.label14.Size = new System.Drawing.Size(89, 24);
             this.label14.TabIndex = 15;
             this.label14.Text = "المبلغ المسدد";
             // 
@@ -479,11 +442,11 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Changa Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(319, 27);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 27);
+            this.label12.Size = new System.Drawing.Size(93, 24);
             this.label12.TabIndex = 13;
             this.label12.Text = "صافي الفاتورة";
             // 
@@ -503,11 +466,11 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Changa Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(575, 64);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 27);
+            this.label11.Size = new System.Drawing.Size(74, 24);
             this.label11.TabIndex = 12;
             this.label11.Text = "مبلغ الخصم";
             // 
@@ -528,11 +491,11 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Changa Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(561, 27);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 27);
+            this.label9.Size = new System.Drawing.Size(97, 24);
             this.label9.TabIndex = 11;
             this.label9.Text = "اجمالي الفاتورة";
             // 
@@ -591,6 +554,8 @@
             this.txt_coustomerName.Size = new System.Drawing.Size(230, 31);
             this.txt_coustomerName.TabIndex = 7;
             this.txt_coustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_coustomerName.Leave += new System.EventHandler(this.txt_coustomerName_Leave);
+            this.txt_coustomerName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_coustomerName_MouseDoubleClick);
             // 
             // label8
             // 
@@ -704,6 +669,47 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "تعديل فواتير شراء";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ت";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 75;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "الـــــمادة";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "الكمية";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "سعر الشراء";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "المجموع";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Column6.HeaderText = "حــــذف";
+            this.Column6.Name = "Column6";
+            this.Column6.Text = "حــــذف";
+            this.Column6.UseColumnTextForButtonValue = true;
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,6 +722,7 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SalesForm";
+            this.Activated += new System.EventHandler(this.SalesForm_Activated);
             this.panel_Header.ResumeLayout(false);
             this.panel_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
@@ -759,12 +766,6 @@
         private System.Windows.Forms.Label label_invoiceNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_saveWithout;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_BarCode;
         private System.Windows.Forms.TextBox txt_coustomerName;
         private System.Windows.Forms.Label label8;
@@ -772,7 +773,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label_Deyoon;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txt_savedMoney;
         private System.Windows.Forms.Label label14;
@@ -785,5 +786,11 @@
         private System.Windows.Forms.RadioButton radioButton_NoCash;
         private System.Windows.Forms.RadioButton radioButton_CashMoney;
         private System.Windows.Forms.ComboBox comboBox_allcategories;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column6;
     }
 }

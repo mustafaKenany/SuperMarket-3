@@ -56,5 +56,11 @@ namespace Rresturant
             prices_form form = new prices_form();
             form.ShowDialog();
         }
+
+        private void button_UnRunnigBill_Click(object sender, EventArgs e)
+        {
+            UnRunBills form = new UnRunBills();
+            form.ShowDialog();
+        }
     }
 }
