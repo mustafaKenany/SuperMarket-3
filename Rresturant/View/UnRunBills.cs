@@ -20,30 +20,48 @@ namespace Rresturant
         {
             InitializeComponent();
             initializeFunction();
-            
+
         }
 
         private void initializeFunction()
         {
+          
             BasicClass.UnrnningBillId = 0;
-            filldatagridview(dataGridView_RuningBuyInvoices, "Run", "بيع"); //fill data grid view of Running Buy inovices
-            filldatagridview(dataGridView_SavedbuyInvoices, "Save", "بيع"); //fill data grid view of Running Buy inovices
-            filldatagridview(dataGridView_unRunBuyInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
-            filldatagridview(dataGridView_RuningSalingInvoices, "Run", "شراء"); //fill data grid view of Running Buy inovices
-            filldatagridview(dataGridView_unRunSalinginvoce, "Not Run", "شراء"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_RuningBuyInvoices, "Run", "بيع"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_SavedbuyInvoices, "Save", "بيع"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_unRunBuyInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_RuningSalingInvoices, "Run", "شراء"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_unRunSalinginvoce, "Not Run", "شراء"); //fill data grid view of Running Buy inovices
 
         }
 
-        private void filldatagridview(DataGridView grid, string invoicestatus, string invoicetype)
+        private void fillgridview_withoutCondition(DataGridView grid, string invoicesStatus, string invoicesType)
         {
             SqlParameter[] param = new SqlParameter[2];
             param[0] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 150);
-            param[0].Value = invoicetype;
+            param[0].Value = invoicesType;
             param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 150);
-            param[1].Value = invoicestatus;
+            param[1].Value = invoicesStatus;
             dt = usedClass.selectdata("select_UnRunInvoice_byType_and_Status", param);
-            grid.DataSource= dt;
+            grid.DataSource = dt;
         }
+
+        private void fillgridview_withCondition(DataGridView grid, string invoicesStatus, string invoiceType, string invoiceCondition)
+        {
+            SqlParameter[] param = new SqlParameter[3];
+            param[0] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 150);
+            param[0].Value = invoiceType;
+            param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 150);
+            param[1].Value = invoicesStatus;
+            param[2] = new SqlParameter("@invoiceFilter", SqlDbType.NVarChar, 150);
+            param[2].Value = invoiceCondition;
+            dt = usedClass.selectdata("select_unRunBill_using_type_and_filter_and_status", param);
+            grid.DataSource = dt;
+        }
+
+        /// <summary>
+        /// //////////////////////////////////functions//////////////////////
+
 
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -72,7 +90,7 @@ namespace Rresturant
                 dataGridView_unRunBuyInvoices.DataSource = dt;
             }
         }
-        
+
         private void textBox_filterSaling_TextChanged(object sender, EventArgs e)
         {
             if (textBox_RunSalinginvoice.Text == "")
@@ -96,55 +114,122 @@ namespace Rresturant
             }
         }
 
-        private void dataGridView_saleBillUnRun_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void textBox_RuningBuyInvoice_TextChanged(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (textBox_RuningBuyInvoice.Text == "")
             {
-                if (e.RowIndex >= 0)
-                {
-                    //code for editing Sale Invoice
-                    SalesForm form = new SalesForm();
-                    BasicClass.UnrnningBillId = Int16.Parse(dataGridView_RuningSalingInvoices["Column_billiD", e.RowIndex].Value.ToString());
-                    this.Close();
-                    form.ShowDialog();
-                }
+                fillgridview_withoutCondition(dataGridView_RuningBuyInvoices, "Run", "بيع"); //fill data grid view of Running Buy inovices
             }
-            else if (e.ColumnIndex == 1)
+            else
             {
-                if (e.RowIndex >= 0)
-                {
-                    //code for deleteing Sale Inovice
-                    MessageBox.Show(dataGridView_RuningSalingInvoices["Column_billiD", e.RowIndex].Value.ToString());
-                }
+                fillgridview_withCondition(dataGridView_RuningBuyInvoices, "Run", "بيع", textBox_RuningBuyInvoice.Text);
             }
         }
 
-        private void dataGridView_buy_InvoiceUnRun_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void textBox_SaveBuyInvoice_TextChanged(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (textBox_SaveBuyInvoice.Text == "")
             {
-                if (e.RowIndex>=0)
-                {
-                    //code for editing Buy Invoice                    
-                    BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunBuyInvoices["Column_Buy_billiD", e.RowIndex].Value.ToString());
-                    Invoice_Form form = new Invoice_Form();
-                    form.ShowDialog();
-                    this.Close();
-                }
+                fillgridview_withoutCondition(dataGridView_SavedbuyInvoices, "Save", "بيع"); //fill data grid view of Running Buy inovices
             }
-            else if (e.ColumnIndex == 1)
+            else
             {
-                if (e.RowIndex >= 0)
-                {
-                    //code for deleting Buy Invoice 
-                    DialogResult result = MessageBox.Show("هل تريد حذف القائمة فعلا، عملية الحذف سوف تؤدي الى فقدان رقم القائمة", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    MessageBox.Show(dataGridView_unRunBuyInvoices["Column_Buy_billiD", e.RowIndex].Value.ToString());
-                }
+                fillgridview_withCondition(dataGridView_SavedbuyInvoices, "Save", "بيع", textBox_SaveBuyInvoice.Text);
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void txt_unRunBuyInvoice_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_unRunBuyInvoice.Text == "")
+            {
+                fillgridview_withoutCondition(dataGridView_unRunBuyInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
+
+            }
+            else
+            {
+                fillgridview_withCondition(dataGridView_unRunBuyInvoices, "Not Run", "بيع", txt_unRunBuyInvoice.Text);
+            }
+        }
+
+        private void textBox_RunSalinginvoice_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_RunSalinginvoice.Text == "")
+            {
+                fillgridview_withoutCondition(dataGridView_RuningSalingInvoices, "Run", "شراء"); //fill data grid view of Running Buy inovices
+            }
+            else
+            {
+                fillgridview_withCondition(dataGridView_RuningSalingInvoices, "Run", "شراء", textBox_RunSalinginvoice.Text);
+            }
+        }
+
+        private void textBox_unRunSalinginvoice_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_unRunSalinginvoice.Text == "")
+            {
+                fillgridview_withoutCondition(dataGridView_unRunSalinginvoce, "Not Run", "شراء"); //fill data grid view of Running Buy inovices
+            }
+            else
+            {
+                fillgridview_withCondition(dataGridView_unRunSalinginvoce, "Not Run", "شراء", textBox_unRunSalinginvoice.Text);
+            }
+        }
+
+
+        private void dataGridView_SavedbuyInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                BasicClass.flagModified = true;
+                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_SavedbuyInvoices["billNumber_SavedInvoices", e.RowIndex].Value.ToString());
+                Invoice_Form form = new Invoice_Form();
+                form.ShowDialog();
+                this.Close();
+            }
+            else if (e.ColumnIndex == 1)
+            {
+
+            }
+        }
+
+        private void dataGridView_unRunBuyInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                BasicClass.flagModified = true;
+                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunBuyInvoices["billNumber_unRunBuyinginvoices", e.RowIndex].Value.ToString());
+                Invoice_Form form = new Invoice_Form();
+                form.ShowDialog();
+                this.Close();
+            }
+            else if (e.ColumnIndex == 1)
+            {
+
+            }
+        }
+
+        private void dataGridView_RuningBuyInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                BasicClass.flagModified = true;
+                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_RuningBuyInvoices["billNumber_RunnigInvoices", e.RowIndex].Value.ToString());
+                Invoice_Form form = new Invoice_Form();
+                form.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void dataGridView_RuningSalingInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView_unRunSalinginvoce_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

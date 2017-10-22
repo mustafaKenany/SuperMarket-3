@@ -180,7 +180,7 @@ namespace Rresturant
                         //
                         parameter[1] = new SqlParameter("@itemNewQuantity", SqlDbType.Int);
                         parameter[1].Value = int.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
-                        usedClass.ExecuteCommand("update_quantity_using_itemName", parameter);
+                        usedClass.ExecuteCommand("set_quantity_using_itemName", parameter);
                     }
                     MessageBox.Show("تم تحديث الارصدة", "Message");
                 }
@@ -339,7 +339,7 @@ namespace Rresturant
                     //
                     parameter[1] = new SqlParameter("@itemNewQuantity", SqlDbType.Int);
                     parameter[1].Value = int.Parse(changes.Rows[i]["column_price_or_quantity"].ToString());
-                    usedClass.ExecuteCommand("update_quantity_using_itemName", parameter);
+                    usedClass.ExecuteCommand("set_quantity_using_itemName", parameter);
                 }
                 MessageBox.Show("تم تحديث الارصدة", "Message");
 

@@ -18,7 +18,7 @@ namespace Rresturant.View
 
         public UnInvoices_and_Users()
         {
-            InitializeComponent();           
+            InitializeComponent();
             initializeFunction();
         }
 
@@ -26,14 +26,20 @@ namespace Rresturant.View
         {
             dt = usedclass.selectdata("Select_Users", null);
             dataGridView_Users.DataSource = dt;
+            fillgridview_withoutCondition(dataGridView_saveBuyingInvoice, "Save", "بيع"); //fill data grid view of Running Buy inovices
+            fillgridview_withoutCondition(dataGridView_unRunBuyingInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
 
+        }
+       
+        private void fillgridview_withoutCondition(DataGridView grid, string invoicesStatus, string invoicesType)
+        {
             SqlParameter[] param = new SqlParameter[2];
             param[0] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 150);
-            param[0].Value = "بيع";
-            param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 100);
-            param[1].Value = "Save";
+            param[0].Value = invoicesType;
+            param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 150);
+            param[1].Value = invoicesStatus;
             dt = usedclass.selectdata("select_UnRunInvoice_byType_and_Status", param);
-            dataGridView_Save_Invoices.DataSource = dt;
+            grid.DataSource = dt;
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -45,32 +51,33 @@ namespace Rresturant.View
         {
             if (tabControl1.SelectedTab == tabPage_users)
             {
-                dt = usedclass.selectdata("Select_Users", null);
-                dataGridView_Users.DataSource = dt;
                 label_form.Text = "الزبائن";
             }
             else
                 if (tabControl1.SelectedTab == tabPage_SaveInvoices)
             {
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 150);
-                param[0].Value = "بيع";
-                param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 100);
-                param[1].Value = "Save";
-                dt = usedclass.selectdata("select_UnRunInvoice_byType_and_Status", param);
-                dataGridView_Save_Invoices.DataSource = dt;
                 label_form.Text = "القوائم المحجوزة";
             }
             else if (tabControl1.SelectedTab == tabPage_unRunInvoices)
             {
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@invoiceType", SqlDbType.NVarChar, 150);
-                param[0].Value = "بيع";
-                param[1] = new SqlParameter("@invoiceStatus", SqlDbType.NVarChar, 100);
-                param[1].Value = "Not Run";
-                dt = usedclass.selectdata("select_UnRunInvoice_byType_and_Status", param);
-                dataGridView_unRunInvoices.DataSource = dt;
                 label_form.Text = "القوائم المعلقة";
+            }
+        }
+
+        private void textBox_Userfilter_TextChanged(object sender, EventArgs e)
+        {
+
+            if (textBox_Userfilter.Text == "")
+            {
+                dt = usedclass.selectdata("Select_Users", null);
+                dataGridView_Users.DataSource = dt;
+            }
+            else
+            {
+                SqlParameter[] param = new SqlParameter[1];
+                param[1] = new SqlParameter("@CoustomerFilter", SqlDbType.NVarChar, 150);
+                param[1].Value = textBox_Userfilter.Text;
+                usedclass.ExecuteCommand("select_Coustomers_using_ID_or_Name", param);
             }
         }
 
@@ -80,34 +87,18 @@ namespace Rresturant.View
             this.Close();
         }
 
-        private void dataGridView_Save_Invoices_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_saveBuyingInvoice_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            BasicClass.UnrnningBillId = Int16.Parse(dataGridView_Save_Invoices["Column_BillID", e.RowIndex].Value.ToString());
+            BasicClass.UnrnningBillId = Int16.Parse(dataGridView_saveBuyingInvoice["Column_BillID", e.RowIndex].Value.ToString());
             this.Close();
+
         }
 
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void dataGridView_unRunBuyingInvoices_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (textBox1.Text == "")
-            {
-                dt = usedclass.selectdata("Select_Users", null);
-                dataGridView_Users.DataSource = dt;
-            }
-            else
-            {
-                SqlParameter[] param = new SqlParameter[1];
-                param[0] = new SqlParameter("@CoustomerFilter", SqlDbType.NVarChar,150);
-                param[0].Value = textBox1.Text;
-                dt = usedclass.selectdata("select_Coustomers_using_ID_or_Name", param);
-                dataGridView_Users.DataSource = dt;
-            }
-        }
-
-        private void dataGridView_unRunInvoices_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunInvoices["dataGridViewTextBoxColumn1", e.RowIndex].Value.ToString());
+            BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunBuyingInvoices["dataGridViewTextBoxColumn1", e.RowIndex].Value.ToString());
             this.Close();
+
         }
     }
 }

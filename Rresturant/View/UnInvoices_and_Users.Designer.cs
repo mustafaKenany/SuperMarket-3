@@ -45,7 +45,7 @@
             this.tabPage_users = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Userfilter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView_Users = new System.Windows.Forms.DataGridView();
@@ -56,19 +56,19 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_SaveInvoices = new System.Windows.Forms.TabPage();
-            this.dataGridView_Save_Invoices = new System.Windows.Forms.DataGridView();
+            this.dataGridView_saveBuyingInvoice = new System.Windows.Forms.DataGridView();
             this.tabPage_unRunInvoices = new System.Windows.Forms.TabPage();
-            this.dataGridView_unRunInvoices = new System.Windows.Forms.DataGridView();
-            this.Column_BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridView_unRunBuyingInvoices = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column_BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -78,9 +78,9 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).BeginInit();
             this.tabPage_SaveInvoices.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Save_Invoices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_saveBuyingInvoice)).BeginInit();
             this.tabPage_unRunInvoices.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_unRunInvoices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_unRunBuyingInvoices)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Header
@@ -166,7 +166,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox_Userfilter);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(378, 3);
@@ -176,15 +176,15 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // textBox1
+            // textBox_Userfilter
             // 
-            this.textBox1.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 101);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 33);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.textBox_Userfilter.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBox_Userfilter.Location = new System.Drawing.Point(6, 101);
+            this.textBox_Userfilter.Name = "textBox_Userfilter";
+            this.textBox_Userfilter.Size = new System.Drawing.Size(188, 33);
+            this.textBox_Userfilter.TabIndex = 5;
+            this.textBox_Userfilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_Userfilter.TextChanged += new System.EventHandler(this.textBox_Userfilter_TextChanged);
             // 
             // label1
             // 
@@ -302,22 +302,22 @@
             // tabPage_SaveInvoices
             // 
             this.tabPage_SaveInvoices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage_SaveInvoices.Controls.Add(this.dataGridView_Save_Invoices);
+            this.tabPage_SaveInvoices.Controls.Add(this.dataGridView_saveBuyingInvoice);
             this.tabPage_SaveInvoices.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.tabPage_SaveInvoices.Location = new System.Drawing.Point(4, 33);
             this.tabPage_SaveInvoices.Name = "tabPage_SaveInvoices";
             this.tabPage_SaveInvoices.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_SaveInvoices.Size = new System.Drawing.Size(592, 633);
             this.tabPage_SaveInvoices.TabIndex = 1;
-            this.tabPage_SaveInvoices.Text = "القوائم المحجوزة";
+            this.tabPage_SaveInvoices.Text = "فواتير البيع المحجوزة";
             this.tabPage_SaveInvoices.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_Save_Invoices
+            // dataGridView_saveBuyingInvoice
             // 
-            this.dataGridView_Save_Invoices.AllowUserToAddRows = false;
-            this.dataGridView_Save_Invoices.AllowUserToDeleteRows = false;
-            this.dataGridView_Save_Invoices.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView_Save_Invoices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView_saveBuyingInvoice.AllowUserToAddRows = false;
+            this.dataGridView_saveBuyingInvoice.AllowUserToDeleteRows = false;
+            this.dataGridView_saveBuyingInvoice.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_saveBuyingInvoice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -325,9 +325,10 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Save_Invoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView_Save_Invoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Save_Invoices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_saveBuyingInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView_saveBuyingInvoice.ColumnHeadersHeight = 50;
+            this.dataGridView_saveBuyingInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView_saveBuyingInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_BillID,
             this.Column8,
             this.Column9,
@@ -340,15 +341,15 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Save_Invoices.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView_Save_Invoices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_Save_Invoices.EnableHeadersVisualStyles = false;
-            this.dataGridView_Save_Invoices.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.dataGridView_Save_Invoices.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_Save_Invoices.MultiSelect = false;
-            this.dataGridView_Save_Invoices.Name = "dataGridView_Save_Invoices";
-            this.dataGridView_Save_Invoices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView_Save_Invoices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView_saveBuyingInvoice.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView_saveBuyingInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_saveBuyingInvoice.EnableHeadersVisualStyles = false;
+            this.dataGridView_saveBuyingInvoice.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.dataGridView_saveBuyingInvoice.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView_saveBuyingInvoice.MultiSelect = false;
+            this.dataGridView_saveBuyingInvoice.Name = "dataGridView_saveBuyingInvoice";
+            this.dataGridView_saveBuyingInvoice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView_saveBuyingInvoice.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -356,38 +357,39 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Save_Invoices.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView_Save_Invoices.RowHeadersWidth = 35;
-            this.dataGridView_Save_Invoices.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView_Save_Invoices.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.dataGridView_Save_Invoices.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView_Save_Invoices.RowTemplate.Height = 45;
-            this.dataGridView_Save_Invoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Save_Invoices.ShowCellErrors = false;
-            this.dataGridView_Save_Invoices.ShowCellToolTips = false;
-            this.dataGridView_Save_Invoices.ShowEditingIcon = false;
-            this.dataGridView_Save_Invoices.ShowRowErrors = false;
-            this.dataGridView_Save_Invoices.Size = new System.Drawing.Size(582, 623);
-            this.dataGridView_Save_Invoices.TabIndex = 1;
-            this.dataGridView_Save_Invoices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Save_Invoices_CellContentDoubleClick);
+            this.dataGridView_saveBuyingInvoice.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView_saveBuyingInvoice.RowHeadersVisible = false;
+            this.dataGridView_saveBuyingInvoice.RowHeadersWidth = 35;
+            this.dataGridView_saveBuyingInvoice.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView_saveBuyingInvoice.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.dataGridView_saveBuyingInvoice.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_saveBuyingInvoice.RowTemplate.Height = 45;
+            this.dataGridView_saveBuyingInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_saveBuyingInvoice.ShowCellErrors = false;
+            this.dataGridView_saveBuyingInvoice.ShowCellToolTips = false;
+            this.dataGridView_saveBuyingInvoice.ShowEditingIcon = false;
+            this.dataGridView_saveBuyingInvoice.ShowRowErrors = false;
+            this.dataGridView_saveBuyingInvoice.Size = new System.Drawing.Size(582, 623);
+            this.dataGridView_saveBuyingInvoice.TabIndex = 1;
+            this.dataGridView_saveBuyingInvoice.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_saveBuyingInvoice_CellContentDoubleClick);
             // 
             // tabPage_unRunInvoices
             // 
-            this.tabPage_unRunInvoices.Controls.Add(this.dataGridView_unRunInvoices);
+            this.tabPage_unRunInvoices.Controls.Add(this.dataGridView_unRunBuyingInvoices);
             this.tabPage_unRunInvoices.Location = new System.Drawing.Point(4, 33);
             this.tabPage_unRunInvoices.Name = "tabPage_unRunInvoices";
             this.tabPage_unRunInvoices.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_unRunInvoices.Size = new System.Drawing.Size(592, 633);
             this.tabPage_unRunInvoices.TabIndex = 2;
-            this.tabPage_unRunInvoices.Text = "القوائم المعلقة \"غير محجوزة\"";
+            this.tabPage_unRunInvoices.Text = "فواتير البيع المعلقة";
             this.tabPage_unRunInvoices.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_unRunInvoices
+            // dataGridView_unRunBuyingInvoices
             // 
-            this.dataGridView_unRunInvoices.AllowUserToAddRows = false;
-            this.dataGridView_unRunInvoices.AllowUserToDeleteRows = false;
-            this.dataGridView_unRunInvoices.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView_unRunInvoices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView_unRunBuyingInvoices.AllowUserToAddRows = false;
+            this.dataGridView_unRunBuyingInvoices.AllowUserToDeleteRows = false;
+            this.dataGridView_unRunBuyingInvoices.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_unRunBuyingInvoices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Changa", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -395,9 +397,10 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_unRunInvoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView_unRunInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_unRunInvoices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_unRunBuyingInvoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView_unRunBuyingInvoices.ColumnHeadersHeight = 50;
+            this.dataGridView_unRunBuyingInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView_unRunBuyingInvoices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -410,15 +413,14 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_unRunInvoices.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView_unRunInvoices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_unRunInvoices.EnableHeadersVisualStyles = false;
-            this.dataGridView_unRunInvoices.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.dataGridView_unRunInvoices.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_unRunInvoices.MultiSelect = false;
-            this.dataGridView_unRunInvoices.Name = "dataGridView_unRunInvoices";
-            this.dataGridView_unRunInvoices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView_unRunInvoices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView_unRunBuyingInvoices.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView_unRunBuyingInvoices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_unRunBuyingInvoices.EnableHeadersVisualStyles = false;
+            this.dataGridView_unRunBuyingInvoices.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.dataGridView_unRunBuyingInvoices.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView_unRunBuyingInvoices.MultiSelect = false;
+            this.dataGridView_unRunBuyingInvoices.Name = "dataGridView_unRunBuyingInvoices";
+            this.dataGridView_unRunBuyingInvoices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Changa", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -426,58 +428,22 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_unRunInvoices.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView_unRunInvoices.RowHeadersWidth = 35;
-            this.dataGridView_unRunInvoices.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView_unRunInvoices.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.dataGridView_unRunInvoices.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dataGridView_unRunInvoices.RowTemplate.Height = 45;
-            this.dataGridView_unRunInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_unRunInvoices.ShowCellErrors = false;
-            this.dataGridView_unRunInvoices.ShowCellToolTips = false;
-            this.dataGridView_unRunInvoices.ShowEditingIcon = false;
-            this.dataGridView_unRunInvoices.ShowRowErrors = false;
-            this.dataGridView_unRunInvoices.Size = new System.Drawing.Size(586, 627);
-            this.dataGridView_unRunInvoices.TabIndex = 2;
-            this.dataGridView_unRunInvoices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_unRunInvoices_CellContentDoubleClick);
-            // 
-            // Column_BillID
-            // 
-            this.Column_BillID.DataPropertyName = "invoiceNo";
-            this.Column_BillID.HeaderText = "رقم الفاتورة";
-            this.Column_BillID.Name = "Column_BillID";
-            this.Column_BillID.ReadOnly = true;
-            this.Column_BillID.Width = 80;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "CustomerName";
-            this.Column8.HeaderText = "اسم الزبون";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 200;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "invoiceTotal";
-            this.Column9.HeaderText = "مبلغ القائمة";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "invoiceDate";
-            this.Column10.HeaderText = "تاريخ الفاتورة";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 80;
-            // 
-            // Column11
-            // 
-            this.Column11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column11.HeaderText = "";
-            this.Column11.Name = "Column11";
-            this.Column11.Text = "اختيار";
-            this.Column11.UseColumnTextForButtonValue = true;
+            this.dataGridView_unRunBuyingInvoices.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView_unRunBuyingInvoices.RowHeadersVisible = false;
+            this.dataGridView_unRunBuyingInvoices.RowHeadersWidth = 35;
+            this.dataGridView_unRunBuyingInvoices.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView_unRunBuyingInvoices.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView_unRunBuyingInvoices.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.dataGridView_unRunBuyingInvoices.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dataGridView_unRunBuyingInvoices.RowTemplate.Height = 45;
+            this.dataGridView_unRunBuyingInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_unRunBuyingInvoices.ShowCellErrors = false;
+            this.dataGridView_unRunBuyingInvoices.ShowCellToolTips = false;
+            this.dataGridView_unRunBuyingInvoices.ShowEditingIcon = false;
+            this.dataGridView_unRunBuyingInvoices.ShowRowErrors = false;
+            this.dataGridView_unRunBuyingInvoices.Size = new System.Drawing.Size(586, 627);
+            this.dataGridView_unRunBuyingInvoices.TabIndex = 2;
+            this.dataGridView_unRunBuyingInvoices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_unRunBuyingInvoices_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -485,7 +451,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "رقم الفاتورة";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -507,7 +472,6 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "invoiceDate";
             this.dataGridViewTextBoxColumn4.HeaderText = "تاريخ الفاتورة";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // dataGridViewButtonColumn1
             // 
@@ -516,6 +480,45 @@
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.Text = "اختيار";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn1.Width = 80;
+            // 
+            // Column_BillID
+            // 
+            this.Column_BillID.DataPropertyName = "invoiceNo";
+            this.Column_BillID.HeaderText = "رقم الفاتورة";
+            this.Column_BillID.Name = "Column_BillID";
+            this.Column_BillID.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "CustomerName";
+            this.Column8.HeaderText = "اسم الزبون";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 200;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "invoiceTotal";
+            this.Column9.HeaderText = "مبلغ القائمة";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "invoiceDate";
+            this.Column10.HeaderText = "تاريخ الفاتورة";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 120;
+            // 
+            // Column11
+            // 
+            this.Column11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column11.HeaderText = "";
+            this.Column11.Name = "Column11";
+            this.Column11.Text = "اختيار";
+            this.Column11.UseColumnTextForButtonValue = true;
+            this.Column11.Width = 80;
             // 
             // UnInvoices_and_Users
             // 
@@ -539,9 +542,9 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Users)).EndInit();
             this.tabPage_SaveInvoices.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Save_Invoices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_saveBuyingInvoice)).EndInit();
             this.tabPage_unRunInvoices.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_unRunInvoices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_unRunBuyingInvoices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,9 +559,9 @@
         public System.Windows.Forms.TabPage tabPage_SaveInvoices;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Userfilter;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView_Save_Invoices;
+        private System.Windows.Forms.DataGridView dataGridView_saveBuyingInvoice;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView_Users;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_userID;
@@ -568,16 +571,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TabPage tabPage_unRunInvoices;
-        private System.Windows.Forms.DataGridView dataGridView_unRunInvoices;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_BillID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewButtonColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_BillID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewButtonColumn Column11;
+        private System.Windows.Forms.DataGridView dataGridView_unRunBuyingInvoices;
     }
 }
