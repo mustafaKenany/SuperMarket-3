@@ -27,6 +27,7 @@ namespace Rresturant
         {
           
             BasicClass.UnrnningBillId = 0;
+            BasicClass.flagModified = false;
             fillgridview_withoutCondition(dataGridView_RuningBuyInvoices, "Run", "بيع"); //fill data grid view of Running Buy inovices
             fillgridview_withoutCondition(dataGridView_SavedbuyInvoices, "Save", "بيع"); //fill data grid view of Running Buy inovices
             fillgridview_withoutCondition(dataGridView_unRunBuyInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
@@ -59,12 +60,21 @@ namespace Rresturant
             grid.DataSource = dt;
         }
 
+        private void call_invoiceForm(DataGridViewCellEventArgs e,DataGridView grid,string GridColumn)
+        {
+            BasicClass.UnrnningBillId = Int16.Parse(grid[GridColumn, e.RowIndex].Value.ToString());
+            Invoice_Form form = new Invoice_Form();
+            form.ShowDialog();
+            this.Close();
+        }
+
         /// <summary>
         /// //////////////////////////////////functions//////////////////////
 
 
         private void Exit_Click(object sender, EventArgs e)
         {
+           
             this.Close();
         }
 
@@ -175,16 +185,12 @@ namespace Rresturant
             }
         }
 
-
         private void dataGridView_SavedbuyInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
                 BasicClass.flagModified = true;
-                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_SavedbuyInvoices["billNumber_SavedInvoices", e.RowIndex].Value.ToString());
-                Invoice_Form form = new Invoice_Form();
-                form.ShowDialog();
-                this.Close();
+                call_invoiceForm(e, dataGridView_SavedbuyInvoices, "billNumber_SavedInvoices");
             }
             else if (e.ColumnIndex == 1)
             {
@@ -196,11 +202,7 @@ namespace Rresturant
         {
             if (e.ColumnIndex == 0)
             {
-                BasicClass.flagModified = true;
-                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunBuyInvoices["billNumber_unRunBuyinginvoices", e.RowIndex].Value.ToString());
-                Invoice_Form form = new Invoice_Form();
-                form.ShowDialog();
-                this.Close();
+                call_invoiceForm(e,dataGridView_unRunBuyInvoices, "billNumber_unRunBuyinginvoices");
             }
             else if (e.ColumnIndex == 1)
             {
@@ -212,11 +214,12 @@ namespace Rresturant
         {
             if (e.ColumnIndex == 0)
             {
-                BasicClass.flagModified = true;
-                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_RuningBuyInvoices["billNumber_RunnigInvoices", e.RowIndex].Value.ToString());
-                Invoice_Form form = new Invoice_Form();
-                form.ShowDialog();
-                this.Close();
+                //BasicClass.flagModified = true;
+                //BasicClass.UnrnningBillId = Int16.Parse(dataGridView_RuningBuyInvoices["billNumber_RunnigInvoices", e.RowIndex].Value.ToString());
+                //Invoice_Form form = new Invoice_Form();
+                //form.ShowDialog();
+                //this.Close();
+                MessageBox.Show("حالة التعديل لا يمكن ان تتم على قوائم منفذة ومرحلة\nاذا كانت حالة زيادة في التجهيز قم بعمل ملحق للفاتورة\nاذا كانت حالة نقص قم بعمل فاتورة شراء من العميل", "Message");
             }
             else
             {
@@ -226,12 +229,27 @@ namespace Rresturant
 
         private void dataGridView_RuningSalingInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex ==0)
+            {
+                //BasicClass.flagModified = true;
+                //BasicClass.UnrnningBillId = Int16.Parse(dataGridView_RuningSalingInvoices["billNumber_RunnigSaleInvoice", e.RowIndex].Value.ToString());
+                //SalesForm form = new SalesForm();
+                //form.ShowDialog();
+                //this.Close();
+                MessageBox.Show("حالة التعديل لا يمكن ان تتم على قوائم منفذة ومرحلة\nاذا كانت حالة زيادة في التجهيز قم بعمل ملحق للفاتورة\nاذا كانت حالة نقص قم بعمل فاتورة بيع الى العميل", "Message");
+            }
         }
 
         private void dataGridView_unRunSalinginvoce_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == 0)
+            {
+                
+                BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunSalinginvoce["billNumber_unRunSalingInvoices", e.RowIndex].Value.ToString());
+                SalesForm form = new SalesForm();
+                form.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

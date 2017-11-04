@@ -30,7 +30,7 @@ namespace Rresturant.View
             fillgridview_withoutCondition(dataGridView_unRunBuyingInvoices, "Not Run", "بيع"); //fill data grid view of Running Buy inovices
 
         }
-       
+
         private void fillgridview_withoutCondition(DataGridView grid, string invoicesStatus, string invoicesType)
         {
             SqlParameter[] param = new SqlParameter[2];

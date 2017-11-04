@@ -79,8 +79,9 @@ namespace Rresturant
             }
             Con.Open();
             cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
             Con.Close();
-            DataSet ds = new DataSet();
+            
         }
 
 

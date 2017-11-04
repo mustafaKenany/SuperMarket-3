@@ -11,6 +11,7 @@ namespace Rresturant
     {
         BasicClass usedclass = new BasicClass();
         DataTable dt = new DataTable();
+        DataTable modifiedTable = new DataTable();
         private int counter;
         private int invoiceTotal, invoiceTotalAmount, buyprice, quantity, invoiceNumber;
         private string paymentType;
@@ -18,12 +19,9 @@ namespace Rresturant
         public Invoice_Form()
         {
             InitializeComponent();
+            modifiedTable.Columns.Add("itemName");
+            modifiedTable.Columns.Add("Quantity");
             initializeFucntion();
-            if (BasicClass.flagModified == true)
-            {
-                MessageBox.Show("Modifed");
-                //update_stock_when_invoiceModified();
-            }
         }
 
         private void initializeFucntion()
@@ -55,6 +53,8 @@ namespace Rresturant
             flowLayoutPanel_CategWithoutBarcode.Enabled = false;
             flowLayoutPanel_itemsWithoutBarcode.Enabled = false;
             dataGridView_displayItems.Enabled = false;
+
+
         }
 
         private void displayallCategory()
@@ -175,22 +175,23 @@ namespace Rresturant
             param3[0] = new SqlParameter("@invoiceNumber", SqlDbType.Int);
             param3[0].Value = Int32.Parse(label_invoiceNo.Text);
             usedclass.ExecuteCommand("delete_invoice_using_number", param3);
-
         }
 
         private void update_stock_when_invoiceModified()
         {
-            SqlParameter[] param = new SqlParameter[3];
-            param[0] = new SqlParameter("@ItemName", SqlDbType.NVarChar, 250);
-            param[1] = new SqlParameter("@itemQuantity", SqlDbType.Int);
-            param[2] = new SqlParameter("@invoiceNo", SqlDbType.Int);
-            param[2].Value = int.Parse(label_invoiceNo.Text);
-            for (int i = 0; i < dataGridView_displayItems.Rows.Count; i++)
+            SqlParameter[] param4 = new SqlParameter[3];
+            param4[0] = new SqlParameter("@ItemName", SqlDbType.NVarChar, 250);
+            param4[1] = new SqlParameter("@itemQuantity", SqlDbType.Int);
+            param4[2] = new SqlParameter("@invoiceNo", SqlDbType.Int);
+            param4[2].Value = int.Parse(label_invoiceNo.Text);
+
+            for (int i = 0; i < modifiedTable.Rows.Count; i++)
             {
-                param[0].Value = dataGridView_displayItems.Rows[i].Cells["Column_itemName"].Value.ToString();
-                param[1].Value = int.Parse(dataGridView_displayItems.Rows[i].Cells["Column_PcsQunatity"].Value.ToString());
-                usedclass.ExecuteCommand("Update_stock_when_invoiceModified", param);
+                param4[0].Value = modifiedTable.Rows[i]["itemName"].ToString();
+                param4[1].Value = int.Parse(modifiedTable.Rows[i]["Quantity"].ToString());
+                usedclass.ExecuteCommand("Update_stock_when_invoiceModified", param4);
             }
+            BasicClass.flagModified = false;
         }
 
         private Boolean checkStock_with_order()
@@ -347,15 +348,15 @@ namespace Rresturant
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            //if (dataGridView_displayItems.Rows.Count > 0)
-            //{
-            //    MessageBox.Show("عملية الاغلاق غير صحيحة لوجود قائمة مفتوحة", "Message");
-            //}
-            //else
-            //{
-            Invoice_Form.ActiveForm.Close();
+            if (dataGridView_displayItems.Rows.Count > 0)
+            {
+                MessageBox.Show("عملية الاغلاق لا يمكن ان تتم \n يجب ان تكون قائمة معلقة او مرحلة", "Message");
+            }
+            else
+            {
+                Invoice_Form.ActiveForm.Close();
 
-            //}
+            }
         }
 
         private void set_itemsWithoutarcode(object sender, EventArgs e)
@@ -430,7 +431,7 @@ namespace Rresturant
                 {
                     buyprice = int.Parse(dataGridView_displayItems.Rows[e.RowIndex].Cells["Column_itemPrice"].Value.ToString());
                     quantity = int.Parse(dataGridView_displayItems.Rows[e.RowIndex].Cells["Column_PcsQunatity"].Value.ToString());
-                    if (quantity > check_stock_quantity(e))
+                    if (quantity > check_stock_quantity(e) && BasicClass.flagModified==false)
                     {
                         MessageBox.Show("الكمية المصروفة اكثر من الكمية المخزونة سوف تتم اضافة كل الكمية الى القائمة");
                         quantity = check_stock_quantity(e);
@@ -472,12 +473,23 @@ namespace Rresturant
 
         private void button_CancelInvoice_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("هل تريد الغاء القائمة الحالية", "Warring", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
+            if (BasicClass.flagModified == false)
             {
+                DialogResult result = MessageBox.Show("هل تريد الغاء القائمة الحالية", "Warring", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    initializeFucntion();
+                    dataGridView_displayItems.Rows.Clear();
+                    Calcuation();
+                }
+            }
+            else if (BasicClass.flagModified == true)
+            {
+                MessageBox.Show("ستتم عملية حذف القائمة نهائيا", "Message");
+                update_stock_when_invoiceModified();
+                delete_invoice();
                 initializeFucntion();
                 dataGridView_displayItems.Rows.Clear();
-                Calcuation();
             }
         }
 
@@ -485,25 +497,37 @@ namespace Rresturant
         {
             if (e.ColumnIndex == 5)
             {
-
-                dataGridView_displayItems.Rows.RemoveAt(e.RowIndex);
-                counter--;
-                Calcuation();
-                for (int i = 0; i < dataGridView_displayItems.Rows.Count; i++)
+                if (e.RowIndex >= 0)
                 {
-                    dataGridView_displayItems.Rows[i].Cells["Column_GridNo"].Value = i + 1;
+                    dataGridView_displayItems.Rows.RemoveAt(e.RowIndex);
+                    counter--;
+                    Calcuation();
+                    for (int i = 0; i < dataGridView_displayItems.Rows.Count; i++)
+                    {
+                        dataGridView_displayItems.Rows[i].Cells["Column_GridNo"].Value = i + 1;
+                    }
                 }
 
             }
-            SqlParameter[] parm = new SqlParameter[1];
-            parm[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 100);
-            parm[0].Value = dataGridView_displayItems.Rows[e.RowIndex].Cells["Column_itemName"].Value;
-            dt = usedclass.selectdata("get_quantity_using_itemName", parm);
-            label_orderQuantity.Text = dt.Rows[0]["Quantity"].ToString();
+
+            //below code to idenfify the quantity
+            else
+            {
+                if (e.RowIndex >= 0)
+                {
+                    SqlParameter[] parm = new SqlParameter[1];
+                    parm[0] = new SqlParameter("@itemName", SqlDbType.NVarChar, 100);
+                    parm[0].Value = dataGridView_displayItems.Rows[e.RowIndex].Cells["Column_itemName"].Value;
+                    dt = usedclass.selectdata("get_quantity_using_itemName", parm);
+                    label_orderQuantity.Text = dt.Rows[0]["Quantity"].ToString();
+                }
+
+            }
         }
 
         private void button_postBill_Click(object sender, EventArgs e)
         {
+           
             if (textBox_customerName.Text == "")
             {
                 MessageBox.Show("يرجى ادخال اسم الزبون", "Message");
@@ -523,7 +547,11 @@ namespace Rresturant
                                 paymentType = "اجل";
                                 txt_savedMoney.Text = "0";
                                 txt_savedMoney.Enabled = false;
-
+                                if (BasicClass.flagModified == true)
+                                {
+                                    MessageBox.Show("سيتم تحديث القائمة", "Message");
+                                    update_stock_when_invoiceModified();
+                                }
                                 delete_invoice();
                                 save_data_from_gridToDB("Run");
                                 MessageBox.Show("تمت عملية الحفظ في قاعدة البيانات", "message");
@@ -539,7 +567,11 @@ namespace Rresturant
                         }
                         else
                         {
-
+                            if (BasicClass.flagModified == true)
+                            {
+                                MessageBox.Show("سيتم تحديث القائمة", "Message");
+                                update_stock_when_invoiceModified();
+                            }
                             delete_invoice();
                             save_data_from_gridToDB("Run");
                             MessageBox.Show("تمت عملية الحفظ في قاعدة البيانات", "message");
@@ -553,6 +585,7 @@ namespace Rresturant
 
         private void button_inPostBill_Click(object sender, EventArgs e)
         {
+            
             if (textBox_customerName.Text == "")
             {
                 MessageBox.Show("يرجى ادخال اسم الزبون", "Message");
@@ -570,6 +603,11 @@ namespace Rresturant
                     DialogResult Result = MessageBox.Show("هل تريد تعليق القائمة مع حجز الكميات", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                     if (Result == DialogResult.Yes)
                     {
+                        if (BasicClass.flagModified == true )
+                        {
+                            MessageBox.Show("سيتم تحديث القائمة", "Message");
+                            update_stock_when_invoiceModified();
+                        }
                         delete_invoice();
                         save_data_from_gridToDB("Save");
                         MessageBox.Show("تم تعليق القائمة مع حجز الكميات", "message");
@@ -577,6 +615,11 @@ namespace Rresturant
                     }
                     else if (Result == DialogResult.No)
                     {
+                        if (BasicClass.flagModified == true)
+                        {
+                            MessageBox.Show("سيتم تحديث القائمة", "Message");
+                            update_stock_when_invoiceModified();
+                        }
                         delete_invoice();
                         save_data_from_grid_to_db_without_quantity("Not Run");
                         MessageBox.Show("تم تعليق القائمة بدون حجز الكميات", "message");
@@ -616,8 +659,14 @@ namespace Rresturant
             View.UnInvoices_and_Users form = new View.UnInvoices_and_Users();
             form.label_form.Text = "الـــزبائن";
             form.tabControl1.SelectedTab = form.tabPage_users;
+            
             form.ShowDialog();
 
+        }
+
+        private void txt_savedMoney_DoubleClick(object sender, EventArgs e)
+        {
+            txt_savedMoney.Text = label_invoiceTotalAmount.Text;
         }
 
         private void Invoice_Form_Activated(object sender, EventArgs e)
@@ -626,7 +675,7 @@ namespace Rresturant
             {
                 textBox_customerName.Text = BasicClass.CoustomerName;
             }
-            if (BasicClass.UnrnningBillId != 0)
+            if (BasicClass.UnrnningBillId > 0)
             {
                 enable_controlling();
                 dataGridView_displayItems.Rows.Clear();
@@ -641,14 +690,22 @@ namespace Rresturant
                 txt_savedMoney.Text = dt.Rows[0]["saved_money"].ToString();
                 txt_invoiceDiscount.Text = dt.Rows[0]["invoiceDiscount"].ToString();
                 label_invoiceDate.Text = dt.Rows[0]["invoiceDate"].ToString();
-                button_CancelInvoice.Enabled = false;
+                if (BasicClass.flagModified==true)
+                {
+                    button_CancelInvoice.Text = "حذف الفاتورة";
+                }
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     int quantity = (int.Parse(dt.Rows[i]["itemQuantity"].ToString())) * -1;
                     dataGridView_displayItems.Rows.Add(counter, dt.Rows[i]["itemName"].ToString(), quantity, dt.Rows[i]["itemPrice"].ToString(), dt.Rows[i]["totalPrice"].ToString());
+                    //modifiedTable.Columns.Add("itemName");
+                    //modifiedTable.Columns.Add("Quantity");
+                    modifiedTable.Rows.Add(dt.Rows[i]["itemName"].ToString(), quantity);
                     counter++;
                 }
                 BasicClass.UnrnningBillId = 0;
+                textBox_customerName_Leave(sender, e);
+           
             }
         }
 
