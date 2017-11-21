@@ -65,8 +65,10 @@ namespace Rresturant
 
         private void btn_ReportingForm_Click(object sender, EventArgs e)
         {
-            ReportingForm form = new ReportingForm();
-            form.ShowDialog();
+            //ReportingForm form = new ReportingForm ();
+            //form.ShowDialog ();
+            var form = new ReportingMiniForm ();
+            form.ShowDialog ();
         }
     }
 }

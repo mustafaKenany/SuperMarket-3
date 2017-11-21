@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyReportForm.Designer.cs">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\BasicClass.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
@@ -74,11 +80,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_DB.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReportingForm.cs">
+    <Compile Include="itemsReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportingForm.Designer.cs">
-      <DependentUpon>ReportingForm.cs</DependentUpon>
+    <Compile Include="itemsReportForm.Designer.cs">
+      <DependentUpon>itemsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportingMiniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportingMiniForm.Designer.cs">
+      <DependentUpon>ReportingMiniForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleReportForm.Designer.cs">
+      <DependentUpon>SaleReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UnRunBills.cs">
       <SubType>Form</SubType>
@@ -116,12 +134,6 @@
     <Compile Include="FinicialForm.Designer.cs">
       <DependentUpon>FinicialForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="invoiceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="invoiceForm.Designer.cs">
-      <DependentUpon>invoiceForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\stteingscs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,12 +160,21 @@
     <Compile Include="View\UnInvoices_and_Users.Designer.cs">
       <DependentUpon>UnInvoices_and_Users.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BuyReportForm.resx">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportingForm.resx">
-      <DependentUpon>ReportingForm.cs</DependentUpon>
+    <EmbeddedResource Include="itemsReportForm.resx">
+      <DependentUpon>itemsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportingMiniForm.resx">
+      <DependentUpon>ReportingMiniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleReportForm.resx">
+      <DependentUpon>SaleReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UnRunBills.resx">
       <DependentUpon>UnRunBills.cs</DependentUpon>
@@ -172,9 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FinicialForm.resx">
       <DependentUpon>FinicialForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="invoiceForm.resx">
-      <DependentUpon>invoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\stteingscs.resx">
       <DependentUpon>stteingscs.cs</DependentUpon>
