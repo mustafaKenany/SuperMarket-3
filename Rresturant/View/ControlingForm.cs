@@ -62,5 +62,11 @@ namespace Rresturant
             UnRunBills form = new UnRunBills();
             form.ShowDialog();
         }
+
+        private void btn_ReportingForm_Click(object sender, EventArgs e)
+        {
+            ReportingForm form = new ReportingForm();
+            form.ShowDialog();
+        }
     }
 }

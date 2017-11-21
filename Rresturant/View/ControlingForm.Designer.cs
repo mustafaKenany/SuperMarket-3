@@ -127,6 +127,7 @@
             this.btn_ReportingForm.Size = new System.Drawing.Size(194, 137);
             this.btn_ReportingForm.TabIndex = 12;
             this.btn_ReportingForm.UseVisualStyleBackColor = true;
+            this.btn_ReportingForm.Click += new System.EventHandler(this.btn_ReportingForm_Click);
             // 
             // panel1
             // 
