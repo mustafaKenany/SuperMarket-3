@@ -16,14 +16,14 @@ namespace Rresturant {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class ItemsReport : ReportClass {
         
-        public CrystalReport1() {
+        public ItemsReport() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "ItemsReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Rresturant {
         
         public override string FullResourceName {
             get {
-                return "Rresturant.CrystalReport1.rpt";
+                return "Rresturant.ItemsReport.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,25 +82,17 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedItemsReport : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedItemsReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace Rresturant {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            ItemsReport rpt = new ItemsReport();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Rresturant
@@ -16,7 +10,7 @@ namespace Rresturant
         public SaleReportForm()
         {
             InitializeComponent ();
-            dataGridViewSaleGrid.Columns["Column8"].DefaultCellStyle.Format = "yyyy-MM-dd";
+            dataGridViewSaleGrid.Columns["ColumnInvoiceDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
         }
 
         private void Exit_Click(object sender , EventArgs e)
@@ -56,6 +50,29 @@ namespace Rresturant
                 param[0].Value = "شراء";
                 dt = usedClass.selectdata ( "SelectAll_Invoices_usingType" , param );
                 dataGridViewSaleGrid.DataSource = dt;
+            }
+        }
+
+        private void dataGridViewSaleGrid_CellContentClick(object sender , DataGridViewCellEventArgs e)
+        {
+            var crp = new SaleInvoiceReport ();
+            var dt = new DataTable ();
+            var usedClass = new BasicClass ();
+            var form = new PrintForm ();
+            if ( e.ColumnIndex == 0 )
+            {
+                if ( e.RowIndex >= 0 )
+                {
+                    int InvoiceNo = int.Parse ( dataGridViewSaleGrid.Rows[e.RowIndex].Cells["ColumnInvoiceNo"].Value.ToString () );
+                    SqlParameter[] param = new SqlParameter[1];
+                    param[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
+                    param[0].Value = InvoiceNo;
+                    dt = usedClass.selectdata ( "Report_Select_SaleInvoice_usingInvoiceNo" , param );
+                    crp.SetDataSource ( dt );
+                    form.crystalReportViewer1.ReportSource = crp;
+                    form.ShowDialog ();
+
+                }
             }
         }
     }

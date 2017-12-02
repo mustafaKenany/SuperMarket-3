@@ -24,6 +24,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReportItems" msprop:Generator_TableClassName="ReportItemsDataTable" msprop:Generator_TableVarName="tableReportItems" msprop:Generator_RowChangedName="ReportItemsRowChanged" msprop:Generator_TablePropName="ReportItems" msprop:Generator_RowDeletingName="ReportItemsRowDeleting" msprop:Generator_RowChangingName="ReportItemsRowChanging" msprop:Generator_RowEvHandlerName="ReportItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportItemsRowDeleted" msprop:Generator_RowClassName="ReportItemsRow" msprop:Generator_UserTableName="ReportItems" msprop:Generator_RowEvArgName="ReportItemsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="invoiceNumber" msprop:Generator_ColumnVarNameInTable="columninvoiceNumber" msprop:Generator_ColumnPropNameInRow="invoiceNumber" msprop:Generator_ColumnPropNameInTable="invoiceNumberColumn" msprop:Generator_UserColumnName="invoiceNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
+              <xs:element name="itemName" msprop:Generator_ColumnVarNameInTable="columnitemName" msprop:Generator_ColumnPropNameInRow="itemName" msprop:Generator_ColumnPropNameInTable="itemNameColumn" msprop:Generator_UserColumnName="itemName" type="xs:string" minOccurs="0" />
+              <xs:element name="itemPrice" msprop:Generator_ColumnVarNameInTable="columnitemPrice" msprop:Generator_ColumnPropNameInRow="itemPrice" msprop:Generator_ColumnPropNameInTable="itemPriceColumn" msprop:Generator_UserColumnName="itemPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="itemQuantity" msprop:Generator_ColumnVarNameInTable="columnitemQuantity" msprop:Generator_ColumnPropNameInRow="itemQuantity" msprop:Generator_ColumnPropNameInTable="itemQuantityColumn" msprop:Generator_UserColumnName="itemQuantity" type="xs:string" minOccurs="0" />
+              <xs:element name="totalPrice" msprop:Generator_ColumnVarNameInTable="columntotalPrice" msprop:Generator_ColumnPropNameInRow="totalPrice" msprop:Generator_ColumnPropNameInTable="totalPriceColumn" msprop:Generator_UserColumnName="totalPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="invoiceTotal" msprop:Generator_ColumnVarNameInTable="columninvoiceTotal" msprop:Generator_ColumnPropNameInRow="invoiceTotal" msprop:Generator_ColumnPropNameInTable="invoiceTotalColumn" msprop:Generator_UserColumnName="invoiceTotal" type="xs:string" minOccurs="0" />
+              <xs:element name="invoiceDiscount" msprop:Generator_ColumnVarNameInTable="columninvoiceDiscount" msprop:Generator_ColumnPropNameInRow="invoiceDiscount" msprop:Generator_ColumnPropNameInTable="invoiceDiscountColumn" msprop:Generator_UserColumnName="invoiceDiscount" type="xs:string" minOccurs="0" />
+              <xs:element name="invoiceTotalAmount" msprop:Generator_ColumnVarNameInTable="columninvoiceTotalAmount" msprop:Generator_ColumnPropNameInRow="invoiceTotalAmount" msprop:Generator_ColumnPropNameInTable="invoiceTotalAmountColumn" msprop:Generator_UserColumnName="invoiceTotalAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="saved_money" msprop:Generator_ColumnVarNameInTable="columnsaved_money" msprop:Generator_ColumnPropNameInRow="saved_money" msprop:Generator_ColumnPropNameInTable="saved_moneyColumn" msprop:Generator_UserColumnName="saved_money" type="xs:string" minOccurs="0" />
+              <xs:element name="invoiceDate" msprop:Generator_ColumnVarNameInTable="columninvoiceDate" msprop:Generator_ColumnPropNameInRow="invoiceDate" msprop:Generator_ColumnPropNameInTable="invoiceDateColumn" msprop:Generator_UserColumnName="invoiceDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

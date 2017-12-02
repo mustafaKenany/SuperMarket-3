@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleReportForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleReportForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonShowSaleInvoices = new System.Windows.Forms.Button();
-            this.buttonPrintSalesGrid = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFilterSalesGrid = new System.Windows.Forms.TextBox();
+            this.buttonPrintSalesGrid = new System.Windows.Forms.Button();
+            this.buttonShowSaleInvoices = new System.Windows.Forms.Button();
             this.dataGridViewSaleGrid = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Exit = new System.Windows.Forms.PictureBox();
+            this.ColumnInvoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceSavedMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceDetail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaleGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +78,18 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "فواتير الشراء";
             // 
+            // Exit
+            // 
+            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
+            this.Exit.Location = new System.Drawing.Point(0, 0);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(43, 50);
+            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Exit.TabIndex = 2;
+            this.Exit.TabStop = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
@@ -89,31 +101,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1125, 50);
             this.panel2.TabIndex = 3;
-            // 
-            // buttonShowSaleInvoices
-            // 
-            this.buttonShowSaleInvoices.AutoSize = true;
-            this.buttonShowSaleInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
-            this.buttonShowSaleInvoices.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowSaleInvoices.Location = new System.Drawing.Point(600, 5);
-            this.buttonShowSaleInvoices.Name = "buttonShowSaleInvoices";
-            this.buttonShowSaleInvoices.Size = new System.Drawing.Size(100, 40);
-            this.buttonShowSaleInvoices.TabIndex = 1;
-            this.buttonShowSaleInvoices.Text = "عرض الفواتير";
-            this.buttonShowSaleInvoices.UseVisualStyleBackColor = false;
-            this.buttonShowSaleInvoices.Click += new System.EventHandler(this.buttonShowSaleInvoices_Click);
-            // 
-            // buttonPrintSalesGrid
-            // 
-            this.buttonPrintSalesGrid.AutoSize = true;
-            this.buttonPrintSalesGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
-            this.buttonPrintSalesGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrintSalesGrid.Location = new System.Drawing.Point(475, 5);
-            this.buttonPrintSalesGrid.Name = "buttonPrintSalesGrid";
-            this.buttonPrintSalesGrid.Size = new System.Drawing.Size(100, 40);
-            this.buttonPrintSalesGrid.TabIndex = 2;
-            this.buttonPrintSalesGrid.Text = "طباعة";
-            this.buttonPrintSalesGrid.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -135,6 +122,31 @@
             this.textBoxFilterSalesGrid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxFilterSalesGrid.TextChanged += new System.EventHandler(this.textBoxFilterSalesGrid_TextChanged);
             // 
+            // buttonPrintSalesGrid
+            // 
+            this.buttonPrintSalesGrid.AutoSize = true;
+            this.buttonPrintSalesGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
+            this.buttonPrintSalesGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrintSalesGrid.Location = new System.Drawing.Point(475, 5);
+            this.buttonPrintSalesGrid.Name = "buttonPrintSalesGrid";
+            this.buttonPrintSalesGrid.Size = new System.Drawing.Size(100, 40);
+            this.buttonPrintSalesGrid.TabIndex = 2;
+            this.buttonPrintSalesGrid.Text = "طباعة";
+            this.buttonPrintSalesGrid.UseVisualStyleBackColor = false;
+            // 
+            // buttonShowSaleInvoices
+            // 
+            this.buttonShowSaleInvoices.AutoSize = true;
+            this.buttonShowSaleInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
+            this.buttonShowSaleInvoices.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowSaleInvoices.Location = new System.Drawing.Point(600, 5);
+            this.buttonShowSaleInvoices.Name = "buttonShowSaleInvoices";
+            this.buttonShowSaleInvoices.Size = new System.Drawing.Size(100, 40);
+            this.buttonShowSaleInvoices.TabIndex = 1;
+            this.buttonShowSaleInvoices.Text = "عرض الفواتير";
+            this.buttonShowSaleInvoices.UseVisualStyleBackColor = false;
+            this.buttonShowSaleInvoices.Click += new System.EventHandler(this.buttonShowSaleInvoices_Click);
+            // 
             // dataGridViewSaleGrid
             // 
             this.dataGridViewSaleGrid.AllowUserToAddRows = false;
@@ -155,15 +167,15 @@
             this.dataGridViewSaleGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSaleGrid.ColumnHeadersHeight = 50;
             this.dataGridViewSaleGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9});
+            this.ColumnInvoiceNo,
+            this.ColumnInvoiceCustomer,
+            this.ColumnInvoiceTotal,
+            this.ColumnInvoiceDiscount,
+            this.ColumnInvoiceTotalAmount,
+            this.ColumnInvoiceSavedMoney,
+            this.ColumnInvoiceStatus,
+            this.ColumnInvoiceDate,
+            this.ColumnInvoiceDetail});
             this.dataGridViewSaleGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSaleGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridViewSaleGrid.Location = new System.Drawing.Point(0, 100);
@@ -183,84 +195,73 @@
             this.dataGridViewSaleGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSaleGrid.Size = new System.Drawing.Size(1125, 600);
             this.dataGridViewSaleGrid.TabIndex = 10;
+            this.dataGridViewSaleGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSaleGrid_CellContentClick);
             // 
-            // Column1
+            // ColumnInvoiceNo
             // 
-            this.Column1.DataPropertyName = "invoiceNo";
-            this.Column1.HeaderText = "رقم فاتورة";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.ColumnInvoiceNo.DataPropertyName = "invoiceNo";
+            this.ColumnInvoiceNo.HeaderText = "رقم فاتورة";
+            this.ColumnInvoiceNo.Name = "ColumnInvoiceNo";
+            this.ColumnInvoiceNo.ReadOnly = true;
             // 
-            // Column2
+            // ColumnInvoiceCustomer
             // 
-            this.Column2.DataPropertyName = "CustomerName";
-            this.Column2.HeaderText = "الـــــزبــــــــون";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
+            this.ColumnInvoiceCustomer.DataPropertyName = "CustomerName";
+            this.ColumnInvoiceCustomer.HeaderText = "الـــــزبــــــــون";
+            this.ColumnInvoiceCustomer.Name = "ColumnInvoiceCustomer";
+            this.ColumnInvoiceCustomer.ReadOnly = true;
+            this.ColumnInvoiceCustomer.Width = 200;
             // 
-            // Column3
+            // ColumnInvoiceTotal
             // 
-            this.Column3.DataPropertyName = "invoiceTotal";
-            this.Column3.HeaderText = "مجموع فاتورة";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.ColumnInvoiceTotal.DataPropertyName = "invoiceTotal";
+            this.ColumnInvoiceTotal.HeaderText = "مجموع فاتورة";
+            this.ColumnInvoiceTotal.Name = "ColumnInvoiceTotal";
+            this.ColumnInvoiceTotal.ReadOnly = true;
             // 
-            // Column4
+            // ColumnInvoiceDiscount
             // 
-            this.Column4.DataPropertyName = "invoiceDiscount";
-            this.Column4.HeaderText = "خصم القائمة";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.ColumnInvoiceDiscount.DataPropertyName = "invoiceDiscount";
+            this.ColumnInvoiceDiscount.HeaderText = "خصم القائمة";
+            this.ColumnInvoiceDiscount.Name = "ColumnInvoiceDiscount";
+            this.ColumnInvoiceDiscount.ReadOnly = true;
             // 
-            // Column5
+            // ColumnInvoiceTotalAmount
             // 
-            this.Column5.DataPropertyName = "invoiceTotalAmount";
-            this.Column5.HeaderText = "صافي القائمة";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.ColumnInvoiceTotalAmount.DataPropertyName = "invoiceTotalAmount";
+            this.ColumnInvoiceTotalAmount.HeaderText = "صافي القائمة";
+            this.ColumnInvoiceTotalAmount.Name = "ColumnInvoiceTotalAmount";
+            this.ColumnInvoiceTotalAmount.ReadOnly = true;
             // 
-            // Column6
+            // ColumnInvoiceSavedMoney
             // 
-            this.Column6.DataPropertyName = "saved_money";
-            this.Column6.HeaderText = "المبلغ المسدد";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.ColumnInvoiceSavedMoney.DataPropertyName = "saved_money";
+            this.ColumnInvoiceSavedMoney.HeaderText = "المبلغ المسدد";
+            this.ColumnInvoiceSavedMoney.Name = "ColumnInvoiceSavedMoney";
+            this.ColumnInvoiceSavedMoney.ReadOnly = true;
             // 
-            // Column7
+            // ColumnInvoiceStatus
             // 
-            this.Column7.DataPropertyName = "Cash_or_notCash";
-            this.Column7.HeaderText = "نوع فاتورة";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.ColumnInvoiceStatus.DataPropertyName = "Cash_or_notCash";
+            this.ColumnInvoiceStatus.HeaderText = "نوع فاتورة";
+            this.ColumnInvoiceStatus.Name = "ColumnInvoiceStatus";
+            this.ColumnInvoiceStatus.ReadOnly = true;
             // 
-            // Column8
+            // ColumnInvoiceDate
             // 
-            this.Column8.DataPropertyName = "invoiceDate";
-            this.Column8.HeaderText = "تاريخ فاتورة";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.ColumnInvoiceDate.DataPropertyName = "invoiceDate";
+            this.ColumnInvoiceDate.HeaderText = "تاريخ فاتورة";
+            this.ColumnInvoiceDate.Name = "ColumnInvoiceDate";
+            this.ColumnInvoiceDate.ReadOnly = true;
             // 
-            // Column9
+            // ColumnInvoiceDetail
             // 
-            this.Column9.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Column9.HeaderText = "";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Text = "تفاصيل";
-            this.Column9.UseColumnTextForButtonValue = true;
-            // 
-            // Exit
-            // 
-            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
-            this.Exit.Location = new System.Drawing.Point(0, 0);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(43, 50);
-            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Exit.TabIndex = 2;
-            this.Exit.TabStop = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.ColumnInvoiceDetail.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.ColumnInvoiceDetail.HeaderText = "تفاصيل";
+            this.ColumnInvoiceDetail.Name = "ColumnInvoiceDetail";
+            this.ColumnInvoiceDetail.ReadOnly = true;
+            this.ColumnInvoiceDetail.Text = "تفاصيل";
+            this.ColumnInvoiceDetail.UseColumnTextForButtonValue = true;
             // 
             // SaleReportForm
             // 
@@ -279,10 +280,10 @@
             this.Text = "SaleReportForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaleGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,14 +299,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxFilterSalesGrid;
         private System.Windows.Forms.DataGridView dataGridViewSaleGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceTotalAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceSavedMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoiceDate;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnInvoiceDetail;
     }
 }

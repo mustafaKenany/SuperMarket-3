@@ -80,6 +80,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_DB.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ItemsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="itemsReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="ReportingMiniForm.Designer.cs">
       <DependentUpon>ReportingMiniForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleInvoiceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleInvoiceReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SaleReportForm.cs">
       <SubType>Form</SubType>
@@ -167,11 +179,19 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ItemsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ItemsReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="itemsReportForm.resx">
       <DependentUpon>itemsReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportingMiniForm.resx">
       <DependentUpon>ReportingMiniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleInvoiceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleInvoiceReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleReportForm.resx">
       <DependentUpon>SaleReportForm.cs</DependentUpon>

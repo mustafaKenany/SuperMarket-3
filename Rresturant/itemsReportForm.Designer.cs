@@ -48,6 +48,9 @@
             this.ColumnItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemLastPriceSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShowAllSaleInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnAllBuyInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSavedInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -63,7 +66,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 50);
+            this.panel1.Size = new System.Drawing.Size(1125, 50);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -100,7 +103,7 @@
             this.panel2.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1000, 50);
+            this.panel2.Size = new System.Drawing.Size(1125, 50);
             this.panel2.TabIndex = 3;
             // 
             // label2
@@ -151,6 +154,7 @@
             // dataGridView_displayitems
             // 
             this.dataGridView_displayitems.AllowUserToAddRows = false;
+            this.dataGridView_displayitems.AllowUserToDeleteRows = false;
             this.dataGridView_displayitems.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -174,12 +178,16 @@
             this.ColumnItemBarCode,
             this.ColumnItemQuantity,
             this.ColumnItemBuyPrice,
-            this.ColumnItemLastPriceSale});
+            this.ColumnItemLastPriceSale,
+            this.ColumnShowAllSaleInvoices,
+            this.ColumnAllBuyInvoices,
+            this.ColumnSavedInvoices});
             this.dataGridView_displayitems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_displayitems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridView_displayitems.Location = new System.Drawing.Point(0, 100);
             this.dataGridView_displayitems.MultiSelect = false;
             this.dataGridView_displayitems.Name = "dataGridView_displayitems";
+            this.dataGridView_displayitems.ReadOnly = true;
             this.dataGridView_displayitems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView_displayitems.RowHeadersVisible = false;
             this.dataGridView_displayitems.RowHeadersWidth = 45;
@@ -191,14 +199,16 @@
             this.dataGridView_displayitems.RowTemplate.Height = 40;
             this.dataGridView_displayitems.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_displayitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_displayitems.Size = new System.Drawing.Size(1000, 600);
+            this.dataGridView_displayitems.Size = new System.Drawing.Size(1125, 600);
             this.dataGridView_displayitems.TabIndex = 9;
+            this.dataGridView_displayitems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayitems_CellContentClick);
             // 
             // ColumnItemID
             // 
             this.ColumnItemID.DataPropertyName = "ItemID";
             this.ColumnItemID.HeaderText = "رمز المادة";
             this.ColumnItemID.Name = "ColumnItemID";
+            this.ColumnItemID.ReadOnly = true;
             this.ColumnItemID.Width = 75;
             // 
             // ColumnItemName
@@ -206,13 +216,15 @@
             this.ColumnItemName.DataPropertyName = "ItemName";
             this.ColumnItemName.HeaderText = "الـــــمادة";
             this.ColumnItemName.Name = "ColumnItemName";
-            this.ColumnItemName.Width = 250;
+            this.ColumnItemName.ReadOnly = true;
+            this.ColumnItemName.Width = 200;
             // 
             // ColumnItemCategory
             // 
             this.ColumnItemCategory.DataPropertyName = "itemCategory";
             this.ColumnItemCategory.HeaderText = "الصنف";
             this.ColumnItemCategory.Name = "ColumnItemCategory";
+            this.ColumnItemCategory.ReadOnly = true;
             this.ColumnItemCategory.Width = 150;
             // 
             // ColumnItemBarCode
@@ -220,30 +232,67 @@
             this.ColumnItemBarCode.DataPropertyName = "ItemBarCode";
             this.ColumnItemBarCode.HeaderText = "الباركود";
             this.ColumnItemBarCode.Name = "ColumnItemBarCode";
+            this.ColumnItemBarCode.ReadOnly = true;
+            this.ColumnItemBarCode.Width = 90;
             // 
             // ColumnItemQuantity
             // 
             this.ColumnItemQuantity.DataPropertyName = "itemQuantity";
             this.ColumnItemQuantity.HeaderText = "الكمية ";
             this.ColumnItemQuantity.Name = "ColumnItemQuantity";
+            this.ColumnItemQuantity.ReadOnly = true;
+            this.ColumnItemQuantity.Width = 90;
             // 
             // ColumnItemBuyPrice
             // 
             this.ColumnItemBuyPrice.DataPropertyName = "price_for_buy";
             this.ColumnItemBuyPrice.HeaderText = "سعر البيع";
             this.ColumnItemBuyPrice.Name = "ColumnItemBuyPrice";
+            this.ColumnItemBuyPrice.ReadOnly = true;
+            this.ColumnItemBuyPrice.Width = 90;
             // 
             // ColumnItemLastPriceSale
             // 
             this.ColumnItemLastPriceSale.DataPropertyName = "LastPrice";
             this.ColumnItemLastPriceSale.HeaderText = "اخر شراء";
             this.ColumnItemLastPriceSale.Name = "ColumnItemLastPriceSale";
+            this.ColumnItemLastPriceSale.ReadOnly = true;
+            this.ColumnItemLastPriceSale.Width = 90;
+            // 
+            // ColumnShowAllSaleInvoices
+            // 
+            this.ColumnShowAllSaleInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnShowAllSaleInvoices.HeaderText = "فواتير الشراء";
+            this.ColumnShowAllSaleInvoices.Name = "ColumnShowAllSaleInvoices";
+            this.ColumnShowAllSaleInvoices.ReadOnly = true;
+            this.ColumnShowAllSaleInvoices.Text = "تفاصيل";
+            this.ColumnShowAllSaleInvoices.UseColumnTextForButtonValue = true;
+            // 
+            // ColumnAllBuyInvoices
+            // 
+            this.ColumnAllBuyInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnAllBuyInvoices.HeaderText = "فواتير البيع";
+            this.ColumnAllBuyInvoices.Name = "ColumnAllBuyInvoices";
+            this.ColumnAllBuyInvoices.ReadOnly = true;
+            this.ColumnAllBuyInvoices.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnAllBuyInvoices.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnAllBuyInvoices.Text = "تفاصيل";
+            this.ColumnAllBuyInvoices.UseColumnTextForButtonValue = true;
+            // 
+            // ColumnSavedInvoices
+            // 
+            this.ColumnSavedInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSavedInvoices.HeaderText = "فواتير محجوزة";
+            this.ColumnSavedInvoices.Name = "ColumnSavedInvoices";
+            this.ColumnSavedInvoices.ReadOnly = true;
+            this.ColumnSavedInvoices.Text = "تفاصيل";
+            this.ColumnSavedInvoices.UseColumnTextForButtonValue = true;
             // 
             // itemsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 700);
+            this.ClientSize = new System.Drawing.Size(1125, 700);
             this.Controls.Add(this.dataGridView_displayitems);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -281,5 +330,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemBuyPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemLastPriceSale;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnShowAllSaleInvoices;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnAllBuyInvoices;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnSavedInvoices;
     }
 }

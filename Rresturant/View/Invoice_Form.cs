@@ -562,11 +562,12 @@ namespace Rresturant
                                 MessageBox.Show("يرجى ادخال المبلغ المسدد");
                                 txt_savedMoney.Enabled = true;
                                 txt_savedMoney.Focus();
-                                paymentType = "نقد";
+                               
                             }
                         }
                         else
                         {
+                            paymentType = "نقد";
                             if (BasicClass.flagModified == true)
                             {
                                 MessageBox.Show("سيتم تحديث القائمة", "Message");
@@ -634,7 +635,7 @@ namespace Rresturant
         {
             SqlParameter[] param = new SqlParameter[1];
             param[0] = new SqlParameter("@invoiceNo", SqlDbType.Int);
-            param[0].Value = 9;
+            param[0].Value = 65;
             dt = usedclass.selectdata("Get_order_by_invoiceNo", param);
             CrystalReport1 crp = new CrystalReport1();
             crp.SetDataSource(dt);
