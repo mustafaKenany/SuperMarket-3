@@ -653,6 +653,8 @@ namespace Rresturant {
             
             private global::System.Data.DataColumn columninvoiceDate;
             
+            private global::System.Data.DataColumn columninvoiceNo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReportItemsDataTable() {
@@ -776,6 +778,14 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn invoiceNoColumn {
+                get {
+                    return this.columninvoiceNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -811,7 +821,7 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportItemsRow AddReportItemsRow(string invoiceNumber, string CustomerName, string itemName, string itemPrice, string itemQuantity, string totalPrice, string invoiceTotal, string invoiceDiscount, string invoiceTotalAmount, string saved_money, string invoiceDate) {
+            public ReportItemsRow AddReportItemsRow(string invoiceNumber, string CustomerName, string itemName, string itemPrice, string itemQuantity, string totalPrice, string invoiceTotal, string invoiceDiscount, string invoiceTotalAmount, string saved_money, string invoiceDate, string invoiceNo) {
                 ReportItemsRow rowReportItemsRow = ((ReportItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         invoiceNumber,
@@ -824,7 +834,8 @@ namespace Rresturant {
                         invoiceDiscount,
                         invoiceTotalAmount,
                         saved_money,
-                        invoiceDate};
+                        invoiceDate,
+                        invoiceNo};
                 rowReportItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportItemsRow);
                 return rowReportItemsRow;
@@ -858,6 +869,7 @@ namespace Rresturant {
                 this.columninvoiceTotalAmount = base.Columns["invoiceTotalAmount"];
                 this.columnsaved_money = base.Columns["saved_money"];
                 this.columninvoiceDate = base.Columns["invoiceDate"];
+                this.columninvoiceNo = base.Columns["invoiceNo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,6 +897,8 @@ namespace Rresturant {
                 base.Columns.Add(this.columnsaved_money);
                 this.columninvoiceDate = new global::System.Data.DataColumn("invoiceDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninvoiceDate);
+                this.columninvoiceNo = new global::System.Data.DataColumn("invoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoiceNo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1386,6 +1400,22 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string invoiceNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportItems.invoiceNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'invoiceNo\' in table \'ReportItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportItems.invoiceNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsinvoiceNumberNull() {
                 return this.IsNull(this.tableReportItems.invoiceNumberColumn);
             }
@@ -1514,6 +1544,18 @@ namespace Rresturant {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetinvoiceDateNull() {
                 this[this.tableReportItems.invoiceDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsinvoiceNoNull() {
+                return this.IsNull(this.tableReportItems.invoiceNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetinvoiceNoNull() {
+                this[this.tableReportItems.invoiceNoColumn] = global::System.Convert.DBNull;
             }
         }
         

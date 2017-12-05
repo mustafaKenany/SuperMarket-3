@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Rresturant
@@ -21,7 +23,7 @@ namespace Rresturant
         {
             var usedClass = new BasicClass ();
             var dt = new DataTable ();
-            dt = usedClass.selectdata ( "SelectAllitemsWithPrices" , null );
+            dt = usedClass.selectdata ( "Report_SelectAllitemsWithPrices" , null );
             dataGridView_displayitems.DataSource = dt;
         }
 
@@ -34,12 +36,12 @@ namespace Rresturant
                 SqlParameter[] param = new SqlParameter[1];
                 param[0] = new SqlParameter ( "@Filter" , SqlDbType.NVarChar , 250 );
                 param[0].Value = textBoxFilteritemsGrid.Text;
-                dt = usedClass.selectdata ( "SelectAllitemswithPrices_UsingFilter" , param );
+                dt = usedClass.selectdata ( "Report_SelectAllitemswithPrices_UsingFilter" , param );
                 dataGridView_displayitems.DataSource = dt;
             }
             else
             {
-                dt = usedClass.selectdata ( "SelectAllitemsWithPrices" , null );
+                dt = usedClass.selectdata ( "Report_SelectAllitemsWithPrices" , null );
                 dataGridView_displayitems.DataSource = dt;
             }
         }
@@ -64,9 +66,8 @@ namespace Rresturant
                     param[2] = new SqlParameter ( "@InvoiceSatus" , SqlDbType.NVarChar , 250 );
                     param[2].Value = "Run";
                     dt = UsedClass.selectdata ( "Report_Select_items_using_itemName_and_InvoiceType" , param );
-                    //ItemsReport crp = new ItemsReport ();
-                    //string y = string.Concat ( crp.DataDefinition.FormulaFields["type"].Text , "مشتريات" );
-                    //crp.DataDefinition.FormulaFields["type"].Text = y;
+                    TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text11"];
+                    invoiceType.Text = "قائمة مشتريات";
                     crp.SetDataSource ( dt );
                     form.crystalReportViewer1.ReportSource = crp;
                     form.ShowDialog ();
@@ -85,8 +86,10 @@ namespace Rresturant
                     param[2].Value = "Run";
                     dt = UsedClass.selectdata ( "Report_Select_items_using_itemName_and_InvoiceType" , param );
                     crp.SetDataSource ( dt );
-                    //string y = string.Concat ( crp.DataDefinition.FormulaFields["FullQuantity"].Text , " *-1" );
-                    //crp.DataDefinition.FormulaFields["FullQuantity"].Text = y;
+                    string y = string.Concat ( crp.DataDefinition.FormulaFields["Quantity"].Text , " *-1" );
+                    crp.DataDefinition.FormulaFields["Quantity"].Text = y;
+                    TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text11"];
+                    invoiceType.Text = "قائمة مبيعات";
                     form.crystalReportViewer1.ReportSource = crp;
                     form.ShowDialog ();
                 }
@@ -103,14 +106,27 @@ namespace Rresturant
                     param[2] = new SqlParameter ( "@InvoiceSatus" , SqlDbType.NVarChar , 250 );
                     param[2].Value = "Save";
                     dt = UsedClass.selectdata ( "Report_Select_items_using_itemName_and_InvoiceType" , param );
-                    //ItemsReport crp = new ItemsReport ();
+                    string y = string.Concat ( crp.DataDefinition.FormulaFields["Quantity"].Text , " *-1" );
+                    crp.DataDefinition.FormulaFields["Quantity"].Text = y;
+                    TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text11"];
+                    invoiceType.Text = "قائمة محجوزة";
                     crp.SetDataSource ( dt );
-                    //string y = string.Concat ( crp.DataDefinition.FormulaFields["FullQuantity"].Text , " *-1" );
-                    //crp.DataDefinition.FormulaFields["FullQuantity"].Text = y;
                     form.crystalReportViewer1.ReportSource = crp;
                     form.ShowDialog ();
                 }
             }
+        }
+
+
+
+        private void buttonPrintitemsGrid_Click(object sender , EventArgs e)
+        {
+            var crp = new itemsGridReport ();
+            var form = new PrintForm ();
+            crp.SetDataSource ( dataGridView_displayitems.DataSource );
+            form.crystalReportViewer1.ReportSource = crp;
+            form.ShowDialog ();
+
         }
     }
 }

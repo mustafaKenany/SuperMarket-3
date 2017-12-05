@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stteingscs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
@@ -61,6 +61,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.combo_CategoryinModifiedorDeleteSection = new System.Windows.Forms.ComboBox();
             this.dataGridView_displayitems = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage_newCat = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -85,16 +95,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.combo_ModifedCategoryName = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAddingNewCustomer = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxNewCustomerName = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxNewCustomerAdd = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxNewCustomerMobile = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -112,6 +124,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -468,17 +484,17 @@
             // 
             this.dataGridView_displayitems.AllowUserToAddRows = false;
             this.dataGridView_displayitems.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_displayitems.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Changa Medium", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_displayitems.ColumnHeadersHeight = 36;
             this.dataGridView_displayitems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -507,6 +523,81 @@
             this.dataGridView_displayitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_displayitems.Size = new System.Drawing.Size(1074, 229);
             this.dataGridView_displayitems.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ItemID";
+            this.Column1.HeaderText = "رمز المادة";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "ItemName";
+            this.Column2.HeaderText = "الـــــمادة";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 175;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "itemCategory";
+            this.Column3.HeaderText = "الــمجموعة";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Pcs_InsideCarton";
+            this.Column4.HeaderText = "عدد داخل الكارتون";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Critical_Quantity";
+            this.Column5.HeaderText = "رصيد حرج";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "ItemBarCode";
+            this.Column6.HeaderText = "بــــاركـــود";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "EnteredUSer";
+            this.Column7.HeaderText = "الاسم";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "EnteredDate";
+            this.Column8.HeaderText = "تاريخ";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column9.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Column9.HeaderText = "حــــذف";
+            this.Column9.Name = "Column9";
+            this.Column9.Text = "حــــذف";
+            this.Column9.UseColumnTextForButtonValue = true;
+            // 
+            // Column10
+            // 
+            this.Column10.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Column10.HeaderText = "التــعديـــل";
+            this.Column10.Name = "Column10";
+            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column10.Text = "تـــــعديل";
+            this.Column10.UseColumnTextForButtonValue = true;
             // 
             // tabPage_newCat
             // 
@@ -779,6 +870,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage1.Controls.Add(this.tableLayoutPanel3);
             this.tabPage1.Location = new System.Drawing.Point(4, 37);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -786,80 +878,146 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "المستخدمين";
             // 
-            // Column1
+            // tableLayoutPanel3
             // 
-            this.Column1.DataPropertyName = "ItemID";
-            this.Column1.HeaderText = "رمز المادة";
-            this.Column1.Name = "Column1";
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1086, 528);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // Column2
+            // groupBox3
             // 
-            this.Column2.DataPropertyName = "ItemName";
-            this.Column2.HeaderText = "الـــــمادة";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 175;
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.textBoxNewCustomerMobile);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.textBoxNewCustomerAdd);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.buttonAddingNewCustomer);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.textBoxNewCustomerName);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1080, 170);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ادخال زبون جديد";
             // 
-            // Column3
+            // label14
             // 
-            this.Column3.DataPropertyName = "itemCategory";
-            this.Column3.HeaderText = "الــمجموعة";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(989, 41);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 22);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "الاسم الكامل";
             // 
-            // Column4
+            // button1
             // 
-            this.Column4.DataPropertyName = "Pcs_InsideCarton";
-            this.Column4.HeaderText = "عدد داخل الكارتون";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button1.Location = new System.Drawing.Point(229, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 62);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "الــغاء";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // Column5
+            // buttonAddingNewCustomer
             // 
-            this.Column5.DataPropertyName = "Critical_Quantity";
-            this.Column5.HeaderText = "رصيد حرج";
-            this.Column5.Name = "Column5";
+            this.buttonAddingNewCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.buttonAddingNewCustomer.Location = new System.Drawing.Point(310, 64);
+            this.buttonAddingNewCustomer.Name = "buttonAddingNewCustomer";
+            this.buttonAddingNewCustomer.Size = new System.Drawing.Size(75, 62);
+            this.buttonAddingNewCustomer.TabIndex = 13;
+            this.buttonAddingNewCustomer.Text = "موافق";
+            this.buttonAddingNewCustomer.UseVisualStyleBackColor = true;
+            this.buttonAddingNewCustomer.Click += new System.EventHandler(this.buttonAddingNewCustomer_Click);
             // 
-            // Column6
+            // pictureBox2
             // 
-            this.Column6.DataPropertyName = "ItemBarCode";
-            this.Column6.HeaderText = "بــــاركـــود";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 150;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 41);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(119, 111);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
-            // Column7
+            // label15
             // 
-            this.Column7.DataPropertyName = "EnteredUSer";
-            this.Column7.HeaderText = "الاسم";
-            this.Column7.Name = "Column7";
-            this.Column7.Visible = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(758, 83);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(0, 26);
+            this.label15.TabIndex = 8;
             // 
-            // Column8
+            // textBoxNewCustomerName
             // 
-            this.Column8.DataPropertyName = "EnteredDate";
-            this.Column8.HeaderText = "تاريخ";
-            this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
+            this.textBoxNewCustomerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNewCustomerName.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBoxNewCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.textBoxNewCustomerName.Location = new System.Drawing.Point(685, 39);
+            this.textBoxNewCustomerName.Name = "textBoxNewCustomerName";
+            this.textBoxNewCustomerName.Size = new System.Drawing.Size(298, 30);
+            this.textBoxNewCustomerName.TabIndex = 1;
+            this.textBoxNewCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Column9
+            // label16
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Red;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column9.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Column9.HeaderText = "حــــذف";
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "حــــذف";
-            this.Column9.UseColumnTextForButtonValue = true;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(1006, 90);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 22);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "العنوان";
             // 
-            // Column10
+            // textBoxNewCustomerAdd
             // 
-            this.Column10.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Column10.HeaderText = "التــعديـــل";
-            this.Column10.Name = "Column10";
-            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column10.Text = "تـــــعديل";
-            this.Column10.UseColumnTextForButtonValue = true;
+            this.textBoxNewCustomerAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNewCustomerAdd.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBoxNewCustomerAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.textBoxNewCustomerAdd.Location = new System.Drawing.Point(685, 88);
+            this.textBoxNewCustomerAdd.Name = "textBoxNewCustomerAdd";
+            this.textBoxNewCustomerAdd.Size = new System.Drawing.Size(298, 30);
+            this.textBoxNewCustomerAdd.TabIndex = 19;
+            this.textBoxNewCustomerAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(999, 136);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(75, 22);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "رقم الهاتف";
+            // 
+            // textBoxNewCustomerMobile
+            // 
+            this.textBoxNewCustomerMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNewCustomerMobile.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBoxNewCustomerMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.textBoxNewCustomerMobile.Location = new System.Drawing.Point(685, 134);
+            this.textBoxNewCustomerMobile.Name = "textBoxNewCustomerMobile";
+            this.textBoxNewCustomerMobile.Size = new System.Drawing.Size(298, 30);
+            this.textBoxNewCustomerMobile.TabIndex = 21;
+            this.textBoxNewCustomerMobile.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // stteingscs
             // 
@@ -894,6 +1052,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -963,5 +1126,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn Column10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBoxNewCustomerMobile;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxNewCustomerAdd;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAddingNewCustomer;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxNewCustomerName;
     }
 }

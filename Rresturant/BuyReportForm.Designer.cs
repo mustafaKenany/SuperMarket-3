@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyReportForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonShowBuyInvoices = new System.Windows.Forms.Button();
-            this.buttonPrintBuyGrid = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFilterBuyGrid = new System.Windows.Forms.TextBox();
+            this.buttonPrintBuyGrid = new System.Windows.Forms.Button();
+            this.buttonShowBuyInvoices = new System.Windows.Forms.Button();
             this.dataGridViewBuyGridInvoice = new System.Windows.Forms.DataGridView();
             this.CoulmnBuyInvoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoulmnBuyInvoiceCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +49,7 @@
             this.CoulmnBuyInvoiceSaveMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoulmnBuyInvoiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoulmnBuyInvoiceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInvoiceDetail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -101,31 +102,6 @@
             this.panel2.Size = new System.Drawing.Size(1125, 50);
             this.panel2.TabIndex = 4;
             // 
-            // buttonShowBuyInvoices
-            // 
-            this.buttonShowBuyInvoices.AutoSize = true;
-            this.buttonShowBuyInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
-            this.buttonShowBuyInvoices.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowBuyInvoices.Location = new System.Drawing.Point(600, 5);
-            this.buttonShowBuyInvoices.Name = "buttonShowBuyInvoices";
-            this.buttonShowBuyInvoices.Size = new System.Drawing.Size(100, 40);
-            this.buttonShowBuyInvoices.TabIndex = 1;
-            this.buttonShowBuyInvoices.Text = "عرض الفواتير";
-            this.buttonShowBuyInvoices.UseVisualStyleBackColor = false;
-            this.buttonShowBuyInvoices.Click += new System.EventHandler(this.buttonShowBuyInvoices_Click);
-            // 
-            // buttonPrintBuyGrid
-            // 
-            this.buttonPrintBuyGrid.AutoSize = true;
-            this.buttonPrintBuyGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
-            this.buttonPrintBuyGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrintBuyGrid.Location = new System.Drawing.Point(475, 5);
-            this.buttonPrintBuyGrid.Name = "buttonPrintBuyGrid";
-            this.buttonPrintBuyGrid.Size = new System.Drawing.Size(100, 40);
-            this.buttonPrintBuyGrid.TabIndex = 2;
-            this.buttonPrintBuyGrid.Text = "طباعة";
-            this.buttonPrintBuyGrid.UseVisualStyleBackColor = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -146,25 +122,50 @@
             this.textBoxFilterBuyGrid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxFilterBuyGrid.TextChanged += new System.EventHandler(this.textBoxFilterBuyGrid_TextChanged);
             // 
+            // buttonPrintBuyGrid
+            // 
+            this.buttonPrintBuyGrid.AutoSize = true;
+            this.buttonPrintBuyGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
+            this.buttonPrintBuyGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrintBuyGrid.Location = new System.Drawing.Point(475, 5);
+            this.buttonPrintBuyGrid.Name = "buttonPrintBuyGrid";
+            this.buttonPrintBuyGrid.Size = new System.Drawing.Size(100, 40);
+            this.buttonPrintBuyGrid.TabIndex = 2;
+            this.buttonPrintBuyGrid.Text = "طباعة";
+            this.buttonPrintBuyGrid.UseVisualStyleBackColor = false;
+            // 
+            // buttonShowBuyInvoices
+            // 
+            this.buttonShowBuyInvoices.AutoSize = true;
+            this.buttonShowBuyInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
+            this.buttonShowBuyInvoices.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowBuyInvoices.Location = new System.Drawing.Point(600, 5);
+            this.buttonShowBuyInvoices.Name = "buttonShowBuyInvoices";
+            this.buttonShowBuyInvoices.Size = new System.Drawing.Size(100, 40);
+            this.buttonShowBuyInvoices.TabIndex = 1;
+            this.buttonShowBuyInvoices.Text = "عرض الفواتير";
+            this.buttonShowBuyInvoices.UseVisualStyleBackColor = false;
+            this.buttonShowBuyInvoices.Click += new System.EventHandler(this.buttonShowBuyInvoices_Click);
+            // 
             // dataGridViewBuyGridInvoice
             // 
             this.dataGridViewBuyGridInvoice.AllowUserToAddRows = false;
             this.dataGridViewBuyGridInvoice.AllowUserToDeleteRows = false;
             this.dataGridViewBuyGridInvoice.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewBuyGridInvoice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewBuyGridInvoice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewBuyGridInvoice.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewBuyGridInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewBuyGridInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Changa", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBuyGridInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Changa", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBuyGridInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewBuyGridInvoice.ColumnHeadersHeight = 50;
             this.dataGridViewBuyGridInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CoulmnBuyInvoiceNo,
@@ -174,7 +175,8 @@
             this.CoulmnBuyInvoiceTotalAmount,
             this.CoulmnBuyInvoiceSaveMoney,
             this.CoulmnBuyInvoiceType,
-            this.CoulmnBuyInvoiceDate});
+            this.CoulmnBuyInvoiceDate,
+            this.ColumnInvoiceDetail});
             this.dataGridViewBuyGridInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewBuyGridInvoice.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridViewBuyGridInvoice.Location = new System.Drawing.Point(0, 100);
@@ -183,8 +185,8 @@
             this.dataGridViewBuyGridInvoice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridViewBuyGridInvoice.RowHeadersVisible = false;
             this.dataGridViewBuyGridInvoice.RowHeadersWidth = 45;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewBuyGridInvoice.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewBuyGridInvoice.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewBuyGridInvoice.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewBuyGridInvoice.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.dataGridViewBuyGridInvoice.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -193,6 +195,7 @@
             this.dataGridViewBuyGridInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBuyGridInvoice.Size = new System.Drawing.Size(1125, 600);
             this.dataGridViewBuyGridInvoice.TabIndex = 11;
+            this.dataGridViewBuyGridInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBuyGridInvoice_CellContentClick);
             // 
             // CoulmnBuyInvoiceNo
             // 
@@ -251,6 +254,14 @@
             this.CoulmnBuyInvoiceDate.Name = "CoulmnBuyInvoiceDate";
             this.CoulmnBuyInvoiceDate.ReadOnly = true;
             // 
+            // ColumnInvoiceDetail
+            // 
+            this.ColumnInvoiceDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnInvoiceDetail.HeaderText = "التفاصيل";
+            this.ColumnInvoiceDetail.Name = "ColumnInvoiceDetail";
+            this.ColumnInvoiceDetail.Text = "عرض";
+            this.ColumnInvoiceDetail.UseColumnTextForButtonValue = true;
+            // 
             // BuyReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CoulmnBuyInvoiceSaveMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoulmnBuyInvoiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoulmnBuyInvoiceDate;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnInvoiceDetail;
     }
 }

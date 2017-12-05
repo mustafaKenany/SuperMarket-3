@@ -75,10 +75,31 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomerReports_Sale_buy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerReports_Sale_buy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet_DB.cs">
+      <DependentUpon>DataSet_DB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_DB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itemsGridReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itemsGridReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ItemsReport.cs">
       <AutoGen>True</AutoGen>
@@ -178,6 +199,17 @@
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerReports_Sale_buy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerReports_Sale_buy.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="itemsGridReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>itemsGridReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

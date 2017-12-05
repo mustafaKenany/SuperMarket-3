@@ -227,7 +227,21 @@ namespace Rresturant
         {
             SqlParameter[] param = new SqlParameter[6];
             SqlParameter[] param2 = new SqlParameter[9];
-
+            dt = usedclass.selectdata ( "Select_Users" , null );
+            for ( int i = 0 ; i < dt.Rows.Count ; i++ )
+            {
+                if ( dt.Rows[i]["CoustomerName"].ToString() == textBox_customerName.Text )
+                {
+                    break;
+                }
+                else
+                {
+                    //SqlParameter[] param3 = new SqlParameter[1];
+                    //param3[0] = new SqlParameter ( "" , SqlDbType.NVarChar , 250 );
+                    //param3[0].Value = textBox_customerName.Text;
+                    //usedclass.ExecuteCommand ( "" , param3 );
+                }
+            }
             for (int row = 0; row < dataGridView_displayItems.Rows.Count; row++)
             {
                 param[0] = new SqlParameter("@invoiceNo", SqlDbType.Int);

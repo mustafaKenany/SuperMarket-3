@@ -39,5 +39,11 @@ namespace Rresturant
             var form = new BuyReportForm ();
             form.ShowDialog ();
         }
+
+        private void buttonCoustomers_Click(object sender , EventArgs e)
+        {
+            var form = new CustomersForm ();
+            form.ShowDialog ();
+        }
     }
 }

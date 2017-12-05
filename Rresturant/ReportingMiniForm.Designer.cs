@@ -32,10 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Exit = new System.Windows.Forms.PictureBox();
             this.buttonAllitemsReport = new System.Windows.Forms.Button();
             this.buttonSaleInvoices = new System.Windows.Forms.Button();
             this.buttonBuyInvoices = new System.Windows.Forms.Button();
+            this.buttonCoustomers = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.SuspendLayout();
@@ -73,18 +74,6 @@
             this.label1.Size = new System.Drawing.Size(54, 26);
             this.label1.TabIndex = 3;
             this.label1.Text = "التقارير";
-            // 
-            // Exit
-            // 
-            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
-            this.Exit.Location = new System.Drawing.Point(0, 0);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(43, 50);
-            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Exit.TabIndex = 2;
-            this.Exit.TabStop = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // buttonAllitemsReport
             // 
@@ -126,7 +115,7 @@
             this.buttonBuyInvoices.FlatAppearance.BorderSize = 0;
             this.buttonBuyInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuyInvoices.ForeColor = System.Drawing.Color.Black;
-            this.buttonBuyInvoices.Location = new System.Drawing.Point(199, 280);
+            this.buttonBuyInvoices.Location = new System.Drawing.Point(348, 249);
             this.buttonBuyInvoices.Name = "buttonBuyInvoices";
             this.buttonBuyInvoices.Size = new System.Drawing.Size(100, 100);
             this.buttonBuyInvoices.TabIndex = 17;
@@ -134,11 +123,40 @@
             this.buttonBuyInvoices.UseVisualStyleBackColor = true;
             this.buttonBuyInvoices.Click += new System.EventHandler(this.buttonBuyInvoices_Click);
             // 
+            // buttonCoustomers
+            // 
+            this.buttonCoustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCoustomers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonCoustomers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.buttonCoustomers.FlatAppearance.BorderSize = 0;
+            this.buttonCoustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCoustomers.ForeColor = System.Drawing.Color.Black;
+            this.buttonCoustomers.Location = new System.Drawing.Point(34, 269);
+            this.buttonCoustomers.Name = "buttonCoustomers";
+            this.buttonCoustomers.Size = new System.Drawing.Size(100, 100);
+            this.buttonCoustomers.TabIndex = 18;
+            this.buttonCoustomers.Text = "الزبائن";
+            this.buttonCoustomers.UseVisualStyleBackColor = true;
+            this.buttonCoustomers.Click += new System.EventHandler(this.buttonCoustomers_Click);
+            // 
+            // Exit
+            // 
+            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
+            this.Exit.Location = new System.Drawing.Point(0, 0);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(43, 50);
+            this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Exit.TabIndex = 2;
+            this.Exit.TabStop = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // ReportingMiniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
+            this.Controls.Add(this.buttonCoustomers);
             this.Controls.Add(this.buttonBuyInvoices);
             this.Controls.Add(this.buttonSaleInvoices);
             this.Controls.Add(this.buttonAllitemsReport);
@@ -165,5 +183,6 @@
         private System.Windows.Forms.Button buttonAllitemsReport;
         private System.Windows.Forms.Button buttonSaleInvoices;
         private System.Windows.Forms.Button buttonBuyInvoices;
+        private System.Windows.Forms.Button buttonCoustomers;
     }
 }

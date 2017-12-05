@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -68,6 +69,9 @@ namespace Rresturant
                     param[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
                     param[0].Value = InvoiceNo;
                     dt = usedClass.selectdata ( "Report_Select_SaleInvoice_usingInvoiceNo" , param );
+                    TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text7"];
+                    invoiceType.Text = dataGridViewSaleGrid.Rows[e.RowIndex].Cells["ColumnInvoiceStatus"].Value.ToString ();
+                    //FormulaFieldDefinition x = crp.DataDefinition.FormulaFields["InvoiceTotalAmount"];
                     crp.SetDataSource ( dt );
                     form.crystalReportViewer1.ReportSource = crp;
                     form.ShowDialog ();
