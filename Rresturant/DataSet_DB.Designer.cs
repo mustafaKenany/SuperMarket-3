@@ -326,6 +326,16 @@ namespace Rresturant {
             
             private global::System.Data.DataColumn columntotalPrice;
             
+            private global::System.Data.DataColumn columnitemCategory;
+            
+            private global::System.Data.DataColumn columnItemID;
+            
+            private global::System.Data.DataColumn columnItemBarCode;
+            
+            private global::System.Data.DataColumn columnprice_for_buy;
+            
+            private global::System.Data.DataColumn columnLastPrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -409,6 +419,46 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn itemCategoryColumn {
+                get {
+                    return this.columnitemCategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ItemIDColumn {
+                get {
+                    return this.columnItemID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ItemBarCodeColumn {
+                get {
+                    return this.columnItemBarCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn price_for_buyColumn {
+                get {
+                    return this.columnprice_for_buy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastPriceColumn {
+                get {
+                    return this.columnLastPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -444,7 +494,7 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string invoiceNumber, string CustomerName, string itemName, string itemQuantity, string itemPrice, string totalPrice) {
+            public DataTable1Row AddDataTable1Row(string invoiceNumber, string CustomerName, string itemName, string itemQuantity, string itemPrice, string totalPrice, string itemCategory, string ItemID, string ItemBarCode, string price_for_buy, string LastPrice) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         invoiceNumber,
@@ -452,7 +502,12 @@ namespace Rresturant {
                         itemName,
                         itemQuantity,
                         itemPrice,
-                        totalPrice};
+                        totalPrice,
+                        itemCategory,
+                        ItemID,
+                        ItemBarCode,
+                        price_for_buy,
+                        LastPrice};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -481,6 +536,11 @@ namespace Rresturant {
                 this.columnitemQuantity = base.Columns["itemQuantity"];
                 this.columnitemPrice = base.Columns["itemPrice"];
                 this.columntotalPrice = base.Columns["totalPrice"];
+                this.columnitemCategory = base.Columns["itemCategory"];
+                this.columnItemID = base.Columns["ItemID"];
+                this.columnItemBarCode = base.Columns["ItemBarCode"];
+                this.columnprice_for_buy = base.Columns["price_for_buy"];
+                this.columnLastPrice = base.Columns["LastPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -498,6 +558,16 @@ namespace Rresturant {
                 base.Columns.Add(this.columnitemPrice);
                 this.columntotalPrice = new global::System.Data.DataColumn("totalPrice", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalPrice);
+                this.columnitemCategory = new global::System.Data.DataColumn("itemCategory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitemCategory);
+                this.columnItemID = new global::System.Data.DataColumn("ItemID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemID);
+                this.columnItemBarCode = new global::System.Data.DataColumn("ItemBarCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemBarCode);
+                this.columnprice_for_buy = new global::System.Data.DataColumn("price_for_buy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice_for_buy);
+                this.columnLastPrice = new global::System.Data.DataColumn("LastPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastPrice);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1137,6 +1207,86 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string itemCategory {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.itemCategoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'itemCategory\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.itemCategoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ItemID {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ItemIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemID\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ItemIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ItemBarCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ItemBarCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemBarCode\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ItemBarCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string price_for_buy {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.price_for_buyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price_for_buy\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.price_for_buyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LastPrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.LastPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastPrice\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.LastPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsinvoiceNumberNull() {
                 return this.IsNull(this.tableDataTable1.invoiceNumberColumn);
             }
@@ -1205,6 +1355,66 @@ namespace Rresturant {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettotalPriceNull() {
                 this[this.tableDataTable1.totalPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsitemCategoryNull() {
+                return this.IsNull(this.tableDataTable1.itemCategoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetitemCategoryNull() {
+                this[this.tableDataTable1.itemCategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsItemIDNull() {
+                return this.IsNull(this.tableDataTable1.ItemIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetItemIDNull() {
+                this[this.tableDataTable1.ItemIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsItemBarCodeNull() {
+                return this.IsNull(this.tableDataTable1.ItemBarCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetItemBarCodeNull() {
+                this[this.tableDataTable1.ItemBarCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isprice_for_buyNull() {
+                return this.IsNull(this.tableDataTable1.price_for_buyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setprice_for_buyNull() {
+                this[this.tableDataTable1.price_for_buyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastPriceNull() {
+                return this.IsNull(this.tableDataTable1.LastPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastPriceNull() {
+                this[this.tableDataTable1.LastPriceColumn] = global::System.Convert.DBNull;
             }
         }
         
