@@ -61,7 +61,7 @@ namespace Rresturant
         {
             flowLayoutPanel_CategWithoutBarcode.Controls.Clear();
 
-            dt = usedclass.selectdata("Get_All_Category", null);
+            dt = usedclass.selectdata("Casher_Get_All_Category", null);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
@@ -144,7 +144,7 @@ namespace Rresturant
 
         private void get_invoice_number()
         {
-            dt = usedclass.selectdata("select_all_IDs", null);
+            dt = usedclass.selectdata( "Casher_select_all_IDs" , null);
             if (dt.Rows.Count > 0)
             {
                 invoiceNumber = Int32.Parse(dt.Rows[0]["InvoiceNo"].ToString());
@@ -651,7 +651,7 @@ namespace Rresturant
             param[0] = new SqlParameter("@invoiceNo", SqlDbType.Int);
             param[0].Value = 65;
             dt = usedclass.selectdata("Get_order_by_invoiceNo", param);
-            CrystalReport1 crp = new CrystalReport1();
+            var crp = new Reports.CrystalReport1();
             crp.SetDataSource(dt);
             PrintForm form = new PrintForm();
             form.crystalReportViewer1.ReportSource = crp;

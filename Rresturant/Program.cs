@@ -17,7 +17,7 @@ namespace Rresturant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ControlingForm());
+            Application.Run(new LoginForm());
         }
     }
 }

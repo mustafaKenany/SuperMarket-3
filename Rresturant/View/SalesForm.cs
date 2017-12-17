@@ -237,7 +237,7 @@ namespace Rresturant
 
         private void get_all_IDs()
         {
-            dt = usedclass.selectdata("select_all_IDs", null);
+            dt = usedclass.selectdata("Casher_select_all_IDs", null);
             if (dt.Rows.Count > 0)
             {
                 CategoryID = int.Parse(dt.Rows[0]["CategoryID"].ToString());
@@ -387,7 +387,7 @@ namespace Rresturant
 
         private void comboBox_allcategories_DropDown(object sender, EventArgs e)
         {
-            dt = usedclass.selectdata("Get_All_Category", null);
+            dt = usedclass.selectdata("Casher_Get_All_Category", null);
             //
             comboBox_allcategories.DataSource = dt;
             comboBox_allcategories.DisplayMember = "CatergoryName";

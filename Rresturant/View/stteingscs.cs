@@ -52,7 +52,7 @@ namespace Rresturant
         }
         private void get_all_IDs()
         {
-            dt = usedClass.selectdata ( "select_all_IDs" , null );
+            dt = usedClass.selectdata ( "Casher_select_all_IDs" , null );
             if ( dt.Rows.Count > 0 )
             {
                 CategoryID = int.Parse ( dt.Rows[0]["CategoryID"].ToString () );
@@ -132,7 +132,7 @@ namespace Rresturant
                 param[4] = new SqlParameter ( "@ItemBarcode" , SqlDbType.NVarChar , 100 );
                 if ( maskedTextBox_BarCodeItem.Text != "" )
                 {
-                    param[4].Value = maskedTextBox_BarCodeItem.Text;
+                    param[4].Value = maskedTextBox_BarCodeItem.Text.Trim();
                 }
                 else
                 {
@@ -171,7 +171,7 @@ namespace Rresturant
                 param[1] = new SqlParameter ( "@CategoryName" , SqlDbType.NVarChar , 50 );
                 param[1].Value = txt_modifedCategName.Text;
                 //
-                usedClass.ExecuteCommand ( "Re_nameCategory" , param );
+                usedClass.ExecuteCommand ( "Casher_Re_nameCategory" , param );
                 combo_ModifedCategoryName.Text = "";
                 txt_modifedCategName.Text = "";
                 MessageBox.Show ( "تمت عملــية الـــتعــديـل ينجاح" , "الـــتعــديـل" , MessageBoxButtons.OK , MessageBoxIcon.Information );
@@ -195,7 +195,7 @@ namespace Rresturant
                 DialogResult Result = MessageBox.Show ( "عملية الحذف سوف تؤدي الى حذف العناصر التي تنتمي لهذا الصنف" , "Confirmation" , MessageBoxButtons.YesNoCancel , MessageBoxIcon.Hand );
                 if ( Result == DialogResult.Yes )
                 {
-                    usedClass.ExecuteCommand ( "deleteCategory" , param );
+                    usedClass.ExecuteCommand ( "Casher_deleteCategory" , param );
                     combo_deleteCategory.Text = "";
                     combo_deleteCategory.Refresh ();
                     MessageBox.Show ( "تمت عملــية الـــحـــذف ينجاح" , "الـــحـــذف" , MessageBoxButtons.OK , MessageBoxIcon.Information );
@@ -210,7 +210,7 @@ namespace Rresturant
         private void combo_chooseCategoryName_DropDown(object sender , EventArgs e)
         {
             DataTable dt = new DataTable ();
-            dt = usedClass.selectdata ( "Get_All_Category" , null );
+            dt = usedClass.selectdata ( "Casher_Get_All_Category" , null );
             //
             combo_chooseCategoryName.DataSource = dt;
             combo_chooseCategoryName.DisplayMember = "CatergoryName";
@@ -220,7 +220,7 @@ namespace Rresturant
         private void combo_CategoryinModifiedorDeleteSection_DropDown(object sender , EventArgs e)
         {
             DataTable dt = new DataTable ();
-            dt = usedClass.selectdata ( "Get_All_Category" , null );
+            dt = usedClass.selectdata ( "Casher_Get_All_Category" , null );
             //
             combo_CategoryinModifiedorDeleteSection.DataSource = dt;
             combo_CategoryinModifiedorDeleteSection.DisplayMember = "CatergoryName";
@@ -253,7 +253,7 @@ namespace Rresturant
         private void combo_ModifedCategoryName_DropDown(object sender , EventArgs e)
         {
             DataTable dt = new DataTable ();
-            dt = usedClass.selectdata ( "Get_All_Category" , null );
+            dt = usedClass.selectdata ( "Casher_Get_All_Category" , null );
             //
             combo_ModifedCategoryName.DataSource = dt;
             combo_ModifedCategoryName.DisplayMember = "CatergoryName";
@@ -263,7 +263,7 @@ namespace Rresturant
         private void combo_deleteCategory_DropDown(object sender , EventArgs e)
         {
             DataTable dt = new DataTable ();
-            dt = usedClass.selectdata ( "Get_All_Category" , null );
+            dt = usedClass.selectdata ( "Casher_Get_All_Category" , null );
             //
             combo_deleteCategory.DataSource = dt;
             combo_deleteCategory.DisplayMember = "CatergoryName";
@@ -302,6 +302,11 @@ namespace Rresturant
             textBoxNewCustomerAdd.Text = "";
             textBoxNewCustomerMobile.Text = "";
             textBoxNewCustomerName.Text = "";
+
+        }
+
+        private void combo_chooseCategoryName_SelectedIndexChanged(object sender , EventArgs e)
+        {
 
         }
 

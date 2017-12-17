@@ -26,23 +26,29 @@ namespace Rresturant
         {
             //invoiceForm form = new invoiceForm();
             //form.Show();
-            Invoice_Form form = new Invoice_Form();
-            form.Show();
+            //Invoice_Form form = new Invoice_Form();
+            //form.Show();
+            var form = new View.CacherForm ();
+            form.ShowDialog ();
 
         }
 
         private void btn_SettingForm_Click(object sender, EventArgs e)
         {
-            //SettingForm form = new SettingForm();
-            //form.Show();
-            stteingscs form = new stteingscs();
-            form.ShowDialog();
+            ////SettingForm form = new SettingForm();
+            ////form.Show();
+            //stteingscs form = new stteingscs();
+            //form.ShowDialog();
+            var form = new View.SettingsForm ();
+            form.ShowDialog ();
         }
 
         private void btn_PurshaceForm_Click(object sender, EventArgs e)
         {
-            SalesForm form = new SalesForm();
-            form.ShowDialog();
+            var form = new View.PurshaceForm ();
+            form.ShowDialog ();
+            //SalesForm form = new SalesForm();
+            //form.ShowDialog();
         }
 
         private void btn_AccountingForm_Click(object sender, EventArgs e)

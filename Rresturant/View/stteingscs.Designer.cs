@@ -97,16 +97,16 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxNewCustomerMobile = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxNewCustomerAdd = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonAddingNewCustomer = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxNewCustomerName = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxNewCustomerAdd = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxNewCustomerMobile = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -374,6 +374,7 @@
             this.combo_chooseCategoryName.Size = new System.Drawing.Size(216, 38);
             this.combo_chooseCategoryName.TabIndex = 1;
             this.combo_chooseCategoryName.DropDown += new System.EventHandler(this.combo_chooseCategoryName_DropDown);
+            this.combo_chooseCategoryName.SelectedIndexChanged += new System.EventHandler(this.combo_chooseCategoryName_SelectedIndexChanged);
             // 
             // txt_newItemName
             // 
@@ -916,6 +917,48 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ادخال زبون جديد";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(999, 136);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(75, 22);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "رقم الهاتف";
+            // 
+            // textBoxNewCustomerMobile
+            // 
+            this.textBoxNewCustomerMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNewCustomerMobile.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBoxNewCustomerMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.textBoxNewCustomerMobile.Location = new System.Drawing.Point(685, 134);
+            this.textBoxNewCustomerMobile.Name = "textBoxNewCustomerMobile";
+            this.textBoxNewCustomerMobile.Size = new System.Drawing.Size(298, 30);
+            this.textBoxNewCustomerMobile.TabIndex = 21;
+            this.textBoxNewCustomerMobile.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(1006, 90);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 22);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "العنوان";
+            // 
+            // textBoxNewCustomerAdd
+            // 
+            this.textBoxNewCustomerAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNewCustomerAdd.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.textBoxNewCustomerAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.textBoxNewCustomerAdd.Location = new System.Drawing.Point(685, 88);
+            this.textBoxNewCustomerAdd.Name = "textBoxNewCustomerAdd";
+            this.textBoxNewCustomerAdd.Size = new System.Drawing.Size(298, 30);
+            this.textBoxNewCustomerAdd.TabIndex = 19;
+            this.textBoxNewCustomerAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -976,48 +1019,6 @@
             this.textBoxNewCustomerName.Size = new System.Drawing.Size(298, 30);
             this.textBoxNewCustomerName.TabIndex = 1;
             this.textBoxNewCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1006, 90);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(52, 22);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "العنوان";
-            // 
-            // textBoxNewCustomerAdd
-            // 
-            this.textBoxNewCustomerAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNewCustomerAdd.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBoxNewCustomerAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.textBoxNewCustomerAdd.Location = new System.Drawing.Point(685, 88);
-            this.textBoxNewCustomerAdd.Name = "textBoxNewCustomerAdd";
-            this.textBoxNewCustomerAdd.Size = new System.Drawing.Size(298, 30);
-            this.textBoxNewCustomerAdd.TabIndex = 19;
-            this.textBoxNewCustomerAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(999, 136);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 22);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "رقم الهاتف";
-            // 
-            // textBoxNewCustomerMobile
-            // 
-            this.textBoxNewCustomerMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNewCustomerMobile.Font = new System.Drawing.Font("Changa Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.textBoxNewCustomerMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.textBoxNewCustomerMobile.Location = new System.Drawing.Point(685, 134);
-            this.textBoxNewCustomerMobile.Name = "textBoxNewCustomerMobile";
-            this.textBoxNewCustomerMobile.Size = new System.Drawing.Size(298, 30);
-            this.textBoxNewCustomerMobile.TabIndex = 21;
-            this.textBoxNewCustomerMobile.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // stteingscs
             // 

@@ -38,7 +38,7 @@ namespace Rresturant
         {
             var dt = new DataTable ();
             var UsedClass = new BasicClass ();
-            var crp = new CustomerReports_Sale_buy ();
+            var crp = new Reports.CustomerReports_Sale_buy ();
             var form = new PrintForm ();
             TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text1"];
             SqlParameter[] param = new SqlParameter[3];

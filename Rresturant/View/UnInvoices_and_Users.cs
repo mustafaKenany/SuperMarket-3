@@ -84,12 +84,15 @@ namespace Rresturant.View
         private void dataGridView_Users_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BasicClass.CoustomerName = dataGridView_Users["Column_userName", e.RowIndex].Value.ToString();
+            
             this.Close();
         }
 
         private void dataGridView_saveBuyingInvoice_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BasicClass.UnrnningBillId = Int16.Parse(dataGridView_saveBuyingInvoice["Column_BillID", e.RowIndex].Value.ToString());
+            BasicClass.flagModified = true;
+
             this.Close();
 
         }
@@ -97,7 +100,13 @@ namespace Rresturant.View
         private void dataGridView_unRunBuyingInvoices_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BasicClass.UnrnningBillId = Int16.Parse(dataGridView_unRunBuyingInvoices["dataGridViewTextBoxColumn1", e.RowIndex].Value.ToString());
+            BasicClass.flagModified = true;
             this.Close();
+
+        }
+
+        private void dataGridView_saveBuyingInvoice_CellContentClick(object sender , DataGridViewCellEventArgs e)
+        {
 
         }
     }

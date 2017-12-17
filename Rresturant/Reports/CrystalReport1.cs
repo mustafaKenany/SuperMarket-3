@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rresturant {
+namespace Rresturant.Reports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Rresturant {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CustomerReports_Sale_buy : ReportClass {
+    public class CrystalReport1 : ReportClass {
         
-        public CustomerReports_Sale_buy() {
+        public CrystalReport1() {
         }
         
         public override string ResourceName {
             get {
-                return "CustomerReports_Sale_buy.rpt";
+                return "CrystalReport1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Rresturant {
         
         public override string FullResourceName {
             get {
-                return "Rresturant.CustomerReports_Sale_buy.rpt";
+                return "Rresturant.Reports.CrystalReport1.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection2 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -82,7 +82,7 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,25 +90,17 @@ namespace Rresturant {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections[5];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCustomerReports_Sale_buy : Component, ICachedReport {
+    public class CachedCrystalReport1 : Component, ICachedReport {
         
-        public CachedCustomerReports_Sale_buy() {
+        public CachedCrystalReport1() {
         }
         
         [Browsable(false)]
@@ -145,7 +137,7 @@ namespace Rresturant {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CustomerReports_Sale_buy rpt = new CustomerReports_Sale_buy();
+            CrystalReport1 rpt = new CrystalReport1();
             rpt.Site = this.Site;
             return rpt;
         }

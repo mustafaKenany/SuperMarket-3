@@ -69,13 +69,25 @@
       <DependentUpon>BuyReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\BasicClass.cs" />
-    <Compile Include="CrystalReport1.cs">
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PurshaceReport.cs">
+      <DependentUpon>PurshaceReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomerReports_Sale_buy.cs">
+    <Compile Include="Reports\CustomerReports_Sale_buy.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerReports_Sale_buy.rpt</DependentUpon>
@@ -95,13 +107,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet_DB.xsd</DependentUpon>
     </Compile>
-    <Compile Include="itemsGridReport.cs">
+    <Compile Include="Reports\DailyCasherReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailyCasherReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InvoicesGridReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoicesGridReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\itemsGridReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>itemsGridReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ItemsReport.cs">
+    <Compile Include="Reports\ItemsReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemsReport.rpt</DependentUpon>
@@ -119,7 +143,7 @@
     <Compile Include="ReportingMiniForm.Designer.cs">
       <DependentUpon>ReportingMiniForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaleInvoiceReport.cs">
+    <Compile Include="Reports\SaleInvoiceReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SaleInvoiceReport.rpt</DependentUpon>
@@ -130,6 +154,30 @@
     </Compile>
     <Compile Include="SaleReportForm.Designer.cs">
       <DependentUpon>SaleReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CacherForm.Designer.cs">
+      <DependentUpon>CacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PurshaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PurshaceForm.Designer.cs">
+      <DependentUpon>PurshaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SavedInvoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SavedInvoicesForm.Designer.cs">
+      <DependentUpon>SavedInvoicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UnRunBills.cs">
       <SubType>Form</SubType>
@@ -143,11 +191,11 @@
     <Compile Include="View\PrintForm.Designer.cs">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\prices_form.cs">
+    <Compile Include="View\ModifyPricesAndStockQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\prices_form.Designer.cs">
-      <DependentUpon>prices_form.cs</DependentUpon>
+    <Compile Include="View\ModifyPricesAndStockQuantity.Designer.cs">
+      <DependentUpon>ModifyPricesAndStockQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SalesForm.cs">
       <SubType>Form</SubType>
@@ -196,22 +244,37 @@
     <EmbeddedResource Include="BuyReportForm.resx">
       <DependentUpon>BuyReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PurshaceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PurshaceReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerReports_Sale_buy.rpt">
+    <EmbeddedResource Include="Reports\CustomerReports_Sale_buy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CustomerReports_Sale_buy.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersForm.resx">
       <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="itemsGridReport.rpt">
+    <EmbeddedResource Include="Reports\DailyCasherReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DailyCasherReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InvoicesGridReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoicesGridReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\itemsGridReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>itemsGridReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemsReport.rpt">
+    <EmbeddedResource Include="Reports\ItemsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ItemsReport.cs</LastGenOutput>
     </EmbeddedResource>
@@ -221,12 +284,24 @@
     <EmbeddedResource Include="ReportingMiniForm.resx">
       <DependentUpon>ReportingMiniForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaleInvoiceReport.rpt">
+    <EmbeddedResource Include="Reports\SaleInvoiceReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SaleInvoiceReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleReportForm.resx">
       <DependentUpon>SaleReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CacherForm.resx">
+      <DependentUpon>CacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PurshaceForm.resx">
+      <DependentUpon>PurshaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SavedInvoicesForm.resx">
+      <DependentUpon>SavedInvoicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UnRunBills.resx">
       <DependentUpon>UnRunBills.cs</DependentUpon>
@@ -234,8 +309,8 @@
     <EmbeddedResource Include="View\PrintForm.resx">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\prices_form.resx">
-      <DependentUpon>prices_form.cs</DependentUpon>
+    <EmbeddedResource Include="View\ModifyPricesAndStockQuantity.resx">
+      <DependentUpon>ModifyPricesAndStockQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
@@ -300,9 +375,7 @@
   <ItemGroup>
     <Content Include="Resources\white-shutdown-48.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataSet\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>

@@ -52,7 +52,7 @@ namespace Rresturant
 
             var dt = new DataTable ();
             var UsedClass = new BasicClass ();
-            var crp = new ItemsReport ();
+            var crp = new Reports.ItemsReport ();
             var form = new PrintForm ();
             if ( e.ColumnIndex == 0 )
             {
@@ -121,7 +121,7 @@ namespace Rresturant
 
         private void buttonPrintitemsGrid_Click(object sender , EventArgs e)
         {
-            var crp = new itemsGridReport ();
+            var crp = new Reports.itemsGridReport ();
             var form = new PrintForm ();
             crp.SetDataSource ( dataGridView_displayitems.DataSource );
             form.crystalReportViewer1.ReportSource = crp;

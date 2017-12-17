@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rresturant {
+namespace Rresturant.Reports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Rresturant {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class PurshaceReport : ReportClass {
         
-        public CrystalReport1() {
+        public PurshaceReport() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "PurshaceReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Rresturant {
         
         public override string FullResourceName {
             get {
-                return "Rresturant.CrystalReport1.rpt";
+                return "Rresturant.Reports.PurshaceReport.rpt";
             }
             set {
                 // Do nothing
@@ -98,9 +98,9 @@ namespace Rresturant {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedPurshaceReport : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedPurshaceReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +137,7 @@ namespace Rresturant {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            PurshaceReport rpt = new PurshaceReport();
             rpt.Site = this.Site;
             return rpt;
         }

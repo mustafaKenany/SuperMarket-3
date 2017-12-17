@@ -36,6 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxDateSearch = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFilterBuyGrid = new System.Windows.Forms.TextBox();
             this.buttonPrintBuyGrid = new System.Windows.Forms.Button();
@@ -92,6 +97,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBoxDateSearch);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.dateTimePickerTo);
+            this.panel2.Controls.Add(this.dateTimePickerFrom);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBoxFilterBuyGrid);
             this.panel2.Controls.Add(this.buttonPrintBuyGrid);
@@ -99,14 +109,67 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1125, 50);
+            this.panel2.Size = new System.Drawing.Size(1125, 75);
             this.panel2.TabIndex = 4;
+            // 
+            // checkBoxDateSearch
+            // 
+            this.checkBoxDateSearch.AutoSize = true;
+            this.checkBoxDateSearch.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBoxDateSearch.Font = new System.Drawing.Font("Changa Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.checkBoxDateSearch.Location = new System.Drawing.Point(1014, 13);
+            this.checkBoxDateSearch.Name = "checkBoxDateSearch";
+            this.checkBoxDateSearch.Size = new System.Drawing.Size(107, 44);
+            this.checkBoxDateSearch.TabIndex = 13;
+            this.checkBoxDateSearch.Text = "بحث بين تاريخين";
+            this.checkBoxDateSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxDateSearch.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(970, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 26);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "الى";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(973, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 26);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "من";
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerTo.Font = new System.Drawing.Font("Changa Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerTo.Location = new System.Drawing.Point(802, 40);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(164, 28);
+            this.dateTimePickerTo.TabIndex = 10;
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerFrom.Font = new System.Drawing.Font("Changa Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(802, 6);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(164, 28);
+            this.dateTimePickerFrom.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(320, 13);
+            this.label4.Location = new System.Drawing.Point(307, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 26);
             this.label4.TabIndex = 5;
@@ -115,7 +178,7 @@
             // textBoxFilterBuyGrid
             // 
             this.textBoxFilterBuyGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFilterBuyGrid.Location = new System.Drawing.Point(21, 10);
+            this.textBoxFilterBuyGrid.Location = new System.Drawing.Point(8, 28);
             this.textBoxFilterBuyGrid.Name = "textBoxFilterBuyGrid";
             this.textBoxFilterBuyGrid.Size = new System.Drawing.Size(293, 32);
             this.textBoxFilterBuyGrid.TabIndex = 4;
@@ -127,19 +190,20 @@
             this.buttonPrintBuyGrid.AutoSize = true;
             this.buttonPrintBuyGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
             this.buttonPrintBuyGrid.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrintBuyGrid.Location = new System.Drawing.Point(475, 5);
+            this.buttonPrintBuyGrid.Location = new System.Drawing.Point(432, 23);
             this.buttonPrintBuyGrid.Name = "buttonPrintBuyGrid";
             this.buttonPrintBuyGrid.Size = new System.Drawing.Size(100, 40);
             this.buttonPrintBuyGrid.TabIndex = 2;
             this.buttonPrintBuyGrid.Text = "طباعة";
             this.buttonPrintBuyGrid.UseVisualStyleBackColor = false;
+            this.buttonPrintBuyGrid.Click += new System.EventHandler(this.buttonPrintBuyGrid_Click);
             // 
             // buttonShowBuyInvoices
             // 
             this.buttonShowBuyInvoices.AutoSize = true;
             this.buttonShowBuyInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(245)))), ((int)(((byte)(254)))));
             this.buttonShowBuyInvoices.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowBuyInvoices.Location = new System.Drawing.Point(600, 5);
+            this.buttonShowBuyInvoices.Location = new System.Drawing.Point(536, 23);
             this.buttonShowBuyInvoices.Name = "buttonShowBuyInvoices";
             this.buttonShowBuyInvoices.Size = new System.Drawing.Size(100, 40);
             this.buttonShowBuyInvoices.TabIndex = 1;
@@ -179,7 +243,7 @@
             this.ColumnInvoiceDetail});
             this.dataGridViewBuyGridInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewBuyGridInvoice.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.dataGridViewBuyGridInvoice.Location = new System.Drawing.Point(0, 100);
+            this.dataGridViewBuyGridInvoice.Location = new System.Drawing.Point(0, 125);
             this.dataGridViewBuyGridInvoice.MultiSelect = false;
             this.dataGridViewBuyGridInvoice.Name = "dataGridViewBuyGridInvoice";
             this.dataGridViewBuyGridInvoice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -193,7 +257,7 @@
             this.dataGridViewBuyGridInvoice.RowTemplate.Height = 40;
             this.dataGridViewBuyGridInvoice.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewBuyGridInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBuyGridInvoice.Size = new System.Drawing.Size(1125, 600);
+            this.dataGridViewBuyGridInvoice.Size = new System.Drawing.Size(1125, 575);
             this.dataGridViewBuyGridInvoice.TabIndex = 11;
             this.dataGridViewBuyGridInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBuyGridInvoice_CellContentClick);
             // 
@@ -307,5 +371,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CoulmnBuyInvoiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoulmnBuyInvoiceDate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnInvoiceDetail;
+        private System.Windows.Forms.CheckBox checkBoxDateSearch;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
     }
 }

@@ -37,7 +37,6 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.DisplayBackgroundEdge = false;
-            this.crystalReportViewer1.DisplayStatusBar = false;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.EnableDrillDown = false;
             this.crystalReportViewer1.EnableToolTips = false;
@@ -46,10 +45,8 @@
             this.crystalReportViewer1.PrintMode = CrystalDecisions.Windows.Forms.PrintMode.PrintOutputController;
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
-            this.crystalReportViewer1.ShowGotoPageButton = false;
             this.crystalReportViewer1.ShowGroupTreeButton = false;
             this.crystalReportViewer1.ShowLogo = false;
-            this.crystalReportViewer1.ShowPageNavigateButtons = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.ShowTextSearchButton = false;

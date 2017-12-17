@@ -105,6 +105,7 @@
             this.btn_SettingForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_SettingForm.BackgroundImage")));
             this.btn_SettingForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_SettingForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_SettingForm.Enabled = false;
             this.btn_SettingForm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.btn_SettingForm.FlatAppearance.BorderSize = 0;
             this.btn_SettingForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -119,6 +120,7 @@
             // 
             this.btn_ReportingForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ReportingForm.BackgroundImage")));
             this.btn_ReportingForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ReportingForm.Enabled = false;
             this.btn_ReportingForm.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_ReportingForm.FlatAppearance.BorderSize = 0;
             this.btn_ReportingForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -174,6 +176,7 @@
             this.btn_PurshaceForm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_PurshaceForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PurshaceForm.BackgroundImage")));
             this.btn_PurshaceForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_PurshaceForm.Enabled = false;
             this.btn_PurshaceForm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.btn_PurshaceForm.FlatAppearance.BorderSize = 0;
             this.btn_PurshaceForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -189,6 +192,7 @@
             this.btn_CasherForm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_CasherForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_CasherForm.BackgroundImage")));
             this.btn_CasherForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_CasherForm.Enabled = false;
             this.btn_CasherForm.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_CasherForm.FlatAppearance.BorderSize = 0;
             this.btn_CasherForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -277,15 +281,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox Exit;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_CasherForm;
-        private System.Windows.Forms.Button btn_PurshaceForm;
         private System.Windows.Forms.Button btn_AccountingForm;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btn_ReportingForm;
-        private System.Windows.Forms.Button btn_SettingForm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_for_prices;
         private System.Windows.Forms.Button button_UnRunnigBill;
+        public System.Windows.Forms.Button btn_CasherForm;
+        public System.Windows.Forms.Button btn_PurshaceForm;
+        public System.Windows.Forms.Button btn_ReportingForm;
+        public System.Windows.Forms.Button btn_SettingForm;
     }
 }

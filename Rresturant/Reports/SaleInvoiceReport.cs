@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rresturant {
+namespace Rresturant.Reports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Rresturant {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class itemsGridReport : ReportClass {
+    public class SaleInvoiceReport : ReportClass {
         
-        public itemsGridReport() {
+        public SaleInvoiceReport() {
         }
         
         public override string ResourceName {
             get {
-                return "itemsGridReport.rpt";
+                return "SaleInvoiceReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Rresturant {
         
         public override string FullResourceName {
             get {
-                return "Rresturant.itemsGridReport.rpt";
+                return "Rresturant.Reports.SaleInvoiceReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Rresturant {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CacheditemsGridReport : Component, ICachedReport {
+    public class CachedSaleInvoiceReport : Component, ICachedReport {
         
-        public CacheditemsGridReport() {
+        public CachedSaleInvoiceReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Rresturant {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            itemsGridReport rpt = new itemsGridReport();
+            SaleInvoiceReport rpt = new SaleInvoiceReport();
             rpt.Site = this.Site;
             return rpt;
         }

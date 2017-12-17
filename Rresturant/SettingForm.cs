@@ -96,7 +96,7 @@ namespace Rresturant
         private void combo_Categ_newItem_DropDown(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = UsedClass.selectdata("GET_ALL_CATEGORY", null);
+            dt = UsedClass.selectdata("Casher_Get_All_Category", null);
             //
             combo_Categ_newItem.DataSource = dt;
             combo_Categ_newItem.DisplayMember = "CatName";
@@ -106,7 +106,7 @@ namespace Rresturant
         private void combo_Categ_modifyItem_DropDown(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = UsedClass.selectdata("GET_ALL_CATEGORY", null);
+            dt = UsedClass.selectdata("Casher_Get_All_Category", null);
             //
             combo_Categ_modifyItem.DataSource = dt;
             combo_Categ_modifyItem.DisplayMember = "CatName";
@@ -116,7 +116,7 @@ namespace Rresturant
         private void combo_Categ_deleteItem_DropDown(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = UsedClass.selectdata("GET_ALL_CATEGORY", null);
+            dt = UsedClass.selectdata("Casher_Get_All_Category", null);
             //
             combo_Categ_deleteItem.DataSource = dt;
             combo_Categ_deleteItem.DisplayMember = "CatName";
@@ -126,7 +126,7 @@ namespace Rresturant
         private void combo_ModifyCateg_DropDown(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = UsedClass.selectdata("GET_ALL_CATEGORY", null);
+            dt = UsedClass.selectdata("Casher_Get_All_Category", null);
             //
             combo_ModifyCateg.DataSource = dt;
             combo_ModifyCateg.DisplayMember = "CatName";
@@ -136,7 +136,7 @@ namespace Rresturant
         private void combo_deleteCateg_DropDown(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = UsedClass.selectdata("GET_ALL_CATEGORY", null);
+            dt = UsedClass.selectdata("Casher_Get_All_Category", null);
             //
             combo_deleteCateg.DataSource = dt;
             combo_deleteCateg.DisplayMember = "CatName";

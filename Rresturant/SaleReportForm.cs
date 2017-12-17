@@ -23,11 +23,27 @@ namespace Rresturant
         {
             var usedClass = new BasicClass ();
             var dt = new DataTable ();
-            SqlParameter[] param = new SqlParameter[1];
-            param[0] = new SqlParameter ( "@InvoiceType" , SqlDbType.NChar , 250 );
-            param[0].Value = "شراء";
-            dt = usedClass.selectdata ( "SelectAll_Invoices_usingType" , param );
-            dataGridViewSaleGrid.DataSource = dt;
+            if ( checkBoxDateSearch.Checked )
+            {
+                SqlParameter[] param = new SqlParameter[3];
+                param[0] = new SqlParameter ( "@InvoiceType" , SqlDbType.NVarChar , 250 );
+                param[1] = new SqlParameter ( "@beginDate" , SqlDbType.NVarChar , 250 );
+                param[2] = new SqlParameter ( "@endDate" , SqlDbType.NVarChar , 250 );
+                param[0].Value = "شراء";
+                param[1].Value = dateTimePickerFrom.Text.ToString ();
+                param[2].Value = dateTimePickerTo.Text.ToString ();
+                dt = usedClass.selectdata ( "Report_Select_invoices_usingDates_and_InvoiceType" , param );
+                dataGridViewSaleGrid.DataSource = dt;
+            }
+            else
+            {
+                SqlParameter[] param = new SqlParameter[1];
+                param[0] = new SqlParameter ( "@InvoiceType" , SqlDbType.NChar , 250 );
+                param[0].Value = "شراء";
+                dt = usedClass.selectdata ( "SelectAll_Invoices_usingType" , param );
+                dataGridViewSaleGrid.DataSource = dt;
+            }
+            
         }
 
         private void textBoxFilterSalesGrid_TextChanged(object sender , EventArgs e)
@@ -56,7 +72,7 @@ namespace Rresturant
 
         private void dataGridViewSaleGrid_CellContentClick(object sender , DataGridViewCellEventArgs e)
         {
-            var crp = new SaleInvoiceReport ();
+            var crp = new Reports.SaleInvoiceReport ();
             var dt = new DataTable ();
             var usedClass = new BasicClass ();
             var form = new PrintForm ();

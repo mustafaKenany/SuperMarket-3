@@ -57,6 +57,11 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_SaveInvoices = new System.Windows.Forms.TabPage();
             this.dataGridView_saveBuyingInvoice = new System.Windows.Forms.DataGridView();
+            this.Column_BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage_unRunInvoices = new System.Windows.Forms.TabPage();
             this.dataGridView_unRunBuyingInvoices = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,11 +69,6 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column_BillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -371,7 +371,46 @@
             this.dataGridView_saveBuyingInvoice.ShowRowErrors = false;
             this.dataGridView_saveBuyingInvoice.Size = new System.Drawing.Size(582, 623);
             this.dataGridView_saveBuyingInvoice.TabIndex = 1;
+            this.dataGridView_saveBuyingInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_saveBuyingInvoice_CellContentClick);
             this.dataGridView_saveBuyingInvoice.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_saveBuyingInvoice_CellContentDoubleClick);
+            // 
+            // Column_BillID
+            // 
+            this.Column_BillID.DataPropertyName = "invoiceNo";
+            this.Column_BillID.HeaderText = "رقم الفاتورة";
+            this.Column_BillID.Name = "Column_BillID";
+            this.Column_BillID.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "CustomerName";
+            this.Column8.HeaderText = "اسم الزبون";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 200;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "invoiceTotal";
+            this.Column9.HeaderText = "مبلغ القائمة";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "invoiceDate";
+            this.Column10.HeaderText = "تاريخ الفاتورة";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 120;
+            // 
+            // Column11
+            // 
+            this.Column11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column11.HeaderText = "";
+            this.Column11.Name = "Column11";
+            this.Column11.Text = "اختيار";
+            this.Column11.UseColumnTextForButtonValue = true;
+            this.Column11.Width = 80;
             // 
             // tabPage_unRunInvoices
             // 
@@ -481,44 +520,6 @@
             this.dataGridViewButtonColumn1.Text = "اختيار";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn1.Width = 80;
-            // 
-            // Column_BillID
-            // 
-            this.Column_BillID.DataPropertyName = "invoiceNo";
-            this.Column_BillID.HeaderText = "رقم الفاتورة";
-            this.Column_BillID.Name = "Column_BillID";
-            this.Column_BillID.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "CustomerName";
-            this.Column8.HeaderText = "اسم الزبون";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 200;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "invoiceTotal";
-            this.Column9.HeaderText = "مبلغ القائمة";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "invoiceDate";
-            this.Column10.HeaderText = "تاريخ الفاتورة";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 120;
-            // 
-            // Column11
-            // 
-            this.Column11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column11.HeaderText = "";
-            this.Column11.Name = "Column11";
-            this.Column11.Text = "اختيار";
-            this.Column11.UseColumnTextForButtonValue = true;
-            this.Column11.Width = 80;
             // 
             // UnInvoices_and_Users
             // 
