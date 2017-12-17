@@ -12,8 +12,8 @@ namespace Rresturant
         SqlConnection Con = new SqlConnection ( "Data Source=MACKPC;Initial Catalog=SuperMarket;Persist Security Info=True;User ID=sa;Password=123" );
         public static string CoustomerName = "";
         public static Int16 UnrnningBillId = 0;
-        public static double TotalDeyoon;
-        public static Boolean flagModified = false;
+
+        //public static Boolean flagModified = false;
         public static string UserName = "";
         public static string Password = "";
 

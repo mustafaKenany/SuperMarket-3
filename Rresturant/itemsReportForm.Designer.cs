@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(itemsReportForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.PictureBox();
@@ -64,9 +64,10 @@
             this.panel1.Controls.Add(this.Exit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1125, 50);
+            this.panel1.Padding = new System.Windows.Forms.Padding(1);
+            this.panel1.Size = new System.Drawing.Size(1125, 40);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -74,20 +75,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Changa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(500, 15);
+            this.label1.Location = new System.Drawing.Point(500, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 26);
             this.label1.TabIndex = 3;
             this.label1.Text = "المواد";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Exit
             // 
-            this.Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Exit.Dock = System.Windows.Forms.DockStyle.Right;
             this.Exit.Image = ((System.Drawing.Image)(resources.GetObject("Exit.Image")));
-            this.Exit.Location = new System.Drawing.Point(0, 0);
+            this.Exit.Location = new System.Drawing.Point(1082, 1);
             this.Exit.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(42, 50);
+            this.Exit.Size = new System.Drawing.Size(42, 38);
             this.Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Exit.TabIndex = 2;
             this.Exit.TabStop = false;
@@ -101,7 +103,7 @@
             this.panel2.Controls.Add(this.buttonPrintitemsGrid);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Font = new System.Drawing.Font("Changa Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1125, 50);
             this.panel2.TabIndex = 3;
@@ -157,20 +159,20 @@
             this.dataGridView_displayitems.AllowUserToAddRows = false;
             this.dataGridView_displayitems.AllowUserToDeleteRows = false;
             this.dataGridView_displayitems.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView_displayitems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_displayitems.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_displayitems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView_displayitems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_displayitems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_displayitems.ColumnHeadersHeight = 40;
             this.dataGridView_displayitems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnItemID,
@@ -185,22 +187,22 @@
             this.ColumnSavedInvoices});
             this.dataGridView_displayitems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_displayitems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.dataGridView_displayitems.Location = new System.Drawing.Point(0, 100);
+            this.dataGridView_displayitems.Location = new System.Drawing.Point(0, 90);
             this.dataGridView_displayitems.MultiSelect = false;
             this.dataGridView_displayitems.Name = "dataGridView_displayitems";
             this.dataGridView_displayitems.ReadOnly = true;
             this.dataGridView_displayitems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView_displayitems.RowHeadersVisible = false;
             this.dataGridView_displayitems.RowHeadersWidth = 45;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView_displayitems.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView_displayitems.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Changa", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.dataGridView_displayitems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridView_displayitems.RowTemplate.Height = 40;
             this.dataGridView_displayitems.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_displayitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_displayitems.Size = new System.Drawing.Size(1125, 600);
+            this.dataGridView_displayitems.Size = new System.Drawing.Size(1125, 610);
             this.dataGridView_displayitems.TabIndex = 9;
             this.dataGridView_displayitems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayitems_CellContentClick);
             // 
@@ -238,7 +240,7 @@
             // 
             // ColumnItemQuantity
             // 
-            this.ColumnItemQuantity.DataPropertyName = "itemQuantity";
+            this.ColumnItemQuantity.DataPropertyName = "StockQuantity";
             this.ColumnItemQuantity.HeaderText = "الكمية ";
             this.ColumnItemQuantity.Name = "ColumnItemQuantity";
             this.ColumnItemQuantity.ReadOnly = true;

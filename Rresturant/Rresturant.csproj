@@ -179,12 +179,6 @@
     <Compile Include="View\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UnRunBills.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UnRunBills.Designer.cs">
-      <DependentUpon>UnRunBills.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\PrintForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,50 +191,14 @@
     <Compile Include="View\ModifyPricesAndStockQuantity.Designer.cs">
       <DependentUpon>ModifyPricesAndStockQuantity.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SalesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\SalesForm.Designer.cs">
-      <DependentUpon>SalesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\ControlingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ControlingForm.Designer.cs">
       <DependentUpon>ControlingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FinicialForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FinicialForm.Designer.cs">
-      <DependentUpon>FinicialForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\stteingscs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\stteingscs.Designer.cs">
-      <DependentUpon>stteingscs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Invoice_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Invoice_Form.Designer.cs">
-      <DependentUpon>Invoice_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingForm.Designer.cs">
-      <DependentUpon>SettingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UnInvoices_and_Users.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UnInvoices_and_Users.Designer.cs">
-      <DependentUpon>UnInvoices_and_Users.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="BuyReportForm.resx">
       <DependentUpon>BuyReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,29 +261,14 @@
     <EmbeddedResource Include="View\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UnRunBills.resx">
-      <DependentUpon>UnRunBills.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\PrintForm.resx">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ModifyPricesAndStockQuantity.resx">
       <DependentUpon>ModifyPricesAndStockQuantity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SalesForm.resx">
-      <DependentUpon>SalesForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\ControlingForm.resx">
       <DependentUpon>ControlingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FinicialForm.resx">
-      <DependentUpon>FinicialForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\stteingscs.resx">
-      <DependentUpon>stteingscs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Invoice_Form.resx">
-      <DependentUpon>Invoice_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -338,12 +281,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SettingForm.resx">
-      <DependentUpon>SettingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UnInvoices_and_Users.resx">
-      <DependentUpon>UnInvoices_and_Users.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="DataSet_DB.xsc">
       <DependentUpon>DataSet_DB.xsd</DependentUpon>
     </None>

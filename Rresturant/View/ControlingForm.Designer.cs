@@ -37,12 +37,10 @@
             this.btn_ReportingForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_AccountingForm = new System.Windows.Forms.Button();
             this.btn_PurshaceForm = new System.Windows.Forms.Button();
             this.btn_CasherForm = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_for_prices = new System.Windows.Forms.Button();
-            this.button_UnRunnigBill = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -156,21 +154,6 @@
             this.button1.Text = "حــول الشــركة";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btn_AccountingForm
-            // 
-            this.btn_AccountingForm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_AccountingForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_AccountingForm.BackgroundImage")));
-            this.btn_AccountingForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_AccountingForm.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_AccountingForm.FlatAppearance.BorderSize = 0;
-            this.btn_AccountingForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AccountingForm.Location = new System.Drawing.Point(106, 403);
-            this.btn_AccountingForm.Name = "btn_AccountingForm";
-            this.btn_AccountingForm.Size = new System.Drawing.Size(250, 130);
-            this.btn_AccountingForm.TabIndex = 10;
-            this.btn_AccountingForm.UseVisualStyleBackColor = true;
-            this.btn_AccountingForm.Click += new System.EventHandler(this.btn_AccountingForm_Click);
-            // 
             // btn_PurshaceForm
             // 
             this.btn_PurshaceForm.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -229,33 +212,15 @@
             this.button_for_prices.UseVisualStyleBackColor = true;
             this.button_for_prices.Click += new System.EventHandler(this.button_for_prices_Click);
             // 
-            // button_UnRunnigBill
-            // 
-            this.button_UnRunnigBill.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_UnRunnigBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_UnRunnigBill.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
-            this.button_UnRunnigBill.FlatAppearance.BorderSize = 0;
-            this.button_UnRunnigBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_UnRunnigBill.ForeColor = System.Drawing.Color.White;
-            this.button_UnRunnigBill.Location = new System.Drawing.Point(539, 64);
-            this.button_UnRunnigBill.Name = "button_UnRunnigBill";
-            this.button_UnRunnigBill.Size = new System.Drawing.Size(150, 150);
-            this.button_UnRunnigBill.TabIndex = 14;
-            this.button_UnRunnigBill.Text = "القوائم الغير مرحلة \"الغير منفذة\"";
-            this.button_UnRunnigBill.UseVisualStyleBackColor = true;
-            this.button_UnRunnigBill.Click += new System.EventHandler(this.button_UnRunnigBill_Click);
-            // 
             // ControlingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(850, 618);
-            this.Controls.Add(this.button_UnRunnigBill);
             this.Controls.Add(this.button_for_prices);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.btn_AccountingForm);
             this.Controls.Add(this.btn_PurshaceForm);
             this.Controls.Add(this.btn_CasherForm);
             this.Controls.Add(this.pictureBox1);
@@ -281,12 +246,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox Exit;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_AccountingForm;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_for_prices;
-        private System.Windows.Forms.Button button_UnRunnigBill;
         public System.Windows.Forms.Button btn_CasherForm;
         public System.Windows.Forms.Button btn_PurshaceForm;
         public System.Windows.Forms.Button btn_ReportingForm;
