@@ -41,13 +41,12 @@
             this.buttonPrintitemsGrid = new System.Windows.Forms.Button();
             this.button_showAllCustomers = new System.Windows.Forms.Button();
             this.dataGridView_displayCustomers = new System.Windows.Forms.DataGridView();
-            this.ColumnCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalingInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnBuyingInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnSavedInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnIncomingMoney = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnOutcomingMoney = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSavePurshace = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnNetAmount = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -120,6 +119,7 @@
             this.textBoxFilteritemsGrid.Size = new System.Drawing.Size(293, 30);
             this.textBoxFilteritemsGrid.TabIndex = 6;
             this.textBoxFilteritemsGrid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxFilteritemsGrid.TextChanged += new System.EventHandler(this.textBoxFilteritemsGrid_TextChanged);
             // 
             // buttonPrintitemsGrid
             // 
@@ -159,7 +159,7 @@
             this.dataGridView_displayCustomers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Changa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -167,13 +167,12 @@
             this.dataGridView_displayCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_displayCustomers.ColumnHeadersHeight = 40;
             this.dataGridView_displayCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCustomerID,
             this.ColumnCustomerName,
             this.ColumnSalingInvoices,
             this.ColumnBuyingInvoices,
             this.ColumnSavedInvoices,
-            this.ColumnIncomingMoney,
-            this.ColumnOutcomingMoney});
+            this.ColumnSavePurshace,
+            this.ColumnNetAmount});
             this.dataGridView_displayCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_displayCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridView_displayCustomers.Location = new System.Drawing.Point(0, 100);
@@ -195,16 +194,9 @@
             this.dataGridView_displayCustomers.TabIndex = 10;
             this.dataGridView_displayCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_displayCustomers_CellContentClick);
             // 
-            // ColumnCustomerID
-            // 
-            this.ColumnCustomerID.DataPropertyName = "CoustomerID";
-            this.ColumnCustomerID.HeaderText = "رمز الزبون";
-            this.ColumnCustomerID.Name = "ColumnCustomerID";
-            this.ColumnCustomerID.ReadOnly = true;
-            // 
             // ColumnCustomerName
             // 
-            this.ColumnCustomerName.DataPropertyName = "CoustomerName";
+            this.ColumnCustomerName.DataPropertyName = "CustomerName";
             this.ColumnCustomerName.HeaderText = "اسم الزبون";
             this.ColumnCustomerName.Name = "ColumnCustomerName";
             this.ColumnCustomerName.ReadOnly = true;
@@ -231,31 +223,33 @@
             // ColumnSavedInvoices
             // 
             this.ColumnSavedInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSavedInvoices.HeaderText = "القوائم المحجوزة";
+            this.ColumnSavedInvoices.HeaderText = "قوائم الببع المحفوظة";
             this.ColumnSavedInvoices.Name = "ColumnSavedInvoices";
             this.ColumnSavedInvoices.ReadOnly = true;
             this.ColumnSavedInvoices.Text = "عرض";
             this.ColumnSavedInvoices.UseColumnTextForButtonValue = true;
-            this.ColumnSavedInvoices.Width = 125;
+            this.ColumnSavedInvoices.Width = 150;
             // 
-            // ColumnIncomingMoney
+            // ColumnSavePurshace
             // 
-            this.ColumnIncomingMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnIncomingMoney.HeaderText = "مبالغ مدفوعة";
-            this.ColumnIncomingMoney.Name = "ColumnIncomingMoney";
-            this.ColumnIncomingMoney.ReadOnly = true;
-            this.ColumnIncomingMoney.Text = "عرض";
-            this.ColumnIncomingMoney.UseColumnTextForButtonValue = true;
-            this.ColumnIncomingMoney.Width = 125;
+            this.ColumnSavePurshace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSavePurshace.HeaderText = "قوائم الشراء المحفوظة";
+            this.ColumnSavePurshace.Name = "ColumnSavePurshace";
+            this.ColumnSavePurshace.ReadOnly = true;
+            this.ColumnSavePurshace.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSavePurshace.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnSavePurshace.Text = "عرض";
+            this.ColumnSavePurshace.UseColumnTextForButtonValue = true;
+            this.ColumnSavePurshace.Width = 150;
             // 
-            // ColumnOutcomingMoney
+            // ColumnNetAmount
             // 
-            this.ColumnOutcomingMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnOutcomingMoney.HeaderText = "مبالغ مسددة";
-            this.ColumnOutcomingMoney.Name = "ColumnOutcomingMoney";
-            this.ColumnOutcomingMoney.ReadOnly = true;
-            this.ColumnOutcomingMoney.Text = "عرض";
-            this.ColumnOutcomingMoney.UseColumnTextForButtonValue = true;
+            this.ColumnNetAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnNetAmount.HeaderText = "مجمل";
+            this.ColumnNetAmount.Name = "ColumnNetAmount";
+            this.ColumnNetAmount.ReadOnly = true;
+            this.ColumnNetAmount.Text = "عرض";
+            this.ColumnNetAmount.UseColumnTextForButtonValue = true;
             // 
             // CustomersForm
             // 
@@ -292,13 +286,12 @@
         private System.Windows.Forms.Button buttonPrintitemsGrid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxFilteritemsGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerID;
+        private System.Windows.Forms.DataGridView dataGridView_displayCustomers;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerName;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnSalingInvoices;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnBuyingInvoices;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnSavedInvoices;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnIncomingMoney;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnOutcomingMoney;
-        private System.Windows.Forms.DataGridView dataGridView_displayCustomers;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnSavePurshace;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnNetAmount;
     }
 }

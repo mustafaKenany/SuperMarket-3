@@ -228,8 +228,8 @@ namespace Rresturant.View
                 param[1] = new SqlParameter ( "@itemName" , SqlDbType.NVarChar , 50 );
                 param[1].Value = dataGridViewItems.Rows[i].Cells["ColumnItemName"].Value;
                 //
-                param[2] = new SqlParameter ( "@Quantity" , SqlDbType.Int ); 
-                param[2].Value =  int.Parse ( dataGridViewItems.Rows[i].Cells["ColumnItemQuantity"].Value.ToString () );
+                param[2] = new SqlParameter ( "@Quantity" , SqlDbType.Int );
+                param[2].Value = int.Parse ( dataGridViewItems.Rows[i].Cells["ColumnItemQuantity"].Value.ToString () ) * -1;
                 //
                 param[3] = new SqlParameter ( "@price" , SqlDbType.Float );
                 param[3].Value = float.Parse ( dataGridViewItems.Rows[i].Cells["ColumnItemPrice"].Value.ToString () );
@@ -251,7 +251,7 @@ namespace Rresturant.View
             param2[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
             param2[1] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 150 );
             param2[2] = new SqlParameter ( "@InvoiceType" , SqlDbType.NVarChar , 100 );
-            param2[3] = new SqlParameter ( "@InvoiceDate" , SqlDbType.NVarChar , 100 );
+            param2[3] = new SqlParameter ( "@InvoiceDate" , SqlDbType.Date );
             param2[4] = new SqlParameter ( "@InvoicePaymentStatus" , SqlDbType.NVarChar , 100 );
             param2[5] = new SqlParameter ( "@InvoiceRunORnot" , SqlDbType.NVarChar , 100 );
             param2[6] = new SqlParameter ( "@IQAmountPaid" , SqlDbType.Float );
@@ -263,7 +263,7 @@ namespace Rresturant.View
             param2[0].Value = int.Parse ( textBoxInvoiceNo.Text );
             param2[1].Value = textBoxCustomerName.Text;
             param2[2].Value = "بيع";
-            param2[3].Value = dateTimePickerInvoiceDate.Text.ToString ();
+            param2[3].Value = dateTimePickerInvoiceDate.Text;
             param2[4].Value = PayOrNot;
             param2[5].Value = RUNORSAVE;
             var currencyformat = CultureInfo.GetCultureInfo ( "AR-iq" );
@@ -340,7 +340,7 @@ namespace Rresturant.View
         private void buttonInpostInvoices_Click(object sender , EventArgs e)
         {
             var form = new SavedInvoicesForm ();
-            form.LoadSaveInvoices ("بيع");
+            form.LoadSaveInvoices ( "بيع" );
             form.ShowDialog ();
         }
 
@@ -395,6 +395,7 @@ namespace Rresturant.View
             {
                 if ( textBoxCustomerName.Text == "" )
                 {
+
                     MessageBox.Show ( "يرجى ادخال أسم الزبون" , "Message" );
                     textBoxCustomerName.Focus ();
                 }
@@ -402,8 +403,24 @@ namespace Rresturant.View
                 {
                     if ( textBoxTotalSaveAmount.Text == "" || textBoxTotalSaveAmount.Text == "0" )
                     {
+                        DialogResult result = MessageBox.Show ( "هل القائمة بالاجل" , "Warring" , MessageBoxButtons.YesNo , MessageBoxIcon.Question );
+                        if ( result==DialogResult.Yes )
+                        {
+                            //delete previous invoice that have same number
+                            deletePrviousInvoices ();
+                            //save invoice to data base with keyword RUN
+                            SaveInvoices ( "RUN" , "أجل" );
+                            MessageBox.Show ( "DONE" , "Message" );
+                            buttonInvoicePrint_Click ( sender , e );
+                            IntializeFunction ();
+                        }
+                        else
+                        {
                         MessageBox.Show ( "يرجى ادخال المبلغ المسدد" , "Message" );
                         textBoxLocalSaveAmount.Focus ();
+
+                        }
+
                     }
                     else
                     {
@@ -428,7 +445,7 @@ namespace Rresturant.View
                         //save invoice to data base with keyword RUN
                         SaveInvoices ( "RUN" , "نقد" );
                         MessageBox.Show ( "DONE" , "Message" );
-                        //buttonInvoicePrint_Click ( sender ,e);
+                        buttonInvoicePrint_Click ( sender , e );
                         IntializeFunction ();
                     }
                 }
@@ -439,12 +456,11 @@ namespace Rresturant.View
         {
             var UsedClass = new BasicClass ();
             var dt = new DataTable ();
-            if ( dataGridViewItems.Rows.Count > 0 )
-            {
+           
                 SqlParameter[] param = new SqlParameter[2];
                 param[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
                 param[1] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 250 );
-                param[0].Value = 130;
+                param[0].Value = int.Parse(textBoxInvoiceNo.Text);
                 param[1].Value = textBoxCustomerName.Text.Trim ();
 
                 dt = UsedClass.selectdata ( "Casher_PrintForma" , param );
@@ -456,7 +472,7 @@ namespace Rresturant.View
                 form.crystalReportViewer1.ReportSource = crp;
                 form.ShowDialog ();
                 //crp.PrintToPrinter ( 1 , false , 0 , 0 );
-            }
+           
         }
 
         private void dataGridViewItems_CellContentClick(object sender , DataGridViewCellEventArgs e)
@@ -489,7 +505,7 @@ namespace Rresturant.View
                     case "ColumnItemQuantity":
                         if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null )
                         {
-                            var Price = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
+                            var Price = float.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
                             var Quantity = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemQuantity"].Value.ToString () );
                             if ( Quantity <= 0 )
                             {
@@ -510,7 +526,7 @@ namespace Rresturant.View
 
                         break;
                     case "ColumnItemPrice":
-                        if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null && int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () ) <= 0 )
+                        if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null && float.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () ) <= 0 )
                         {
                             MessageBox.Show ( "يجب اعطاء سعر بيع للمادة" , "Message" );
                             dataGridViewItems.Rows[e.RowIndex].Selected = true;

@@ -13,7 +13,7 @@ namespace Rresturant
         public static string CoustomerName = "";
         public static Int16 UnrnningBillId = 0;
 
-        //public static Boolean flagModified = false;
+        public static Boolean flagModified = false;
         public static string UserName = "";
         public static string Password = "";
 

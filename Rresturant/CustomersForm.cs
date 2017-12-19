@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace Rresturant
@@ -30,7 +23,8 @@ namespace Rresturant
         {
             var usedClass = new BasicClass ();
             var dt = new DataTable ();
-            dt = usedClass.selectdata ( "Select_Users" , null );
+
+            dt = usedClass.selectdata ( "Reports_Select_Users" , null );
             dataGridView_displayCustomers.DataSource = dt;
         }
 
@@ -40,29 +34,30 @@ namespace Rresturant
             var UsedClass = new BasicClass ();
             var crp = new Reports.CustomerReports_Sale_buy ();
             var form = new PrintForm ();
-            TextObject invoiceType = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text1"];
+            TextObject CustomerName = (TextObject) crp.ReportDefinition.Sections["Section1"].ReportObjects["Text2"];
             SqlParameter[] param = new SqlParameter[3];
             param[0] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 250 );
             param[1] = new SqlParameter ( "@InvoiceType" , SqlDbType.NVarChar , 250 );
             param[2] = new SqlParameter ( "@InvoiceStatus" , SqlDbType.NVarChar , 250 );
+
+
             if ( e.RowIndex >= 0 )
             {
                 param[0].Value = dataGridView_displayCustomers.Rows[e.RowIndex].Cells["ColumnCustomerName"].Value.ToString ();
-
+                CustomerName.Text = dataGridView_displayCustomers.Rows[e.RowIndex].Cells["ColumnCustomerName"].Value.ToString ();
                 switch ( e.ColumnIndex )
                 {
                     case 0:
-                        invoiceType.Text = "فواتير الشراء";
+                        //invoiceType.Text = "فواتير الشراء";
                         param[1].Value = "شراء";
                         param[2].Value = "Run";
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
                         crp.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = crp;
                         form.ShowDialog ();
-                        
                         break;
                     case 1:
-                        invoiceType.Text = "فواتير البيع";
+                        //invoiceType.Text = "فواتير البيع";
                         param[1].Value = "بيع";
                         param[2].Value = "Run";
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
@@ -71,7 +66,7 @@ namespace Rresturant
                         form.ShowDialog ();
                         break;
                     case 2:
-                        invoiceType.Text = "فواتير المحجوزة";
+                        //invoiceType.Text = "فواتير المحجوزة";
                         param[1].Value = "بيع";
                         param[2].Value = "Save";
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
@@ -79,9 +74,48 @@ namespace Rresturant
                         form.crystalReportViewer1.ReportSource = crp;
                         form.ShowDialog ();
                         break;
+                    case 3:
+                        param[1].Value = "شراء";
+                        param[2].Value = "Save";
+                        dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
+                        crp.SetDataSource ( dt );
+                        form.crystalReportViewer1.ReportSource = crp;
+                        form.ShowDialog ();
+                        break;
+                    case 4:
+                        SqlParameter[] parameter = new SqlParameter[1];
+                        parameter[0] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 150 );
+                        parameter[0].Value = dataGridView_displayCustomers.Rows[e.RowIndex].Cells["ColumnCustomerName"].Value.ToString ();
+                        dt = UsedClass.selectdata ( "Reports_Summery" , parameter );
+                        var Crp2 = new Reports.SummeryReport ();
+                        Crp2.SetDataSource ( dt );
+                        form.crystalReportViewer1.ReportSource = Crp2;
+                        form.ShowDialog ();
+                        break;
                     default:
                         break;
                 }
+            }
+        }
+
+        private void textBoxFilteritemsGrid_TextChanged(object sender , EventArgs e)
+        {
+            var dt = new DataTable ();
+            var UsedClass = new BasicClass ();
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter ( "@Filter" , SqlDbType.NVarChar );
+
+            if ( textBoxFilteritemsGrid.Text != "" )
+            {
+                param[0].Value = textBoxFilteritemsGrid.Text.Trim ();
+                dt = UsedClass.selectdata ( "Reports_SelectUsers_byFilter" , param );
+                dataGridView_displayCustomers.DataSource = dt;
+            }
+            else
+            {
+
+                dt = UsedClass.selectdata ( "Reports_Select_Users" , null );
+                dataGridView_displayCustomers.DataSource = dt;
             }
         }
     }

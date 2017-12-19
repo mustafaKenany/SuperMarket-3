@@ -50,7 +50,8 @@
             this.ColumnItemLastPriceSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnShowAllSaleInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnAllBuyInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnSavedInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSavedSaleInvoices = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSavedPurchaseInvoice = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -184,7 +185,8 @@
             this.ColumnItemLastPriceSale,
             this.ColumnShowAllSaleInvoices,
             this.ColumnAllBuyInvoices,
-            this.ColumnSavedInvoices});
+            this.ColumnSavedSaleInvoices,
+            this.ColumnSavedPurchaseInvoice});
             this.dataGridView_displayitems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_displayitems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
             this.dataGridView_displayitems.Location = new System.Drawing.Point(0, 90);
@@ -282,14 +284,25 @@
             this.ColumnAllBuyInvoices.Text = "تفاصيل";
             this.ColumnAllBuyInvoices.UseColumnTextForButtonValue = true;
             // 
-            // ColumnSavedInvoices
+            // ColumnSavedSaleInvoices
             // 
-            this.ColumnSavedInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSavedInvoices.HeaderText = "فواتير محجوزة";
-            this.ColumnSavedInvoices.Name = "ColumnSavedInvoices";
-            this.ColumnSavedInvoices.ReadOnly = true;
-            this.ColumnSavedInvoices.Text = "تفاصيل";
-            this.ColumnSavedInvoices.UseColumnTextForButtonValue = true;
+            this.ColumnSavedSaleInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSavedSaleInvoices.HeaderText = "البيع المحفوظة";
+            this.ColumnSavedSaleInvoices.Name = "ColumnSavedSaleInvoices";
+            this.ColumnSavedSaleInvoices.ReadOnly = true;
+            this.ColumnSavedSaleInvoices.Text = "تفاصيل";
+            this.ColumnSavedSaleInvoices.UseColumnTextForButtonValue = true;
+            this.ColumnSavedSaleInvoices.Width = 125;
+            // 
+            // ColumnSavedPurchaseInvoice
+            // 
+            this.ColumnSavedPurchaseInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSavedPurchaseInvoice.HeaderText = "الشراء المحفوظة";
+            this.ColumnSavedPurchaseInvoice.Name = "ColumnSavedPurchaseInvoice";
+            this.ColumnSavedPurchaseInvoice.ReadOnly = true;
+            this.ColumnSavedPurchaseInvoice.Text = "تفاصيل";
+            this.ColumnSavedPurchaseInvoice.UseColumnTextForButtonValue = true;
+            this.ColumnSavedPurchaseInvoice.Width = 125;
             // 
             // itemsReportForm
             // 
@@ -335,6 +348,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemLastPriceSale;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnShowAllSaleInvoices;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnAllBuyInvoices;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnSavedInvoices;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnSavedSaleInvoices;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnSavedPurchaseInvoice;
     }
 }

@@ -1202,6 +1202,20 @@ namespace Rresturant {
             
             private global::System.Data.DataColumn columnInvoiceType;
             
+            private global::System.Data.DataColumn columnitemCategory;
+            
+            private global::System.Data.DataColumn columnprice_for_buy;
+            
+            private global::System.Data.DataColumn columnLastPrice;
+            
+            private global::System.Data.DataColumn columnStockQuantity;
+            
+            private global::System.Data.DataColumn columnEnteredUser;
+            
+            private global::System.Data.DataColumn columninvoiceNo;
+            
+            private global::System.Data.DataColumn columnInvoicePaymentStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CasherPrintFormaDataTable() {
@@ -1357,6 +1371,62 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn itemCategoryColumn {
+                get {
+                    return this.columnitemCategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn price_for_buyColumn {
+                get {
+                    return this.columnprice_for_buy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastPriceColumn {
+                get {
+                    return this.columnLastPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StockQuantityColumn {
+                get {
+                    return this.columnStockQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EnteredUserColumn {
+                get {
+                    return this.columnEnteredUser;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn invoiceNoColumn {
+                get {
+                    return this.columninvoiceNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InvoicePaymentStatusColumn {
+                get {
+                    return this.columnInvoicePaymentStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1392,7 +1462,29 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CasherPrintFormaRow AddCasherPrintFormaRow(string itemName, string itemQuantity, string itemPrice, string totalPrice, string CustomerName, string IQAmountPaid, string USAmountPaid, string ConversionRate, string InvoiceDiscount, string InvoiceTotalAmount, string InvoiceNetAmount, string Reminder, string invoiceNumber, string InvoiceDate, string InvoiceType) {
+            public CasherPrintFormaRow AddCasherPrintFormaRow(
+                        string itemName, 
+                        string itemQuantity, 
+                        string itemPrice, 
+                        string totalPrice, 
+                        string CustomerName, 
+                        string IQAmountPaid, 
+                        string USAmountPaid, 
+                        string ConversionRate, 
+                        string InvoiceDiscount, 
+                        string InvoiceTotalAmount, 
+                        string InvoiceNetAmount, 
+                        string Reminder, 
+                        string invoiceNumber, 
+                        string InvoiceDate, 
+                        string InvoiceType, 
+                        string itemCategory, 
+                        string price_for_buy, 
+                        string LastPrice, 
+                        string StockQuantity, 
+                        string EnteredUser, 
+                        string invoiceNo, 
+                        string InvoicePaymentStatus) {
                 CasherPrintFormaRow rowCasherPrintFormaRow = ((CasherPrintFormaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         itemName,
@@ -1409,7 +1501,14 @@ namespace Rresturant {
                         Reminder,
                         invoiceNumber,
                         InvoiceDate,
-                        InvoiceType};
+                        InvoiceType,
+                        itemCategory,
+                        price_for_buy,
+                        LastPrice,
+                        StockQuantity,
+                        EnteredUser,
+                        invoiceNo,
+                        InvoicePaymentStatus};
                 rowCasherPrintFormaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCasherPrintFormaRow);
                 return rowCasherPrintFormaRow;
@@ -1447,6 +1546,13 @@ namespace Rresturant {
                 this.columninvoiceNumber = base.Columns["invoiceNumber"];
                 this.columnInvoiceDate = base.Columns["InvoiceDate"];
                 this.columnInvoiceType = base.Columns["InvoiceType"];
+                this.columnitemCategory = base.Columns["itemCategory"];
+                this.columnprice_for_buy = base.Columns["price_for_buy"];
+                this.columnLastPrice = base.Columns["LastPrice"];
+                this.columnStockQuantity = base.Columns["StockQuantity"];
+                this.columnEnteredUser = base.Columns["EnteredUser"];
+                this.columninvoiceNo = base.Columns["invoiceNo"];
+                this.columnInvoicePaymentStatus = base.Columns["InvoicePaymentStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1482,6 +1588,20 @@ namespace Rresturant {
                 base.Columns.Add(this.columnInvoiceDate);
                 this.columnInvoiceType = new global::System.Data.DataColumn("InvoiceType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInvoiceType);
+                this.columnitemCategory = new global::System.Data.DataColumn("itemCategory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitemCategory);
+                this.columnprice_for_buy = new global::System.Data.DataColumn("price_for_buy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice_for_buy);
+                this.columnLastPrice = new global::System.Data.DataColumn("LastPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastPrice);
+                this.columnStockQuantity = new global::System.Data.DataColumn("StockQuantity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStockQuantity);
+                this.columnEnteredUser = new global::System.Data.DataColumn("EnteredUser", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnteredUser);
+                this.columninvoiceNo = new global::System.Data.DataColumn("invoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoiceNo);
+                this.columnInvoicePaymentStatus = new global::System.Data.DataColumn("InvoicePaymentStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoicePaymentStatus);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3026,6 +3146,119 @@ namespace Rresturant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string itemCategory {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.itemCategoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'itemCategory\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.itemCategoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string price_for_buy {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.price_for_buyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price_for_buy\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.price_for_buyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LastPrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.LastPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastPrice\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.LastPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StockQuantity {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.StockQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StockQuantity\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.StockQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string EnteredUser {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.EnteredUserColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EnteredUser\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.EnteredUserColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string invoiceNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.invoiceNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'invoiceNo\' in table \'CasherPrintForma\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.invoiceNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string InvoicePaymentStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableCasherPrintForma.InvoicePaymentStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InvoicePaymentStatus\' in table \'CasherPrintForma\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableCasherPrintForma.InvoicePaymentStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsitemNameNull() {
                 return this.IsNull(this.tableCasherPrintForma.itemNameColumn);
             }
@@ -3202,6 +3435,90 @@ namespace Rresturant {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetInvoiceTypeNull() {
                 this[this.tableCasherPrintForma.InvoiceTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsitemCategoryNull() {
+                return this.IsNull(this.tableCasherPrintForma.itemCategoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetitemCategoryNull() {
+                this[this.tableCasherPrintForma.itemCategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isprice_for_buyNull() {
+                return this.IsNull(this.tableCasherPrintForma.price_for_buyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setprice_for_buyNull() {
+                this[this.tableCasherPrintForma.price_for_buyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastPriceNull() {
+                return this.IsNull(this.tableCasherPrintForma.LastPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastPriceNull() {
+                this[this.tableCasherPrintForma.LastPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStockQuantityNull() {
+                return this.IsNull(this.tableCasherPrintForma.StockQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStockQuantityNull() {
+                this[this.tableCasherPrintForma.StockQuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEnteredUserNull() {
+                return this.IsNull(this.tableCasherPrintForma.EnteredUserColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEnteredUserNull() {
+                this[this.tableCasherPrintForma.EnteredUserColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsinvoiceNoNull() {
+                return this.IsNull(this.tableCasherPrintForma.invoiceNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetinvoiceNoNull() {
+                this[this.tableCasherPrintForma.invoiceNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInvoicePaymentStatusNull() {
+                return this.IsNull(this.tableCasherPrintForma.InvoicePaymentStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInvoicePaymentStatusNull() {
+                this[this.tableCasherPrintForma.InvoicePaymentStatusColumn] = global::System.Convert.DBNull;
             }
         }
         

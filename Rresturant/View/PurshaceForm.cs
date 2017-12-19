@@ -294,7 +294,7 @@ namespace Rresturant.View
             var dt = new DataTable ();
             //if ( dataGridViewItems.Rows.Count > 0 || textBoxInvoiceNO.Text != "" )
             //{
-            if ( textBoxCustomerName.Text=="" )
+            if ( textBoxCustomerName.Text == "" )
             {
                 MessageBox.Show ( "يرجى ادخال أسم الزبون" , "Message" );
                 textBoxCustomerName.Focus ();
@@ -316,7 +316,7 @@ namespace Rresturant.View
                 form.crystalReportViewer1.ReportSource = crp;
                 form.ShowDialog ();
             }
-               
+
             //}
         }
 
@@ -400,15 +400,22 @@ namespace Rresturant.View
 
         private void moneyCalcuation()
         {
-            var totalInvoice = 0;
-            var FinalTotal = 0;
+            var totalInvoice =0.0;
+            var FinalTotal = 0.0;
             for ( int i = 0 ; i < dataGridViewItems.Rows.Count ; i++ )
             {
-                totalInvoice += int.Parse ( dataGridViewItems.Rows[i].Cells["ColumnTotal"].Value.ToString () );
+                totalInvoice += float.Parse ( dataGridViewItems.Rows[i].Cells["ColumnTotal"].Value.ToString () );
                 FinalTotal = totalInvoice;
             }
-            textBoxTotalInvoice.Text = string.Format ( System.Globalization.CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{0:C0}" , totalInvoice );
-            textBoxFinalAmount.Text = string.Format ( System.Globalization.CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{0:C0}" , FinalTotal );
+            textBoxTotalInvoice.Text = totalInvoice.ToString();
+            textBoxFinalAmount.Text = FinalTotal.ToString ();
+            textBoxLocalSaveAmount.Text = "0";
+            textBoxDollarSaveAmount.Text = "0";
+            textBoxTotalSaveAmount.Text = "0";
+            textBoxReminder.Text = "0";
+            //textBoxTotalInvoice.Text = string.Format ( System.Globalization.CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{00:C0}" , totalInvoice );
+            //textBoxFinalAmount.Text = string.Format ( System.Globalization.CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{0:C00}" , FinalTotal );
+
         }
 
         private bool CheckDuplicate(string itemName)
@@ -489,7 +496,7 @@ namespace Rresturant.View
                     case "ColumnItemQuantity":
                         if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null )
                         {
-                            var Price = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
+                            var Price = float.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
                             var Quantity = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemQuantity"].Value.ToString () );
                             if ( Quantity <= 0 )
                             {
@@ -510,18 +517,23 @@ namespace Rresturant.View
 
                         break;
                     case "ColumnItemPrice":
-                        if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null && int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () ) <= 0 )
+                        if ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value != null )
                         {
-                            MessageBox.Show ( "يجب اعطاء سعر بيع للمادة" , "Message" );
-                            dataGridViewItems.Rows[e.RowIndex].Selected = true;
-                        }
-                        else
-                        {
-                            var Price = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
+                            var Price = float.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemPrice"].Value.ToString () );
                             var Quantity = int.Parse ( dataGridViewItems.Rows[e.RowIndex].Cells["ColumnItemQuantity"].Value.ToString () );
-                            dataGridViewItems.Rows[e.RowIndex].Cells["ColumnTotal"].Value = Price * Quantity;
-                            moneyCalcuation ();
+                            if ( Price <= 0 )
+                            {
+                                MessageBox.Show ( "يجب اعطاء سعر بيع للمادة" , "Message" );
+                                dataGridViewItems.Rows[e.RowIndex].Selected = true;
+
+                            }
+                            else
+                            {
+                                dataGridViewItems.Rows[e.RowIndex].Cells["ColumnTotal"].Value = Price * Quantity;
+                                moneyCalcuation ();
+                            }
                         }
+                      
                         break;
 
                     default:
@@ -755,7 +767,7 @@ namespace Rresturant.View
                 textBoxLocalSaveAmount.Text = textBoxFinalAmount.Text;
                 var TotalPaidAmount = IQPaidAmount () + USPaidAmount ();
                 textBoxTotalSaveAmount.Text = TotalPaidAmount.ToString ();
-                textBoxTotalSaveAmount.Text = string.Format ( CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{0:C0}" , TotalPaidAmount );
+                //textBoxTotalSaveAmount.Text = string.Format ( CultureInfo.CreateSpecificCulture ( "ar-iq" ) , "{0:C0}" , TotalPaidAmount );
                 reminderFunction ();
             }
         }
