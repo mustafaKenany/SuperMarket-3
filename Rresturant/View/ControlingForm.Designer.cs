@@ -41,6 +41,8 @@
             this.btn_CasherForm = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_for_prices = new System.Windows.Forms.Button();
+            this.buttonSavePurshaceInvoice = new System.Windows.Forms.Button();
+            this.buttonSaveSaleInvoice = new System.Windows.Forms.Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -212,12 +214,46 @@
             this.button_for_prices.UseVisualStyleBackColor = true;
             this.button_for_prices.Click += new System.EventHandler(this.button_for_prices_Click);
             // 
+            // buttonSavePurshaceInvoice
+            // 
+            this.buttonSavePurshaceInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSavePurshaceInvoice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonSavePurshaceInvoice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.buttonSavePurshaceInvoice.FlatAppearance.BorderSize = 0;
+            this.buttonSavePurshaceInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSavePurshaceInvoice.ForeColor = System.Drawing.Color.White;
+            this.buttonSavePurshaceInvoice.Location = new System.Drawing.Point(233, 398);
+            this.buttonSavePurshaceInvoice.Name = "buttonSavePurshaceInvoice";
+            this.buttonSavePurshaceInvoice.Size = new System.Drawing.Size(150, 150);
+            this.buttonSavePurshaceInvoice.TabIndex = 14;
+            this.buttonSavePurshaceInvoice.Text = "قوائم الشراء المحفوظة";
+            this.buttonSavePurshaceInvoice.UseVisualStyleBackColor = true;
+            this.buttonSavePurshaceInvoice.Click += new System.EventHandler(this.buttonSavePurshaceInvoice_Click);
+            // 
+            // buttonSaveSaleInvoice
+            // 
+            this.buttonSaveSaleInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveSaleInvoice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonSaveSaleInvoice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.buttonSaveSaleInvoice.FlatAppearance.BorderSize = 0;
+            this.buttonSaveSaleInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveSaleInvoice.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveSaleInvoice.Location = new System.Drawing.Point(77, 398);
+            this.buttonSaveSaleInvoice.Name = "buttonSaveSaleInvoice";
+            this.buttonSaveSaleInvoice.Size = new System.Drawing.Size(150, 150);
+            this.buttonSaveSaleInvoice.TabIndex = 15;
+            this.buttonSaveSaleInvoice.Text = "قوائم البيع المحفوظة";
+            this.buttonSaveSaleInvoice.UseVisualStyleBackColor = true;
+            this.buttonSaveSaleInvoice.Click += new System.EventHandler(this.buttonSaveSaleInvoice_Click);
+            // 
             // ControlingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(850, 618);
+            this.Controls.Add(this.buttonSaveSaleInvoice);
+            this.Controls.Add(this.buttonSavePurshaceInvoice);
             this.Controls.Add(this.button_for_prices);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -254,5 +290,7 @@
         public System.Windows.Forms.Button btn_PurshaceForm;
         public System.Windows.Forms.Button btn_ReportingForm;
         public System.Windows.Forms.Button btn_SettingForm;
+        private System.Windows.Forms.Button buttonSavePurshaceInvoice;
+        private System.Windows.Forms.Button buttonSaveSaleInvoice;
     }
 }

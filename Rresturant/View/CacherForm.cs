@@ -171,7 +171,7 @@ namespace Rresturant.View
 
         }
 
-        private void EnableControlling()
+        public void EnableControlling()
         {
             tableLayoutPanelCategories.Enabled = true;
             tableLayoutPanelGridView.Enabled = true;
@@ -328,7 +328,11 @@ namespace Rresturant.View
         {
             if ( dataGridViewItems.Rows.Count > 0 )
             {
-                //Delete old invoice
+                DialogResult Result = MessageBox.Show ( "هل تريد فتح قائمة جديدة والغاء السابقة" , "MESSAGE" , MessageBoxButtons.YesNo );
+                if ( Result == DialogResult.Yes )
+                {
+                    dataGridViewItems.Rows.Clear ();
+                }
             }
             else
             {
@@ -404,7 +408,7 @@ namespace Rresturant.View
                     if ( textBoxTotalSaveAmount.Text == "" || textBoxTotalSaveAmount.Text == "0" )
                     {
                         DialogResult result = MessageBox.Show ( "هل القائمة بالاجل" , "Warring" , MessageBoxButtons.YesNo , MessageBoxIcon.Question );
-                        if ( result==DialogResult.Yes )
+                        if ( result == DialogResult.Yes )
                         {
                             //delete previous invoice that have same number
                             deletePrviousInvoices ();
@@ -416,8 +420,8 @@ namespace Rresturant.View
                         }
                         else
                         {
-                        MessageBox.Show ( "يرجى ادخال المبلغ المسدد" , "Message" );
-                        textBoxLocalSaveAmount.Focus ();
+                            MessageBox.Show ( "يرجى ادخال المبلغ المسدد" , "Message" );
+                            textBoxLocalSaveAmount.Focus ();
 
                         }
 
@@ -456,23 +460,23 @@ namespace Rresturant.View
         {
             var UsedClass = new BasicClass ();
             var dt = new DataTable ();
-           
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
-                param[1] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 250 );
-                param[0].Value = int.Parse(textBoxInvoiceNo.Text);
-                param[1].Value = textBoxCustomerName.Text.Trim ();
 
-                dt = UsedClass.selectdata ( "Casher_PrintForma" , param );
-                var crp = new Reports.CrystalReport1 ();
-                CrystalDecisions.CrystalReports.Engine.TextObject invoiceType = (CrystalDecisions.CrystalReports.Engine.TextObject) crp.ReportDefinition.Sections["Section2"].ReportObjects["Text15"];
-                invoiceType.Text = textBoxInvoiceNo.Text;
-                crp.SetDataSource ( dt );
-                PrintForm form = new PrintForm ();
-                form.crystalReportViewer1.ReportSource = crp;
-                form.ShowDialog ();
-                //crp.PrintToPrinter ( 1 , false , 0 , 0 );
-           
+            SqlParameter[] param = new SqlParameter[2];
+            param[0] = new SqlParameter ( "@InvoiceNo" , SqlDbType.Int );
+            param[1] = new SqlParameter ( "@CustomerName" , SqlDbType.NVarChar , 250 );
+            param[0].Value = int.Parse ( textBoxInvoiceNo.Text );
+            param[1].Value = textBoxCustomerName.Text.Trim ();
+
+            dt = UsedClass.selectdata ( "Casher_PrintForma" , param );
+            var crp = new Reports.CrystalReport1 ();
+            CrystalDecisions.CrystalReports.Engine.TextObject invoiceType = (CrystalDecisions.CrystalReports.Engine.TextObject) crp.ReportDefinition.Sections["Section2"].ReportObjects["Text15"];
+            invoiceType.Text = textBoxInvoiceNo.Text;
+            crp.SetDataSource ( dt );
+            PrintForm form = new PrintForm ();
+            form.crystalReportViewer1.ReportSource = crp;
+            form.ShowDialog ();
+            //crp.PrintToPrinter ( 1 , false , 0 , 0 );
+
         }
 
         private void dataGridViewItems_CellContentClick(object sender , DataGridViewCellEventArgs e)
@@ -823,7 +827,6 @@ namespace Rresturant.View
                         counter++;
                     }
                     BasicClass.UnrnningBillId = 0;
-
                     moneyCalcuation ();
                 }
             }

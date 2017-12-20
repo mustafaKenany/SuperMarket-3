@@ -1024,6 +1024,7 @@
             this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PurshaceForm";
+            this.Activated += new System.EventHandler(this.PurshaceForm_Activated);
             this.panelTitla.ResumeLayout(false);
             this.panelTitla.PerformLayout();
             this.tableLayoutPanelMainContainer.ResumeLayout(false);

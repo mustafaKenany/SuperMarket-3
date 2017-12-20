@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace Rresturant.View
 {
@@ -29,6 +24,9 @@ namespace Rresturant.View
             listBoxSelectionItems.Items.Clear ();
             comboBoxCategories.Enabled = false;
             listBoxSelectionItems.Enabled = false;
+            buttonPausesInvoices.Enabled = false;
+            buttonSave.Enabled = false;
+            buttonSave_and_Run.Enabled = false;
             //buttonPrintInvoice.Enabled = false;
             textBoxBarCode.Enabled = false;
             dataGridViewItems.Rows.Clear ();
@@ -67,7 +65,11 @@ namespace Rresturant.View
         {
             if ( dataGridViewItems.Rows.Count > 0 )
             {
-
+                DialogResult Result = MessageBox.Show ( "هل تريد فتح قائمة جديدة والغاء السابقة" , "MESSAGE" , MessageBoxButtons.YesNo );
+                if ( Result == DialogResult.Yes )
+                {
+                    dataGridViewItems.Rows.Clear ();
+                }
             }
             else
             {
@@ -76,12 +78,15 @@ namespace Rresturant.View
             }
         }
 
-        private void EnableControlling()
+        public void EnableControlling()
         {
             comboBoxCategories.Enabled = true;
             listBoxSelectionItems.Enabled = true;
             textBoxBarCode.Enabled = true;
             dataGridViewItems.Enabled = true;
+            buttonPausesInvoices.Enabled = true;
+            buttonSave.Enabled = true;
+            buttonSave_and_Run.Enabled = true;
         }
 
         private void buttonSave_and_Run_Click(object sender , EventArgs e)
@@ -400,14 +405,14 @@ namespace Rresturant.View
 
         private void moneyCalcuation()
         {
-            var totalInvoice =0.0;
+            var totalInvoice = 0.0;
             var FinalTotal = 0.0;
             for ( int i = 0 ; i < dataGridViewItems.Rows.Count ; i++ )
             {
                 totalInvoice += float.Parse ( dataGridViewItems.Rows[i].Cells["ColumnTotal"].Value.ToString () );
                 FinalTotal = totalInvoice;
             }
-            textBoxTotalInvoice.Text = totalInvoice.ToString();
+            textBoxTotalInvoice.Text = totalInvoice.ToString ();
             textBoxFinalAmount.Text = FinalTotal.ToString ();
             textBoxLocalSaveAmount.Text = "0";
             textBoxDollarSaveAmount.Text = "0";
@@ -533,7 +538,7 @@ namespace Rresturant.View
                                 moneyCalcuation ();
                             }
                         }
-                      
+
                         break;
 
                     default:
@@ -782,6 +787,44 @@ namespace Rresturant.View
         private void textBoxDollarSaveAmount_Enter(object sender , EventArgs e)
         {
             textBoxDollarSaveAmount.Text = "";
+        }
+
+        private void PurshaceForm_Activated(object sender , EventArgs e)
+        {
+            if ( BasicClass.UnrnningBillId > 0 )
+            {
+
+                dataGridViewItems.Rows.Clear ();
+                counter = 1;
+                var UsedClass = new BasicClass ();
+                var dt = new DataTable ();
+                SqlParameter[] param = new SqlParameter[1];
+                param[0] = new SqlParameter ( "@InvoiceFilter" , SqlDbType.NVarChar , 150 );
+                param[0].Value = BasicClass.UnrnningBillId.ToString ();
+                dt = UsedClass.selectdata ( "Casher_Select_Invoices_with_all_Information" , param );
+                if ( dt.Rows.Count > 0 )
+                {
+                    textBoxCustomerName.Text = dt.Rows[0]["CustomerName"].ToString ();
+                    textBoxInvoiceNO.Text = dt.Rows[0]["invoiceNumber"].ToString ();
+                    dateTimePickerInvoiceDate.Text = dt.Rows[0]["InvoiceDate"].ToString ();
+                    for ( int i = 0 ; i < dt.Rows.Count ; i++ )
+                    {
+
+                        var ItemName = dt.Rows[i]["itemName"].ToString ();
+                        var Quantity = int.Parse ( dt.Rows[i]["itemQuantity"].ToString () );
+
+                        var ItemPrice = dt.Rows[i]["itemPrice"].ToString ();
+                        var TotalPrice = dt.Rows[i]["totalPrice"].ToString ();
+                        var ItemExpire = dt.Rows[i]["ItemExpire"];
+                        var StockQuantity = dt.Rows[i]["StockQuantity"].ToString ();
+                        var CriticalRange = dt.Rows[i]["Critical_Quantity"].ToString ();
+                        dataGridViewItems.Rows.Add ( counter , ItemName , Quantity , ItemPrice , TotalPrice , 0 , ItemExpire , StockQuantity , CriticalRange );
+                        counter++;
+                    }
+                    BasicClass.UnrnningBillId = 0;
+                    moneyCalcuation ();
+                }
+            }
         }
     }
 }

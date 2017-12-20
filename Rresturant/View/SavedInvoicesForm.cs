@@ -51,5 +51,36 @@ namespace Rresturant.View
                 }
             }
         }
+
+        private void dataGridViewSaveInvoices_CellContentClick(object sender , DataGridViewCellEventArgs e)
+        {
+            if ( e.RowIndex>=0 )
+            {
+                if ( e.ColumnIndex==0 )
+                {
+                    var InvoiceType = dataGridViewSaveInvoices.Rows[e.RowIndex].Cells["Column3"].Value.ToString ();
+                    if ( InvoiceType=="شراء" )
+                    {
+                        var form = new View.PurshaceForm ();
+                        form.EnableControlling ();
+                        BasicClass.UnrnningBillId = Convert.ToInt16 ( dataGridViewSaveInvoices.Rows[e.RowIndex].Cells["ColumnInvoiceNo"].Value.ToString () );
+
+                       
+                        form.ShowDialog ();
+                        this.Close ();
+                    }
+                    else
+                    {
+                        var form = new View.CacherForm ();
+                        form.EnableControlling ();
+                        BasicClass.UnrnningBillId = Convert.ToInt16 ( dataGridViewSaveInvoices.Rows[e.RowIndex].Cells["ColumnInvoiceNo"].Value.ToString () );
+
+
+                        form.ShowDialog ();
+                        this.Close ();
+                    }
+                }
+            }
+        }
     }
 }

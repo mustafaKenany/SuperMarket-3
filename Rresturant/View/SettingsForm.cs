@@ -476,7 +476,7 @@ namespace Rresturant.View
             }
             else
             {
-                dataGridVieweditItem.Rows.Clear ();
+                //dataGridVieweditItem.Rows.Clear ();
             }
         }
 

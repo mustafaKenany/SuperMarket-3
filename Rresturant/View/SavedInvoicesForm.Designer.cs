@@ -42,6 +42,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaveInvoices)).BeginInit();
             this.SuspendLayout();
@@ -54,14 +55,14 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(2, 2);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(546, 30);
+            this.panelTitle.Size = new System.Drawing.Size(671, 30);
             this.panelTitle.TabIndex = 1;
             // 
             // labelExit
             // 
             this.labelExit.AutoSize = true;
             this.labelExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelExit.Location = new System.Drawing.Point(523, 0);
+            this.labelExit.Location = new System.Drawing.Point(648, 0);
             this.labelExit.Margin = new System.Windows.Forms.Padding(0);
             this.labelExit.Name = "labelExit";
             this.labelExit.Padding = new System.Windows.Forms.Padding(3);
@@ -106,7 +107,8 @@
             this.ColumnInvoiceDate,
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -125,8 +127,9 @@
             this.dataGridViewSaveInvoices.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewSaveInvoices.RowTemplate.Height = 50;
             this.dataGridViewSaveInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSaveInvoices.Size = new System.Drawing.Size(546, 707);
+            this.dataGridViewSaveInvoices.Size = new System.Drawing.Size(671, 706);
             this.dataGridViewSaveInvoices.TabIndex = 2;
+            this.dataGridViewSaveInvoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSaveInvoices_CellContentClick);
             this.dataGridViewSaveInvoices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSaveInvoices_CellContentDoubleClick);
             // 
             // ColumnInvoiceNo
@@ -151,7 +154,7 @@
             this.ColumnInvoiceTotal.HeaderText = "مبلغ القائمة";
             this.ColumnInvoiceTotal.Name = "ColumnInvoiceTotal";
             this.ColumnInvoiceTotal.ReadOnly = true;
-            this.ColumnInvoiceTotal.Width = 125;
+            this.ColumnInvoiceTotal.Width = 150;
             // 
             // ColumnInvoiceDate
             // 
@@ -180,23 +183,33 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "InvoiceType";
-            this.Column3.HeaderText = "Column3";
+            this.Column3.HeaderText = "نوع القائمة";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column4.HeaderText = "تحميل";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Text = "تحميل";
+            this.Column4.UseColumnTextForButtonValue = true;
             // 
             // SavedInvoicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.ClientSize = new System.Drawing.Size(550, 741);
+            this.ClientSize = new System.Drawing.Size(675, 740);
             this.Controls.Add(this.dataGridViewSaveInvoices);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Changa Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(700, 25);
+            this.Location = new System.Drawing.Point(500, 15);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.MaximumSize = new System.Drawing.Size(675, 740);
             this.Name = "SavedInvoicesForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -221,5 +234,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn Column4;
     }
 }

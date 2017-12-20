@@ -53,5 +53,19 @@ namespace Rresturant
             var form = new ReportingMiniForm ();
             form.ShowDialog ();
         }
+
+        private void buttonSavePurshaceInvoice_Click(object sender , EventArgs e)
+        {
+            var form = new View.SavedInvoicesForm ();
+            form.LoadSaveInvoices ( "شراء" );
+            form.ShowDialog ();
+        }
+
+        private void buttonSaveSaleInvoice_Click(object sender , EventArgs e)
+        {
+            var form = new View.SavedInvoicesForm ();
+            form.LoadSaveInvoices ( "بيع" );
+            form.ShowDialog ();
+        }
     }
 }

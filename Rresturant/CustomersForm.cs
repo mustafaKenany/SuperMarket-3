@@ -54,7 +54,15 @@ namespace Rresturant
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
                         crp.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = crp;
-                        form.ShowDialog ();
+                        if ( dt.Rows.Count == 0 )
+                        {
+
+                            MessageBox.Show ( "لا توجد بيانات لعرضها" , "MESSAGE" );
+                        }
+                        else
+                        {
+                            form.ShowDialog ();
+                        }
                         break;
                     case 1:
                         //invoiceType.Text = "فواتير البيع";
@@ -63,7 +71,17 @@ namespace Rresturant
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
                         crp.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = crp;
-                        form.ShowDialog ();
+                        if ( dt.Rows.Count == 0 )
+                        {
+                            MessageBox.Show ( "لا توجد بيانات لعرضها" , "MESSAGE" );
+                        }
+                        else
+                        {
+                            form.ShowDialog ();
+                        }
+                        //crp.SetDataSource ( dt );
+                        //form.crystalReportViewer1.ReportSource = crp;
+                        //form.ShowDialog ();
                         break;
                     case 2:
                         //invoiceType.Text = "فواتير المحجوزة";
@@ -72,7 +90,15 @@ namespace Rresturant
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
                         crp.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = crp;
-                        form.ShowDialog ();
+                        if ( dt.Rows.Count == 0 )
+                        {
+                            MessageBox.Show ( "لا توجد بيانات لعرضها" , "MESSAGE" );
+                        }
+                        else
+                        {
+                            form.ShowDialog ();
+                        }
+
                         break;
                     case 3:
                         param[1].Value = "شراء";
@@ -80,7 +106,15 @@ namespace Rresturant
                         dt = UsedClass.selectdata ( "Reports_Customers_Select_invoicesDepandonInvoiceType_and_invoiceStatus" , param );
                         crp.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = crp;
-                        form.ShowDialog ();
+                        if ( dt.Rows.Count == 0 )
+                        {
+                            MessageBox.Show ( "لا توجد بيانات لعرضها" , "MESSAGE" );
+                        }
+                        else
+                        {
+                            form.ShowDialog ();
+                        }
+
                         break;
                     case 4:
                         SqlParameter[] parameter = new SqlParameter[1];
@@ -90,7 +124,15 @@ namespace Rresturant
                         var Crp2 = new Reports.SummeryReport ();
                         Crp2.SetDataSource ( dt );
                         form.crystalReportViewer1.ReportSource = Crp2;
-                        form.ShowDialog ();
+                        if ( dt.Rows.Count == 0 )
+                        {
+                            MessageBox.Show ( "لا توجد بيانات لعرضها" , "MESSAGE" );
+                        }
+                        else
+                        {
+                            form.ShowDialog ();
+                        }
+                       
                         break;
                     default:
                         break;
